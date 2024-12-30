@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>hlx的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="算法1.位运算（不会改变原先的数）1.1按位与符号：	&amp;	  对应位都为一时得一  1.2按位或符号：    |  对应位有一个为一得一  1.3按位异或符号：   ^  对应位不同时得一  例：一组数中只有一个数只有一个，其余的数都有两个，找出这个数。 1.4左移符号：   &lt;&lt;  左移一位相当于乘以二  1.5右移符号：   &gt;&gt;  右移一位相当于除以二  1.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="hlx的个人博客">
+<meta property="og:url" content="http://example.com/%E7%AE%97%E6%B3%95.html">
+<meta property="og:site_name" content="hlx的个人博客">
+<meta property="og:description" content="算法1.位运算（不会改变原先的数）1.1按位与符号：	&amp;	  对应位都为一时得一  1.2按位或符号：    |  对应位有一个为一得一  1.3按位异或符号：   ^  对应位不同时得一  例：一组数中只有一个数只有一个，其余的数都有两个，找出这个数。 1.4左移符号：   &lt;&lt;  左移一位相当于乘以二  1.5右移符号：   &gt;&gt;  右移一位相当于除以二  1.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/%E7%AE%97%E6%B3%95.assets/image-20241021172358551-17295026395152.png">
+<meta property="og:image" content="http://example.com/%E7%AE%97%E6%B3%95.assets/image-20241021171112373-17295018748471.png">
+<meta property="article:published_time" content="2024-11-20T13:30:20.678Z">
+<meta property="article:modified_time" content="2024-11-20T13:30:20.678Z">
+<meta property="article:author" content="hlx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/%E7%AE%97%E6%B3%95.assets/image-20241021172358551-17295026395152.png">
+  
+    <link rel="alternate" href="/atom.xml" title="hlx的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hlx的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E7%AE%97%E6%B3%95.html" class="article-date">
+  <time class="dt-published" datetime="2024-11-20T13:30:20.678Z" itemprop="datePublished">2024-11-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="1-位运算（不会改变原先的数）"><a href="#1-位运算（不会改变原先的数）" class="headerlink" title="1.位运算（不会改变原先的数）"></a>1.位运算（不会改变原先的数）</h2><h3 id="1-1按位与"><a href="#1-1按位与" class="headerlink" title="1.1按位与"></a>1.1按位与</h3><p>符号：	<code>&amp;</code>	</p>
+<blockquote>
+<p>对应位都为一时得一</p>
+</blockquote>
+<h3 id="1-2按位或"><a href="#1-2按位或" class="headerlink" title="1.2按位或"></a>1.2按位或</h3><p>符号：    <code>|</code></p>
+<blockquote>
+<p>对应位有一个为一得一</p>
+</blockquote>
+<h3 id="1-3按位异或"><a href="#1-3按位异或" class="headerlink" title="1.3按位异或"></a>1.3按位异或</h3><p>符号：   <code>^</code></p>
+<blockquote>
+<p>对应位不同时得一</p>
+</blockquote>
+<p>例：一组数中只有一个数只有一个，其余的数都有两个，找出这个数。</p>
+<h3 id="1-4左移"><a href="#1-4左移" class="headerlink" title="1.4左移"></a>1.4左移</h3><p>符号：   <code>&lt;&lt;</code></p>
+<blockquote>
+<p>左移一位相当于乘以二</p>
+</blockquote>
+<h3 id="1-5右移"><a href="#1-5右移" class="headerlink" title="1.5右移"></a>1.5右移</h3><p>符号：   <code>&gt;&gt;</code></p>
+<blockquote>
+<p>右移一位相当于除以二</p>
+</blockquote>
+<h3 id="1-6注意点和应用实例"><a href="#1-6注意点和应用实例" class="headerlink" title="1.6注意点和应用实例"></a>1.6注意点和应用实例</h3><h4 id="1-6-1注意点"><a href="#1-6-1注意点" class="headerlink" title="1.6.1注意点"></a>1.6.1注意点</h4><p>在 C&#x2F;C++ 中，“a&gt;&gt; 1;” 和 “a &gt;&gt;&#x3D; 1;”</p>
+<p>a^b;和a^b&#x3D;a;和a^b&#x3D;b,和a^b&#x3D;1 有以下区别：</p>
+<p><strong>一、语法含义</strong></p>
+<ol>
+<li>a &gt;&gt; 1：<ul>
+<li>这是一个表达式语句，它将变量 <code>a</code> 右移一位，但不会修改 <code>a</code> 的值。这个表达式的结果是 <code>a</code> 右移一位后的值，但这个结果通常不会被保存下来，除非它被赋值给另一个变量或者在其他表达式中使用。</li>
+<li>例如：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">8</span>;</span><br><span class="line"><span class="type">int</span> b = a &gt;&gt; <span class="number">1</span>; <span class="comment">// b 为 4，a 仍然为 8</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>a &gt;&gt;&#x3D; 1：</li>
+</ol>
+<ul>
+<li>这是一个复合赋值语句，它将变量 <code>a</code> 右移一位，并将结果重新赋值给 <code>a</code>。也就是说，它会修改 <code>a</code> 的值。</li>
+<li>例如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">8</span>;</span><br><span class="line">a &gt;&gt;= <span class="number">1</span>; <span class="comment">// a 变为 4</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>a^b：</li>
+</ol>
+<ul>
+<li>这是一个表达式，计算 <code>a</code> 和 <code>b</code> 的按位异或结果。这个结果如果不被存储或使用，通常不会产生实际的影响。</li>
+<li>例如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> result = a ^ b;</span><br><span class="line">std::cout &lt;&lt; result &lt;&lt; std::endl; <span class="comment">// 输出 6，5 的二进制为 101，3 的二进制为 011，按位异或结果为 110，即 6</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>a^b &#x3D; a：</li>
+</ol>
+<ul>
+<li>这是一个赋值语句，将 <code>a</code> 和 <code>b</code> 的按位异或结果重新赋值给 <code>a</code>。这会修改 <code>a</code> 的值，而 <code>b</code> 的值保持不变。</li>
+<li>例如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line">a ^= b;</span><br><span class="line">std::cout &lt;&lt; a &lt;&lt; std::endl; <span class="comment">// 输出 6，5 的二进制为 101，3 的二进制为 011，按位异或结果为 110，即 6</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li><code>a^b</code>     <code>a&gt;&gt;1;</code> 只是计算按位异或结果&#x2F;右移 不修改任何变量的值。</li>
+<li><code>a^b = a;</code>    <code>a&gt;&gt;=1</code>      修改 <code>a</code> 的值为 <code>a</code> 和 <code>b</code> 的按位异或结果&#x2F;a右移的结果。</li>
+<li><code>a^b = b;</code> 和 <code>a^b = 1;</code> 都是错误的语法，会导致编译器报错。</li>
+</ul>
+<h4 id="1-6-2-应用实例"><a href="#1-6-2-应用实例" class="headerlink" title="1.6.2 应用实例"></a>1.6.2 应用实例</h4><p>位运算在算法中有很多高级应用，以下是一些例子：</p>
+<p><strong>一、快速幂算法中的位运算应用</strong></p>
+<ol>
+<li>问题背景：<ul>
+<li>快速幂算法用于高效地计算整数的幂次方，例如计算 ，其中 和 都是整数。传统的方法是通过多次乘法来计算幂次方，时间复杂度为 。快速幂算法可以将时间复杂度降低到 。</li>
+</ul>
+</li>
+<li>位运算实现：<ul>
+<li>快速幂算法利用了指数 的二进制表示。例如，如果 ，其二进制表示为 ，则 。</li>
+<li>通过不断地将底数 平方，并根据指数 的二进制位决定是否将当前的结果累乘到最终结果中，可以高效地计算幂次方。</li>
+<li>代码示例（C++）：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">fastPower</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> result = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            result *= a;</span><br><span class="line">        &#125;</span><br><span class="line">        a *= a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>在这个例子中，使用位运算来检查指数 的最低位是否为 1，如果是，则将当前的底数累乘到结果中。然后将底数平方，并将指数右移一位，继续进行计算，直到指数为 0。</li>
+</ul>
+<p><strong>二、状态压缩动态规划中的位运算应用</strong></p>
+<ol>
+<li>问题背景：<ul>
+<li>在某些动态规划问题中，状态可能非常多，使用传统的数组或矩阵来表示状态可能会导致内存占用过大。状态压缩动态规划利用位运算来表示状态，将状态压缩到一个整数中，从而节省内存空间。</li>
+</ul>
+</li>
+<li>位运算实现：<ul>
+<li>例如，在一个 的棋盘上放置若干个棋子，每个格子可以放置一个棋子或者为空。可以使用一个整数的各个位来表示棋盘上的状态，其中每一位对应一个格子，如果该位为 1 表示该格子上有棋子，否则表示为空。</li>
+<li>通过位运算可以方便地进行状态转移和状态更新。例如，可以使用位运算来检查某个格子是否有棋子，或者将一个棋子放置到某个格子上。</li>
+<li>代码示例（C++）</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> dp[<span class="number">1</span> &lt;&lt; N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">countWays</span><span class="params">(<span class="type">int</span> state)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[state]!= <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> dp[state];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (state == (<span class="number">1</span> &lt;&lt; N) - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> dp[state] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ways = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!(state &amp; (<span class="number">1</span> &lt;&lt; i))) &#123;</span><br><span class="line">            ways += <span class="built_in">countWays</span>(state | (<span class="number">1</span> &lt;&lt; i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[state] = ways;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>在这个例子中，使用状态压缩动态规划来计算在一个 的棋盘上放置棋子的不同方法数。状态用一个整数表示，每一位对应一个格子的状态。通过位运算来检查某个格子是否为空，并进行状态转移。</li>
+</ul>
+<p><strong>三、判断一个整数是否为 2 的幂次方</strong></p>
+<ol>
+<li><p>问题背景：</p>
+<ul>
+<li>给定一个整数，判断它是否为 2 的幂次方。例如，2、4、8、16 等都是 2 的幂次方，而 3、5、6、7 等不是。</li>
+</ul>
+</li>
+<li><p>位运算实现</p>
+<ul>
+<li><p>如果一个整数是 2 的幂次方，那么它的二进制表示中只有一位是 1，其余位都是 0。可以利用这个性质，使用位运算来判断一个整数是否为 2 的幂次方。</p>
+</li>
+<li><p>代码示例（C++）：</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isPowerOfTwo</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &gt; <span class="number">0</span> &amp;&amp; (n &amp; (n - <span class="number">1</span>)) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>在这个例子中，首先检查整数 是否大于 0，因为 0 不是 2 的幂次方。然后，使用位运算 <code>n &amp; (n - 1)</code> 来判断 的二进制表示中是否只有一位是 1。如果是，则返回 <code>true</code>，否则返回 <code>false</code>。</li>
+</ul>
+<p><strong>四、计算两个整数的平均值（避免溢出）</strong></p>
+<ol>
+<li>问题背景：<ul>
+<li>计算两个整数的平均值时，如果直接使用传统的算术平均公式 <code>(a + b) / 2</code>，可能会导致溢出，特别是当 和 都非常大时。</li>
+</ul>
+</li>
+<li>位运算实现：<ul>
+<li>可以使用位运算来避免溢出。计算两个整数的平均值可以通过先将两个数相加，然后右移一位来实现。</li>
+<li>代码示例（C++）：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">average</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a &amp; b) + ((a ^ b) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>在这个例子中，首先计算 <code>a</code> 和 <code>b</code> 的按位与 <code>a &amp; b</code>，这相当于计算了两个数的相同位部分。然后计算 <code>a</code> 和 <code>b</code> 的按位异或 <code>a ^ b</code>，并将其右移一位，这相当于计算了两个数的不同位部分的平均值。最后将两部分相加，得到两个数的平均值。</li>
+</ul>
+<h2 id="2-数组、字符串"><a href="#2-数组、字符串" class="headerlink" title="2.数组、字符串"></a>2.数组、字符串</h2><h3 id="动态数组vector详解："><a href="#动态数组vector详解：" class="headerlink" title="动态数组vector详解："></a>动态数组vector详解：</h3><ul>
+<li>vector的初始化操作：</li>
+</ul>
+<blockquote>
+<ul>
+<li><ol>
+<li>默认初始化：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt;v;<span class="comment">//默认大小为零，没有元素，后续添加元素会自动分配内存空间</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接初始化：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; v&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; V=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>*指定大小和元素初始化（实际情况可以预先放入无效值，很常用）：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">V</span><span class="params">(<span class="number">5</span>,<span class="number">-1</span>)</span></span>;<span class="comment">//大小为5，每个元素初始值为-1</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>通过其它元素复制：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; v1=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>&#125;;</span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; v2=v1;<span class="comment">//直接值传递，调用vector的复制构造函数，复制以后两者互不影响</span></span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; v3=std::<span class="built_in">move</span>(v1);<span class="comment">//资源转移，v1可能无法使用了</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h4 id="一、增加元素"><a href="#一、增加元素" class="headerlink" title="一、增加元素"></a>一、增加元素</h4><ol>
+<li><code>push_back()</code>函数<ul>
+<li>功能：在<code>vector</code>的末尾添加一个元素。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v;</code></li>
+<li><code>v.push_back(1);</code></li>
+<li><code>v.push_back(2);</code></li>
+<li>此时<code>v</code>中包含元素<code>1</code>和<code>2</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>insert()</code>函数<ul>
+<li>功能：在指定位置插入元素。</li>
+<li>单元素插入：<ul>
+<li>语法：<code>v.insert(it, value);</code>，其中<code>it</code>是迭代器指向插入位置，<code>value</code>是要插入的元素。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 3&#125;;</code></li>
+<li><code>auto it = v.begin() + 1;</code></li>
+<li><code>v.insert(it, 2);</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 2, 3&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多元素插入：<ul>
+<li>语法：<code>v.insert(it, n, value);</code>，<code>n</code>是要插入的相同元素<code>value</code>的数量。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 3&#125;;</code></li>
+<li><code>auto it = v.begin() + 1;</code></li>
+<li><code>v.insert(it, 2, 2);</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 2, 2, 3&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>范围插入：<ul>
+<li>语法：<code>v.insert(it, first, last);</code>，<code>first</code>和<code>last</code>是另一个容器的迭代器，表示要插入的元素范围。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v1 = &#123;1, 2&#125;;</code></li>
+<li><code>vector&lt;int&gt; v2 = &#123;3, 4&#125;;</code></li>
+<li><code>auto it = v1.begin() + 1;</code></li>
+<li><code>v1.insert(it, v2.begin(), v2.end());</code></li>
+<li>操作后<code>v1</code>变为<code>&#123;1, 3, 4, 2&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="二、删除元素"><a href="#二、删除元素" class="headerlink" title="二、删除元素"></a>二、删除元素</h4><ol>
+<li><code>pop_back()</code>函数<ul>
+<li>功能：删除<code>vector</code>末尾的一个元素。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>v.pop_back();</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 2&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>erase()</code>函数<ul>
+<li>功能：删除指定位置的元素。</li>
+<li>单元素删除：<ul>
+<li>语法：<code>v.erase(it);</code>，<code>it</code>是指向要删除元素的迭代器。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>auto it = v.begin() + 1;</code></li>
+<li><code>v.erase(it);</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 3&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>范围删除：<ul>
+<li>语法：<code>v.erase(it1, it2);</code>，删除迭代器<code>it1</code>和<code>it2</code>之间（不包括<code>it2</code>）的元素。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3, 4&#125;;</code></li>
+<li><code>auto it1 = v.begin() + 1;</code></li>
+<li><code>auto it2 = v.begin() + 3;</code></li>
+<li><code>v.erase(it1, it2);</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 4&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>clear()</code>函数<ul>
+<li>功能：清空<code>vector</code>中的所有元素。</li>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>v.clear();</code></li>
+<li>操作后<code>v</code>变为空。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="三、修改元素"><a href="#三、修改元素" class="headerlink" title="三、修改元素"></a>三、修改元素</h4><ol>
+<li>通过下标修改<ul>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>v[1]=5;</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 5, 3&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通过迭代器修改<ul>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>auto it = v.begin() + 1;</code></li>
+<li><code>*it = 5;</code></li>
+<li>操作后<code>v</code>变为<code>&#123;1, 5, 3&#125;</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="四、查询元素"><a href="#四、查询元素" class="headerlink" title="四、查询元素"></a>四、查询元素</h4><ol>
+<li>通过下标查询<ul>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>int a = v[1];</code></li>
+<li>这里<code>a</code>的值为<code>2</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通过<code>at()</code>函数查询<ul>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>int b = v.at(1);</code></li>
+<li>这里<code>b</code>的值为<code>2</code>，不过<code>at()</code>函数会进行边界检查，如果下标越界会抛出<code>out_of_range</code>异常。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通过迭代器遍历查询<ul>
+<li>示例：<ul>
+<li><code>vector&lt;int&gt; v = &#123;1, 2, 3&#125;;</code></li>
+<li><code>for (auto it = v.begin(); it!= v.end(); ++it) &#123;</code></li>
+<li><code>cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</code></li>
+<li><code>&#125;</code></li>
+<li>这种方式会依次输出<code>vector</code>中的元素<code>1</code>、<code>2</code>、<code>3</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
+<p>1.合并两个<code>有序数组</code></p>
+</blockquote>
+<p><img src="/%E7%AE%97%E6%B3%95.assets/image-20241021172358551-17295026395152.png" alt="image-20241021172358551"></p>
+<p><code>方法一</code>:直接放到一起然后sort排序</p>
+<p>时间复杂度：nlogn</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">       <span class="keyword">for</span>(<span class="type">int</span> y:nums2)&#123;</span><br><span class="line">        nums1[m]=y;</span><br><span class="line">        m++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(),nums1.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>方法二</code>：双指针</p>
+<p>时间复杂度：O（N）</p>
+<p>注意数组的边界问题</p>
+<p>思路：每次得出一个最小值，放入新数组中</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">     <span class="type">int</span> res[m+n];</span><br><span class="line">     <span class="type">int</span> p1=<span class="number">0</span>,p2=<span class="number">0</span>;</span><br><span class="line">     <span class="type">int</span> cur;</span><br><span class="line">     <span class="keyword">while</span>(p1&lt;m||p2&lt;n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p1==m)&#123;</span><br><span class="line">            cur=nums2[p2++];</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p2==n)</span><br><span class="line">        &#123;</span><br><span class="line">            cur=nums1[p1++];</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[p1]&lt;nums2[p2])&#123;</span><br><span class="line">            cur=nums1[p1++];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            cur=nums2[p2++];</span><br><span class="line">        &#125;</span><br><span class="line">        res[p1+p2<span class="number">-1</span>]=cur;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m+n;i++)</span><br><span class="line">     &#123;</span><br><span class="line">        nums1[i]=res[i];</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>方法三</code>:逆向双指针</p>
+<p>思路：由于nums1数组有多余空间，每次指针反方移动得出最大值，放入nums1的后面</p>
+<p>时间复杂度：O(N)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">     <span class="type">int</span> p1=m<span class="number">-1</span>;</span><br><span class="line">     <span class="type">int</span> p2=n<span class="number">-1</span>;</span><br><span class="line">     <span class="type">int</span> tail=m+n<span class="number">-1</span>;</span><br><span class="line">     <span class="type">int</span> cur;</span><br><span class="line">     <span class="keyword">while</span>(p1&gt;=<span class="number">0</span>||p2&gt;=<span class="number">0</span>)&#123;</span><br><span class="line"><span class="keyword">if</span>(p1==<span class="number">-1</span>)</span><br><span class="line">cur=nums2[p2--];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(p2==<span class="number">-1</span>)</span><br><span class="line">cur=nums1[p1--];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(nums1[p1]&gt;nums2[p2])</span><br><span class="line">cur=nums1[p1--];</span><br><span class="line"><span class="keyword">else</span> cur=nums2[p2--];</span><br><span class="line">nums1[tail--]=cur;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<blockquote>
+<p> 2.寻找两个<code>正序数组</code>的中位数(算法的时间复杂度为log（m+n）)</p>
+</blockquote>
+<p><img src="/%E7%AE%97%E6%B3%95.assets/image-20241021171112373-17295018748471.png" alt="image-20241021171112373"></p>
+<p><code> 方法一：暴力</code>把数组二放到数组一中并且sort排序，然后求中位数</p>
+<p>时间复杂度：nlogn(快排)没有利用数组有序的条件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x:nums2)&#123;</span><br><span class="line">            nums1.<span class="built_in">push_back</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(),nums1.<span class="built_in">end</span>());</span><br><span class="line">       <span class="keyword">if</span>(nums1.<span class="built_in">size</span>()%<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">      <span class="keyword">return</span> nums1[(nums1.<span class="built_in">size</span>()/<span class="number">2</span>)];</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">       <span class="built_in">return</span> (nums1[nums1.<span class="built_in">size</span>()/<span class="number">2</span>]+nums1[(nums1.<span class="built_in">size</span>()/<span class="number">2</span>)<span class="number">-1</span>])/<span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code> 方法二：</code>暴力二：逆向双指针重新得到一个数组，然后得出中位数</p>
+<p>时间复杂度：O(N)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> p1=nums1.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> p2=nums2.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> L=nums1.<span class="built_in">size</span>()+nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> tail=L<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> cur;</span><br><span class="line">        <span class="type">int</span> res[nums1.<span class="built_in">size</span>()+nums2.<span class="built_in">size</span>()];</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">while</span>(p1&gt;=<span class="number">0</span>||p2&gt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p1==<span class="number">-1</span>) cur=nums2[p2--];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(p2==<span class="number">-1</span>) cur=nums1[p1--];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums1[p1]&gt;nums2[p2]) cur=nums1[p1--];</span><br><span class="line">            <span class="keyword">else</span> cur=nums2[p2--];</span><br><span class="line">            res[tail--]=cur;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">if</span>(L%<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line"><span class="keyword">return</span> res[L/<span class="number">2</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">return</span> (res[L/<span class="number">2</span>]+res[L/<span class="number">2</span><span class="number">-1</span>])/<span class="number">2.0</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code> 方法三：双指针法（不创建数组）</code>使用双指针直接找到中位数</p>
+<p>思路：利用奇数偶数的特性，奇数数组size&#x2F;2，对应的正好是中位数，而偶数数组size&#x2F;2，对应右边的中位数，定义一左一右，用来求中位数，奇数时取右边的，偶数时取平均值。再用双指针每次得出最小的数，并且在下次找数之前让左&#x3D;右，直到索引到达n+m&#x2F;2的位置，此时由左，右值求中位数</p>
+<p>时间复杂度：O（m+n）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">       <span class="type">int</span> left=<span class="number">-1</span>;</span><br><span class="line">       <span class="type">int</span> right=<span class="number">-1</span>;</span><br><span class="line">       <span class="type">int</span> p1=<span class="number">0</span>;</span><br><span class="line">       <span class="type">int</span> p2=<span class="number">0</span>;</span><br><span class="line">       <span class="type">int</span> n=nums1.<span class="built_in">size</span>();</span><br><span class="line">       <span class="type">int</span> m=nums2.<span class="built_in">size</span>();</span><br><span class="line">       <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=(n+m)/<span class="number">2</span>;i++)</span><br><span class="line">       &#123;</span><br><span class="line">        left=right;</span><br><span class="line">        <span class="keyword">if</span>(p1&gt;=n) right=nums2[p2++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(p2&gt;=m) right=nums1[p1++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(nums1[p1]&lt;nums2[p2])right=nums1[p1++];</span><br><span class="line">        <span class="keyword">else</span> right=nums2[p2++];</span><br><span class="line"></span><br><span class="line">       <span class="comment">// if(p1&lt;n&amp;&amp;(p2&gt;=m||(nums1[p1]&gt;nums2[p2])) right=nums1[p1++];</span></span><br><span class="line">        <span class="comment">//else right=nums2[p2++];</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>((n+m)%<span class="number">2</span>==<span class="number">0</span>) <span class="keyword">return</span> (left+right)/<span class="number">2.0</span>;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code> 方法四：二分查找法：</code></p>
+<h2 id="3-排序"><a href="#3-排序" class="headerlink" title="3.排序"></a>3.排序</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E7%AE%97%E6%B3%95.html" data-id="cm5aqnt6f0009qcda48j7ci49" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 hlx<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
