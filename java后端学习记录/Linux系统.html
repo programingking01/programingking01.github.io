@@ -1,0 +1,1170 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xing">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Linux虚拟机配置网络配置  子网ip设置为:192.168.100.0 查看ip地址的命令：ip addr 启动&#x2F;停止&#x2F;重启 Linux系统：init 0:关闭  。init 6:重启  远程连接ssh-免密登录1. Linux 开启 SSH 远程服务 检查 SSH 服务状态 ： 打开 Linux 终端，执行命令（以 Ubuntu 为例）： 1systemctl statu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="http://example.com/java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Linux%E7%B3%BB%E7%BB%9F.html">
+<meta property="og:site_name" content="xing的个人博客">
+<meta property="og:description" content="Linux虚拟机配置网络配置  子网ip设置为:192.168.100.0 查看ip地址的命令：ip addr 启动&#x2F;停止&#x2F;重启 Linux系统：init 0:关闭  。init 6:重启  远程连接ssh-免密登录1. Linux 开启 SSH 远程服务 检查 SSH 服务状态 ： 打开 Linux 终端，执行命令（以 Ubuntu 为例）： 1systemctl statu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323184852335.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323210453283.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240918182529465-17266551323782.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919155442212-17267324844911.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919160602497-17267331639402.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919160947971-17267333894143.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919162814570-17267344958104.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919163150273-17267347119015.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919164422523-17267354636766.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919170148574-17267365101457.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919170703419-17267368244238.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919171916791-17267375582759.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919172837778-172673811893810.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212055102.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212150407.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212703953.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212806520.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212533720.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250324174531728.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250324160030104.png">
+<meta property="og:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250325093557335.png">
+<meta property="article:published_time" content="2025-05-22T13:04:32.319Z">
+<meta property="article:modified_time" content="2025-05-22T13:04:32.319Z">
+<meta property="article:author" content="xing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323184852335.png">
+  
+  
+  
+  <title>page.title - xing的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="page.title"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a><code>Linux</code></h1><h2 id="虚拟机配置"><a href="#虚拟机配置" class="headerlink" title="虚拟机配置"></a>虚拟机配置</h2><h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323184852335.png" srcset="/img/loading.gif" lazyload alt="image-20250323184852335"></p>
+<blockquote>
+<p>子网ip设置为:192.168.100.0</p>
+<p>查看ip地址的命令：ip addr</p>
+<p>启动&#x2F;停止&#x2F;重启 Linux系统：init 0:关闭  。init 6:重启</p>
+</blockquote>
+<h3 id="远程连接ssh-免密登录"><a href="#远程连接ssh-免密登录" class="headerlink" title="远程连接ssh-免密登录"></a>远程连接ssh-免密登录</h3><h4 id="1-Linux-开启-SSH-远程服务"><a href="#1-Linux-开启-SSH-远程服务" class="headerlink" title="1. Linux 开启 SSH 远程服务"></a>1. Linux 开启 SSH 远程服务</h4><ul>
+<li><p>检查 SSH 服务状态</p>
+<p>：</p>
+<p>打开 Linux 终端，执行命令（以 Ubuntu 为例）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl status sshd  <span class="hljs-comment"># 查看 SSH 服务状态  </span><br></code></pre></td></tr></table></figure>
+
+<p>若未安装，先安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update &amp;&amp; sudo apt install openssh-server  <span class="hljs-comment"># Debian/Ubuntu 系  </span><br>sudo yum install openssh-server  <span class="hljs-comment"># CentOS/RHEL 系  </span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>启动并设置开机自启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start sshd  <span class="hljs-comment"># 启动服务  </span><br>sudo systemctl <span class="hljs-built_in">enable</span> sshd  <span class="hljs-comment"># 设置开机自启 </span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>修改 SSH 的配置文件 &#x2F;etc&#x2F;ssh&#x2F;sshd_config，将其中的 PubkeyAuthentication 参数设置为 yes，以开启公钥认证功能。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Windows-生成密钥对"><a href="#2-Windows-生成密钥对" class="headerlink" title="2. Windows 生成密钥对"></a>2. Windows 生成密钥对</h4><p>在打开的终端中，执行以下命令来生成 SSH 密钥对，并使用邮箱作为注释信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -b 4096 -C <span class="hljs-string">&quot;your_email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>-t rsa</code>：指定密钥类型为 RSA，这是目前较为常用的 SSH 密钥类型。</p>
+</li>
+<li><p><code>-b 4096</code>：设置密钥的位数为 4096，位数越高，密钥越安全。</p>
+</li>
+<li><p><code>-C &quot;your_email@example.com&quot;</code>：为生成的密钥添加注释信息，通常使用你的邮箱地址，这样在管理多个密钥时可以方便识别。</p>
+</li>
+<li><p>执行上述命令后，会有以下提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Enter file in which to save the key (C:\Users\YourUsername/.ssh/id_rsa):<br></code></pre></td></tr></table></figure>
+
+<p>如果你想使用默认路径和文件名，直接按下回车键即可。若要自定义保存路径和文件名，可以输入相应的路径和文件名。</p>
+<p>接着，会提示你设置一个密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Enter passphrase (empty for no passphrase):<br></code></pre></td></tr></table></figure>
+
+<p>如果你希望在使用密钥时无需输入密码（即实现真正的免密登录），可以直接按下回车键；若要为密钥设置额外的安全保护，可输入一个强密码，然后再次确认密码。</p>
+<p>完成上述步骤后，SSH 密钥对就会生成。默认情况下，私钥文件名为 <code>id_rsa</code>，公钥文件名为 <code>id_rsa.pub</code>，它们位于 <code>C:\Users\YourUsername\.ssh</code> 目录下（<code>YourUsername</code> 是你的 Windows 用户名）。</p>
+</li>
+</ul>
+<h4 id="3-Linux-保存-Windows-的公钥"><a href="#3-Linux-保存-Windows-的公钥" class="headerlink" title="3. Linux 保存 Windows 的公钥"></a>3. Linux 保存 Windows 的公钥</h4><p>将生成的公钥复制到你要连接的 Linux 系统的 <code>~/.ssh/authorized_keys</code> 文件中，以实现免密登录。</p>
+<h4 id="4-VS-Code-配置远程连接"><a href="#4-VS-Code-配置远程连接" class="headerlink" title="4. VS Code 配置远程连接"></a>4. VS Code 配置远程连接</h4><ul>
+<li><p>安装 <strong>Remote - SSH</strong> 扩展，按下 <code>Ctrl+Shift+P</code>，输入 <strong>Remote-SSH: Connect to Host</strong> → 选择 **Configure SSH Hosts…**。</p>
+</li>
+<li><p>编辑C:\Users\username.ssh\config</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Host Linux_别名（如 MyLinux）  <br>    HostName Linux 的 IP 地址  <br>    User Linux 用户名  <br>    IdentityFile C:\Users\你的用户名\.ssh\id_rsa  # 指向 Windows 私钥  <br></code></pre></td></tr></table></figure>
+
+<p>在Linux中输入以下命令查看ip</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ip addr <br><span class="hljs-comment">#或者 </span><br>ifconfig <span class="hljs-comment">#查看ip</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>再次执行 <strong>Remote-SSH: Connect to Host</strong>，选择配置的主机，即可免密连接 Linux。</p>
+</li>
+</ul>
+<p>通过以上流程，Windows 作为客户端发起连接，Linux 作为服务端接收连接，密钥认证实现免密登录。</p>
+<h4 id="5-finalshell-配置远程连接"><a href="#5-finalshell-配置远程连接" class="headerlink" title="5. finalshell 配置远程连接"></a>5. finalshell 配置远程连接</h4><blockquote>
+<p>直接根据Linux的IP、登录用户的用户名和密码进行连接</p>
+</blockquote>
+<h2 id="1-linux的目录结构"><a href="#1-linux的目录结构" class="headerlink" title="1.linux的目录结构"></a>1.<code>linux</code>的目录结构</h2><h3 id="1-1目录结构"><a href="#1-1目录结构" class="headerlink" title="1.1目录结构"></a>1.1目录结构</h3><blockquote>
+<p><code>linux</code>的目录结构是一个树型结构</p>
+<p><code>Windows</code>系统可以拥有多个盘符，如C盘、D盘、E盘</p>
+<p><code>linux</code>没有盘符这个概念，只有一个根目录<code>/</code>，所有文件都在它下面</p>
+</blockquote>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323210453283.png" srcset="/img/loading.gif" lazyload alt="image-20250323210453283"></p>
+<h3 id="1-2Linux路径的描述方式"><a href="#1-2Linux路径的描述方式" class="headerlink" title="1.2Linux路径的描述方式"></a>1.2Linux路径的描述方式</h3><blockquote>
+<p>在Linux系统中，路径之间的层级关系，使用：&#x2F;来表示</p>
+<p>在Windows系统中，路径之间的层级关系，使用：\来表示</p>
+</blockquote>
+<p><strong>win</strong>: D:\data\work\hello.txt</p>
+<p><strong>Linux</strong>: &#x2F;use&#x2F;local&#x2F;hello.txt</p>
+<h2 id="2-linux命令基础"><a href="#2-linux命令基础" class="headerlink" title="2.linux命令基础"></a>2.<code>linux</code>命令基础</h2><blockquote>
+<p>无论是什么命令，用于什么用途，在Linux中，命令有其通用的格式：</p>
+<p><code>command [-options] [parameter]</code></p>
+<p><strong>command</strong> :命令本身</p>
+<p><strong>-option</strong> :可选，非必选，命令的一些选项，控制命令的行为细节</p>
+<p><strong>parameter</strong> :可选，非必选，命令的参数，多数用于命令的指向目标等</p>
+</blockquote>
+<p>【】表示可选的意思</p>
+<h3 id="2-1-什么是命令、命令行"><a href="#2-1-什么是命令、命令行" class="headerlink" title="2.1 什么是命令、命令行"></a>2.1 什么是命令、命令行</h3><ul>
+<li>命令：Linux操作指令，是系统内置的程序，可以以字符化的形式去使用</li>
+<li>命令行：即Linux终端，可以提供字符化的操作液面供命令执行</li>
+</ul>
+<h3 id="2-2Linux命令的通用格式"><a href="#2-2Linux命令的通用格式" class="headerlink" title="2.2Linux命令的通用格式"></a>2.2Linux命令的通用格式</h3><p><code>command [-options] [parameter]</code></p>
+<ul>
+<li>命令本体</li>
+<li>可选选项，控制命令的行为细节</li>
+<li>可选参数，控制命令的指向目标</li>
+<li>不使用如何命令默认路径在home下，&#x2F;home&#x2F;用户名，第一个&#x2F;表示根目录下。实例：&#x2F;home&#x2F;xing</li>
+</ul>
+<h2 id="3-常用基本命令"><a href="#3-常用基本命令" class="headerlink" title="3.常用基本命令"></a>3.常用基本命令</h2><blockquote>
+<p>ls命令的作用是列出目录下的的内容，语法细节如下：</p>
+</blockquote>
+<p><code>ls [-a -l -h] [linux路径]</code></p>
+<ul>
+<li>-a -l -h 是可选的选项</li>
+<li>Linux路径是此命令可选的参数</li>
+</ul>
+<p>当不使用选项和参数，直接使用ls命令本体，表示：以平铺形式列出当前工作目录下的内容</p>
+<blockquote>
+<p>Linux的命令行终端，在启动的时候，默认会加载：</p>
+<ul>
+<li>默认当前登录用户的home用户作为当前工作目录，所以ls命令列出的是home目录的内容</li>
+<li>home目录：每个Linux操作用户在Linux系统的个人账户目录，路径在：&#x2F;home&#x2F;用户名<ul>
+<li>如用户为xing，其home目录是：&#x2F;home&#x2F;xing     (Windows也有)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240918182529465-17266551323782.png" srcset="/img/loading.gif" lazyload alt="image-20240918182529465"></p>
+<h3 id="3-1-ls命令的参数和选项（可缩写成l"><a href="#3-1-ls命令的参数和选项（可缩写成l" class="headerlink" title="3.1 ls命令的参数和选项（可缩写成l)"></a>3.1 ls命令的参数和选项（可缩写成l)</h3><blockquote>
+<p>ls &#x2F;   :展示根目录下的内容</p>
+<ul>
+<li>-a :表示all，列出全部文件包括隐藏文件（以<code>.</code>开头的文件表示的是Linux系统中的隐藏文件&#x2F;文件夹）只有通过-a才可以看到</li>
+<li>-l :以列表形式展示</li>
+<li>-h :表示以易于阅读的形式（如K、M、G），列出文件的大小（必须搭配-l一起使用单独使用没有作用）</li>
+</ul>
+</blockquote>
+<p>混合使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">ls</span> -l -a<br><span class="hljs-built_in">ls</span> -al<br><span class="hljs-built_in">ls</span> -la<br><span class="hljs-built_in">ls</span> -hla<br><span class="hljs-built_in">ls</span> -alh /  <span class="hljs-comment">#(指定根目录)</span><br>l<br>ll  <span class="hljs-comment">#ls -l</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-2-cd-pwd-命令"><a href="#3-2-cd-pwd-命令" class="headerlink" title="3.2 -cd  -pwd  命令"></a>3.2 -cd  -pwd  命令</h3><h4 id="3-2-1-cd-切换工作目录（change-directory"><a href="#3-2-1-cd-切换工作目录（change-directory" class="headerlink" title="3.2.1 cd 切换工作目录（change directory)"></a>3.2.1 cd 切换工作目录（change directory)</h4><blockquote>
+<p>语法：<code>cd [linux路径]</code></p>
+<ul>
+<li>cd命令无需选项，只有参数，表示要切换到那个目录下</li>
+<li>cd命令直接执行，不写参数，表示回到用户的home目录</li>
+</ul>
+</blockquote>
+<h4 id="3-2-2-pwd-查看当前工作目录-Print-Work-Directory"><a href="#3-2-2-pwd-查看当前工作目录-Print-Work-Directory" class="headerlink" title="3.2.2 pwd 查看当前工作目录(Print Work Directory)"></a>3.2.2 pwd 查看当前工作目录(Print Work Directory)</h4><blockquote>
+<p>语法：pwd</p>
+<ul>
+<li>pwd命令，无选项，无参数，直接输入pwd即可</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">相对路径和绝对路径<br>绝对路径：<span class="hljs-built_in">cd</span>/home/xing/Desktop<br>以根目录为起点，以/开头<br>相对路径：<span class="hljs-built_in">cd</span> Desktop<br>以当前目录为起点，无需/开头<br>默认home目录下<br><span class="hljs-built_in">cd</span>/home/xing/Desktop<br><span class="hljs-built_in">cd</span> Desktop<br><span class="hljs-built_in">cd</span> ./Desktop<br><span class="hljs-built_in">cd</span> ~/Desktop<br>效果一样<br></code></pre></td></tr></table></figure>
+
+<p><strong>特殊的路径表达符</strong> </p>
+<ul>
+<li><code>.</code> 表示当前目录，比如cd .&#x2F;Desktop表示切换到当前目录下的Desktop目录内，和cd Desktop效果一样</li>
+<li><code>..</code> 表示上一级目录，比如：cd .. 即可切换到上一级目录，cd ..&#x2F;..切换到上二级的目录</li>
+<li><code>~</code> 表示home目录，cd ~切换到home路径，和cd不加东西效果一样，cd ~&#x2F;Desktop,切换到home内的Desktop目录</li>
+</ul>
+<h3 id="3-3-who命令"><a href="#3-3-who命令" class="headerlink" title="3.3-who命令"></a>3.3-who命令</h3><blockquote>
+<p>显示当前用户，无选项，无参数</p>
+</blockquote>
+<h2 id="4-创建目录命令mkdir"><a href="#4-创建目录命令mkdir" class="headerlink" title="4.创建目录命令mkdir"></a>4.创建目录命令mkdir</h2><blockquote>
+<p>通过mkdir命令可以创建新的目录（文件夹）</p>
+<p>（Make Directory）</p>
+<p>语法：mkdir [-p] Linux路径</p>
+<ul>
+<li>参数必填，表示Linux路径，即要创建的文件夹得路径，绝对路径和相对路径都可以</li>
+<li>-p选项可选，表示自动创建不存在得父目录，适用于创建连续多层级的目录</li>
+</ul>
+</blockquote>
+<h3 id="4-1参数"><a href="#4-1参数" class="headerlink" title="4.1参数"></a>4.1参数</h3><p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919155442212-17267324844911.png" srcset="/img/loading.gif" lazyload alt="image-20240919155442212"></p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-comment">//默认在home目录下</span><br>mkdir itpro_king   <br>mkdir ./itpro_king  <span class="hljs-comment">//两个都是在当前目录下创建文件夹，以相对路径创建</span><br>mkdir /home/xing/itpro_king/test1<br><span class="hljs-comment">//绝对路径下创建</span><br>mkdir ../test3   <span class="hljs-comment">//在上级目录下创建</span><br>mkdir ~/itpro_king/test4   <span class="hljs-comment">//~表示到home目录</span><br><br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2选项"><a href="#4-2选项" class="headerlink" title="4.2选项"></a>4.2选项</h3><blockquote>
+<p>如果想要一次性创建多个层级的目录，如下图</p>
+</blockquote>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919160602497-17267331639402.png" srcset="/img/loading.gif" lazyload alt="image-20240919160602497"></p>
+<ul>
+<li>报错因为上级目录emoji不存在，所以无法创建</li>
+<li>可以通过<code>-p</code>选项，将一整个链路都创建</li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919160947971-17267333894143.png" srcset="/img/loading.gif" lazyload alt="image-20240919160947971"></p>
+<ul>
+<li><code>注意</code>：创建文件夹需要修改权限，mkdir在home目录内使用无阻碍，在home目录外涉及权限问题，不授权的情况下无法成功</li>
+</ul>
+<h2 id="5-文件操作命令"><a href="#5-文件操作命令" class="headerlink" title="5.文件操作命令"></a>5.文件操作命令</h2><h3 id="5-1创建、查看（touch、cat、more）"><a href="#5-1创建、查看（touch、cat、more）" class="headerlink" title="5.1创建、查看（touch、cat、more）"></a>5.1创建、查看（touch、cat、more）</h3><ol>
+<li><strong>touch&#96;创建文件</strong></li>
+</ol>
+<ul>
+<li>语法：<code>touch Linux路径</code></li>
+<li>touch命令无选项，参数必填，表示要创建的文件路径，相对、绝对、特殊路径符均可以使用</li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919162814570-17267344958104.png" srcset="/img/loading.gif" lazyload alt="image-20240919162814570"></p>
+<p><code>注意</code>：区分文件和文件夹（目录），蓝色的为文件夹，白色的为文件,也可以通过查看目录下文件的详细信息来区分，<code>ls -l</code></p>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919163150273-17267347119015.png" srcset="/img/loading.gif" lazyload alt="image-20240919163150273"></p>
+<blockquote>
+<p>第一列信息表示权限信息，其中第一个字母为d表示为文件夹，-表示文件。</p>
+</blockquote>
+<ol start="2">
+<li><strong>cat查看文件内容</strong>- 适用于小文件</li>
+</ol>
+<ul>
+<li>准备好文件内容，可以通过cat查看文件内容</li>
+<li>语法：<code>cat [-n] Linux路径</code></li>
+<li>选项：-n 显示行数</li>
+<li>参数，相对绝对特殊路径符都可以</li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919164422523-17267354636766.png" srcset="/img/loading.gif" lazyload alt="image-20240919164422523"></p>
+<ol start="3">
+<li><p><strong>more命令查看文件内容</strong>-适用于大文件</p>
+<ul>
+<li>more也可以查看文件内容，和cat有略微不同</li>
+</ul>
+<blockquote>
+<ul>
+<li>cat直接将内容全部显示出来</li>
+<li>more支持翻页，如果文件内容过多，可以一页页的展示</li>
+</ul>
+</blockquote>
+<ul>
+<li>语法：<code>more Linux路径</code></li>
+<li>无选项，只有必填参数，相对绝对特殊路径符都可以</li>
+</ul>
+<p>Linux系统内置一个文件，路径为：&#x2F;etc&#x2F;services,可以通过more查看</p>
+<blockquote>
+<ul>
+<li>查看过程中通过空格翻页，b回页</li>
+<li>通过q退出查看</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>head命令查看文件头部</strong></p>
+</li>
+</ol>
+<ul>
+<li>head -[n] fileName</li>
+<li>查看文件头部的n行内容</li>
+</ul>
+<ol start="5">
+<li><strong>tail命名查看文件的尾部</strong></li>
+</ol>
+<ul>
+<li>tail -[nf] fileName</li>
+<li>-n:查看文件尾部的n行内容</li>
+<li>-f:实时刷新文件尾部的内容，可用于动态日志文件查看</li>
+</ul>
+<h3 id="5-2复制、移动、删除（cp、mv、rm）"><a href="#5-2复制、移动、删除（cp、mv、rm）" class="headerlink" title="5.2复制、移动、删除（cp、mv、rm）"></a>5.2复制、移动、删除（cp、mv、rm）</h3><ol>
+<li><strong>cp命令复制文件文件夹</strong></li>
+</ol>
+<p>cp命令可以用于复制文件\文件夹，cp命令来自英文单词：copy</p>
+<ul>
+<li>语法：<code>cp [-r] 参数1 参数2</code></li>
+<li><code>-r选项</code>：可选，用于复制文件夹使用，表示递归return</li>
+<li><code>参数1</code>，Linux路径，表示被复制的文件或文件夹</li>
+<li><code>参数2</code>，Linux路径，表示要复制去的地方</li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919170148574-17267365101457.png" srcset="/img/loading.gif" lazyload alt="image-20240919170148574"></p>
+<ol start="2">
+<li><strong>mv移动文件或文件夹</strong></li>
+</ol>
+<p>mv命令可以用于移动文件、文件夹，来自单词：move</p>
+<ul>
+<li>语法：<code>mv 参数1 参数2</code></li>
+<li>无选项</li>
+<li>参数1，Linux路径，表示被移动的文件或文件夹</li>
+<li>参数2，Linux路径，表示要移动去的目录，如果目标目录不存在，则进行<strong>重命名</strong></li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919170703419-17267368244238.png" srcset="/img/loading.gif" lazyload alt="image-20240919170703419"></p>
+<ol start="3">
+<li><strong>rm删除文件或文件夹</strong></li>
+</ol>
+<p>rm命令可以删除文件、文件夹，来自单词：remove</p>
+<ul>
+<li>语法：<code>rm [-r -f] 参数1 参数2 ... 参数N </code></li>
+<li><code>-r选项</code>：和cp命令一样，-r选项用于删除文件夹</li>
+<li><code>-f选项</code>：表示force，强制删除（不会弹出提示确认消息）<ul>
+<li>普通用户删除内容不会弹出提示，只有root管理员用户删除内容会有提示，所以一般用户用不到-f选项</li>
+</ul>
+</li>
+<li>参数1、参数2…参数N表示要删除的文件或者文件夹路径，按照空格隔开</li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919171916791-17267375582759.png" srcset="/img/loading.gif" lazyload alt="image-20240919171916791"></p>
+<blockquote>
+<p><code>通配符</code></p>
+<ul>
+<li>符号*表示通配符，即匹配任意内容（包含空），示例：<ul>
+<li>test*,表示匹配任何以test开头的内容</li>
+<li>*test，表示匹配任何以test结尾的内容</li>
+<li>*test *，表示匹配任何包含test的内容</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20240919172837778-172673811893810.png" srcset="/img/loading.gif" lazyload alt="image-20240919172837778"></p>
+<p><code>注意</code>：</p>
+<p>用mkdir创建的是文件夹（目录）rm或者rm -f都无法删除，必须用-r选项。</p>
+<blockquote>
+<p>演示强制删除，-f选项</p>
+</blockquote>
+<h3 id="5-3-打包压缩tar"><a href="#5-3-打包压缩tar" class="headerlink" title="5.3.打包压缩tar"></a>5.3.打包压缩tar</h3><ul>
+<li><strong>tar</strong></li>
+</ul>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212055102.png" srcset="/img/loading.gif" lazyload alt="image-20250323212055102"></p>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212150407.png" srcset="/img/loading.gif" lazyload alt="image-20250323212150407"></p>
+<h3 id="5-4查找文件find-grep"><a href="#5-4查找文件find-grep" class="headerlink" title="5.4查找文件find&#x2F;grep"></a>5.4查找文件find&#x2F;grep</h3><p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212703953.png" srcset="/img/loading.gif" lazyload alt="image-20250323212703953"></p>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212806520.png" srcset="/img/loading.gif" lazyload alt="image-20250323212806520"></p>
+<h2 id="7-vim编辑器"><a href="#7-vim编辑器" class="headerlink" title="7.vim编辑器"></a>7.vim编辑器</h2><p>vi -文件路径   打开</p>
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250323212533720.png" srcset="/img/loading.gif" lazyload alt="image-20250323212533720"></p>
+<p>编辑模式：i；a;o</p>
+<p>移动：hjkl:左下上右   可加数字移动n个</p>
+<p>行：</p>
+<ul>
+<li><p>光标到屏幕的上H,中M,下L,第一个字符</p>
+</li>
+<li><p>光标到文本的最后一行：G；第一个字符</p>
+</li>
+<li><p>n+G:光标到文本的第n行的第一个字符</p>
+</li>
+<li><p>gg-&gt;1G</p>
+</li>
+<li><p>n+回车：下移n行</p>
+</li>
+</ul>
+<p>列：</p>
+<ul>
+<li><p>n+空格 ：右移n个</p>
+</li>
+<li><p>0：到该列的第一个字符</p>
+</li>
+<li><p>＄：到该列的最后一个字符</p>
+</li>
+</ul>
+<p>删除：</p>
+<ul>
+<li>X:光标所在往前删  可以加数字  删n个</li>
+<li>x：光标所在往后删  可以加数字  删n个</li>
+<li>d+0:删到这一行的第一个</li>
+<li>d+$:删到这一行的最后一个</li>
+<li>d+G:删到文本最后一行</li>
+<li>d+1G:删到第一行   ：同理d+nG</li>
+</ul>
+<p>复制：</p>
+<ul>
+<li>yy复制这一行</li>
+<li>y+光标移动  ：类似删除</li>
+</ul>
+<p>粘贴：</p>
+<ul>
+<li>P</li>
+</ul>
+<p>复原：u</p>
+<p>反复原：ctrl+r</p>
+<p>重复：.</p>
+<h2 id="8-shell脚本编程"><a href="#8-shell脚本编程" class="headerlink" title="8.shell脚本编程"></a>8.shell脚本编程</h2><ul>
+<li><p>#！是一个指定解释器标记，告诉系统这个脚本要用什么解释器来执行，即哪一种shell</p>
+</li>
+<li><pre><code class="shell">#!/bin/shell
+echo &quot;Hellow World !&quot;
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata"><br>### 运行<span class="hljs-keyword">shell</span>脚本有两种方法<br><br>- 1. 作为可执行程序<br><br>- ~~~<span class="hljs-keyword">shell</span><br>  chmod +x ./<span class="hljs-keyword">test</span>.<span class="hljs-keyword">sh</span>  #使脚本具有执行权限 ./<span class="hljs-keyword">test</span>.<span class="hljs-keyword">sh</span>让系统就在当前目录找此文件<br>  ./<span class="hljs-keyword">test</span>.<span class="hljs-keyword">sh</span> #执行脚本	<br></code></pre></td></tr></table></figure>
+
+- 2. 作为解释器参数
+
+  <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">/bin/<span class="hljs-keyword">sh</span> <span class="hljs-keyword">test</span>.<span class="hljs-keyword">sh</span>   #直接运行解释器，参数是<span class="hljs-keyword">shell</span>脚本的文件名<br></code></pre></td></tr></table></figure>
+
+  - 该方式不需要在第一行写指定解释器标志
+
+### shell变量
+
+- 定义变量时，变量名不加美元符号$(php语言中变量需要)
+
+- ~~~shell
+  your_name=&quot;zhuzhuxia&quot;
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>- 注意：变量和等号之间不能有空格；只包含字母，数字，下划线；不能以数字开头；避免使用关键字；使用大写字母表示常量<br><br>- ~~~shell<br>  <span class="hljs-attribute">var_1</span>=<span class="hljs-string">&quot;123&quot;</span><br>  <span class="hljs-attribute">Var_2</span>=<span class="hljs-string">&quot;214&quot;</span><br></code></pre></td></tr></table></figure>
+
+- 除了显示的直接赋值，还可以用语句给变量赋值
+
+- ~~~shell
+  for file in $(ls /etc）   #将/etc下目录的文件名循环出来
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>- <span class="hljs-comment">#### 使用变量</span><br><br>- ~~~shell<br>  <span class="hljs-comment">#! /bin/bash</span><br>  your_name=<span class="hljs-string">&quot;zhuzhuxia&quot;</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-variable">$your_name</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;your_name&#125;</span>//推荐<br></code></pre></td></tr></table></figure>
+
+- ### 只读变量
+
+- 使用readonly命令可以将变量定义为只读变量，只读变量的值不能被改变
+
+- ~~~shell
+  #！/bin/b
+  my_name=&quot;zhuzhuxia&quot;
+  readonly my_name
+  my_name=&quot;chaorenqiang&quot;
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>- 结果：/bin/sh: NAME: This variable is <span class="hljs-built_in">read</span> only.<br><br>- <span class="hljs-comment">### 删除变量</span><br><br>- 使用<span class="hljs-built_in">unset</span> 命令可以删除变量<br><br>- ~~~bash<br>  <span class="hljs-built_in">unset</span> variable_name<br></code></pre></td></tr></table></figure>
+
+- unset不能删除只读变量
+
+- ### 不同类型的变量
+
+- ~~~bash
+  #字符串
+  my_string=&quot;Hellow,world!&quot;#在shell中变量通常被视为字符串，你可以使用单引号和双引号来定义
+  #整数变量  可以使用declare或typeset命令来声明整数变量
+  declare -i my_integer=42
+  #数组变量
+  my_arry=(1 2 3 4 5 6)
+  #或者关联数组
+  declare -A associative_array
+  associative_arry[&quot;name&quot;]=&quot;Jhon&quot;
+  associative_arry[&quot;age&quot;]=30
+  #环境变量
+  echo $PATH   #包含了操作系统可执行文件的路径
+  your_name=&quot;runoob&quot;
+  str=&quot;Hello, I know you are \&quot;$your_name\&quot;! \n&quot;
+  echo -e $str  #-e 实现转义
+  #Hello, I know you are &quot;runoob&quot;! 
+  # 使用双引号拼接  双引号可以有变量也可以有转义字符
+  greeting=&quot;hello, &quot;$your_name&quot; !&quot;
+  greeting_1=&quot;hello, $&#123;your_name&#125; !&quot;
+  echo $greeting  $greeting_1
+  
+  # 使用单引号拼接  单引号不拼接的话不能放变量
+  greeting_2=&#39;hello, &#39;$your_name&#39; !&#39;
+  greeting_3=&#39;hello, $&#123;your_name&#125; !&#39;
+  echo $greeting_2  $greeting_3
+  
+  #hello, runoob ! hello, runoob !
+  #hello, runoob ! hello, $&#123;your_name&#125; !
+  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><br>  <br><br>​    <br><br><br><br><br><br><br><br>## <span class="hljs-number">9</span>.Linux软件安装<br><br>- CentOS<br><br>![image-<span class="hljs-number">20250323221818298</span>](Linux系统.assets/image-<span class="hljs-number">20250323221818298</span>.png)<br><br>![image-<span class="hljs-number">20250323223804993</span>](Linux系统.assets/image-<span class="hljs-number">20250323223804993</span>.png)<br><br>![image-<span class="hljs-number">20250324143126426</span>](Linux系统.assets/image-<span class="hljs-number">20250324143126426</span>.png)<br><br>![image-<span class="hljs-number">20250323225534167</span>](Linux系统.assets/image-<span class="hljs-number">20250323225534167</span>.png)<br><br><br><br><br><br>- Ubuntu<br><br>以下是在虚拟机 Ubuntu <span class="hljs-number">22.04</span> 上安装 MySQL、JDK、Nginx 并配置环境，以及检查安装是否成功的详细步骤：<br><br>### 安装 MySQL<br><br>#### 步骤<br><br><span class="hljs-number">1</span>. **更新系统包列表**：<br><br>```bash<br>sudo apt update<br>```<br><br><span class="hljs-number">1</span>. **安装 MySQL 服务器**：<br><br>```bash<br>sudo apt install mysql-server<br>```<br><br><span class="hljs-number">1</span>. **启动 MySQL 服务并设置开机自启**：<br><br>```bash<br>sudo systemctl start mysql<br>sudo systemctl enable mysql<br>```<br><br><span class="hljs-number">1</span>. **运行安全脚本**：<br><br>```bash<br>sudo mysql_secure_installation<br>```<br><br>按照提示设置密码、移除匿名用户、禁止远程 root 登录等。<br><br>#### 检查安装是否成功<br><br>```bash<br>sudo systemctl status mysql<br>```<br><br>若显示 `active (running)`，则表示 MySQL 服务已成功启动。也可以使用以下命令登录 MySQL：<br><br>```bash<br>sudo mysql -u root -p<br>```<br><br>输入之前设置的密码，若能成功登录，说明 MySQL 安装和配置成功。<br><br><br><br><br><br>### MySQL远程<br><br>在 MySQL 中授权远程访问通常需要在数据库中创建具有远程访问权限的用户，并配置防火墙允许 MySQL 端口（默认是 <span class="hljs-number">3306</span>）的流量通过。下面以 MySQL <span class="hljs-number">8</span>.x 版本为例，详细介绍具体操作步骤：<br><br>#### <span class="hljs-number">1</span>. 登录 MySQL<br><br>在服务器上打开终端，使用具有足够权限的用户（如 `root`）登录 MySQL：<br><br>```bash<br>sudo mysql -u root -p<br>```<br><br>输入密码后回车，进入 MySQL 命令行界面。<br><br>#### <span class="hljs-number">2</span>. 创建用于远程访问的用户<br><br>在 MySQL 命令行中执行以下命令创建一个新用户，这里以用户名为 `remote_user`，密码为 `your_password` 为例：<br><br>```sql<br>CREATE USER &#x27;remote_user&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;your_password&#x27;<span class="hljs-comment">;</span><br>```<br><br>- `&#x27;remote_user&#x27;` 是新创建的用户名，你可以根据实际情况修改。<br>- `&#x27;%&#x27;` 表示该用户可以从任何 IP 地址远程连接到 MySQL 服务器。如果想限制特定的 IP 地址访问，可以将 `%` 替换为具体的 IP 地址，如 `&#x27;<span class="hljs-number">192.168</span>.<span class="hljs-number">1.100</span>&#x27;`。<br>- `&#x27;your_password&#x27;` 是用户的密码，你需要设置一个安全且容易记住的密码。<br><br>#### <span class="hljs-number">3</span>. 授予用户权限<br><br>授予新用户所需的权限，这里以授予所有数据库的所有权限为例：<br><br>```sql<br>GRANT ALL PRIVILEGES ON *.* TO &#x27;remote_user&#x27;@&#x27;%&#x27;<span class="hljs-comment">;</span><br>```<br><br>- `*.*` 表示所有数据库的所有表。如果你只想授予用户对特定数据库的权限，可以将 `*.*` 替换为具体的数据库名和表名，如 `testdb.*` 表示 `testdb` 数据库中的所有表。<br><br>刷新权限表，使新的权限设置生效：<br><br>```sql<br>FLUSH PRIVILEGES<span class="hljs-comment">;</span><br>```<br><br>#### <span class="hljs-number">4</span>. 配置防火墙（可选）<br><br>如果服务器启用了防火墙（如 `iptables` 或 `firewalld`），需要开放 MySQL 的默认端口 <span class="hljs-number">3306</span> 以允许远程访问。<br><br>##### 使用 `firewalld`（适用于 CentOS <span class="hljs-number">7</span> 及以上版本）<br><br>执行以下命令开放 <span class="hljs-number">3306</span> 端口：<br><br>```bash<br>sudo firewall-cmd --zone=public --add-port=<span class="hljs-number">3306</span>/tcp --permanent<br>```<br><br>重新加载防火墙规则：<br><br>```bash<br>sudo firewall-cmd --reload<br>```<br><br>##### 使用 `iptables`（适用于 Ubuntu 等系统）<br><br>执行以下命令开放 <span class="hljs-number">3306</span> 端口：<br><br>```bash<br>sudo iptables -A INPUT -p tcp --dport <span class="hljs-number">3306</span> -j ACCEPT<br>```<br><br>保存规则（不同系统保存方式可能不同），例如在 Ubuntu 上可以使用以下命令保存：<br><br>```bash<br>sudo apt-get install iptables-persistent<br>sudo netfilter-persistent save<br>```<br><br>#### <span class="hljs-number">5</span>. 检查 MySQL 配置文件（可选）<br><br>在某些情况下，你可能需要检查 MySQL 的配置文件 `my.cnf` 或 `mysqld.cnf`，确保 MySQL 监听的是所有可用的 IP 地址。找到 `bind-address` 配置项，将其值设置为 `0.<span class="hljs-number">0.0</span>.<span class="hljs-number">0</span>`：<br><br>~~~bash<br>sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">bind-address = 0.0.0.0<br></code></pre></td></tr></table></figure>
+
+<p>修改完成后，重启 MySQL 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl restart mysql<br></code></pre></td></tr></table></figure>
+
+<h4 id="6-测试远程连接"><a href="#6-测试远程连接" class="headerlink" title="6. 测试远程连接"></a>6. 测试远程连接</h4><p>在另一台机器上，使用 MySQL 客户端工具（如 <code>mysql</code> 命令行工具或 Navicat 等图形化工具）尝试连接到 MySQL 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysql -h your_server_ip -u remote_user -p<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>your_server_ip</code> 是 MySQL 服务器的 IP 地址。</li>
+<li><code>remote_user</code> 是前面创建的用于远程访问的用户名。<br>输入密码后，如果能成功连接到 MySQL 服务器，说明远程访问授权配置成功。</li>
+</ul>
+<p>通过以上步骤，你就可以为 MySQL 服务器配置远程访问权限。需要注意的是，为了安全起见，应尽量限制允许远程访问的 IP 地址范围，并使用强密码。</p>
+<h3 id="安装-JDK"><a href="#安装-JDK" class="headerlink" title="安装 JDK"></a>安装 JDK</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li><strong>更新系统包列表</strong>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>安装 OpenJDK 17（这里以 OpenJDK 17 为例）</strong>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install openjdk-17-jdk<br></code></pre></td></tr></table></figure>
+
+<p>也可以自行下载解压，如何在配置环境变量</p>
+<ol>
+<li><strong>配置环境变量</strong>：<br>编辑 <code>/etc/profile</code> 文件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p>在文件末尾添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">JAVA_HOME=&quot;/usr/lib/jvm/java-17-openjdk-amd64&quot;<br>PATH=&quot;$PATH:$JAVA_HOME/bin&quot;<br></code></pre></td></tr></table></figure>
+
+<p>保存并退出文件，然后使环境变量生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> /etc/profile<br></code></pre></td></tr></table></figure>
+
+<h4 id="检查安装是否成功"><a href="#检查安装是否成功" class="headerlink" title="检查安装是否成功"></a>检查安装是否成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -version<br>javac -version<br></code></pre></td></tr></table></figure>
+
+<p>若能正确显示 Java 版本信息，说明 JDK 安装和配置成功。</p>
+<h3 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h3><h4 id="方式1："><a href="#方式1：" class="headerlink" title="方式1："></a>方式1：</h4><ol>
+<li><strong>更新系统包列表</strong>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>安装 Nginx</strong>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install nginx<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>启动 Nginx 服务并设置开机自启</strong>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start nginx<br>sudo systemctl <span class="hljs-built_in">enable</span> nginx<br></code></pre></td></tr></table></figure>
+
+<h4 id="检查安装是否成功-1"><a href="#检查安装是否成功-1" class="headerlink" title="检查安装是否成功"></a>检查安装是否成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl status nginx<br></code></pre></td></tr></table></figure>
+
+<p>若显示 <code>active (running)</code>，则表示 Nginx 服务已成功启动。在浏览器中输入虚拟机的 IP 地址，若能看到 Nginx 的欢迎页面，说明 Nginx 安装和配置成功。</p>
+<ul>
+<li><p>开启服务：<code>sudo systemctl start nginx</code></p>
+</li>
+<li><p>关闭服务：<code>sudo systemctl stop nginx</code></p>
+</li>
+<li><p>重启服务：<code>sudo systemctl restart nginx</code></p>
+</li>
+<li><p>重新加载配置：<code>sudo systemctl reload nginx</code></p>
+</li>
+<li><p>设置开机自启：<code>sudo systemctl enable nginx</code></p>
+</li>
+<li><p>禁止开机自启：<code>sudo systemctl disable nginx</code></p>
+</li>
+<li><p>默认下载至&#x2F;etc&#x2F;下</p>
+</li>
+</ul>
+<h4 id="方式2："><a href="#方式2：" class="headerlink" title="方式2："></a>方式2：</h4><ol>
+<li>下载nginx相关依赖包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt-get install gcc<br><br>apt-get install libpcre3 libpcre3-dev<br><br>apt-get install zlib1g zlib1g-dev<br><br>sudo apt-get install openssl<br><br>sudo apt-get install libssl-dev<br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>新建nginx的安装目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /usr/local<br><br><span class="hljs-built_in">mkdir</span> nginx<br><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>通过wget下载nginx安装包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://nginx.org/download/nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>解压nginx的安装包</li>
+</ol>
+<p>下载的nginx是tar.gz文件<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zvxf nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
+
+
+
+<p>下载的nginx是zip文件<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>切换到解压好的nginx-1.24.0目录下</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ./nginx-1.24.0<br></code></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module<br></code></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><p>prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx：指定安装目录为&#x2F;usr&#x2F;local&#x2F;nginx。在编译和安装完成后，软件将被安装到该目录下.</p>
+</li>
+<li><p>with-http_stub_status_module：启用 HTTP Stub Status 模块。该模块是 Nginx 的一个内置模块，用于获取 Nginx 服务器的状态信息。</p>
+</li>
+<li><p>with-http_ssl_module：启用 HTTP SSL 模块。该模块使得 Nginx 支持通过 HTTPS 提供安全的加密传输。</p>
+</li>
+</ul>
+<ol start="7">
+<li>编译</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make<br></code></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make install<br></code></pre></td></tr></table></figure>
+
+<p> 四、启动或关闭</p>
+<ol>
+<li>启动Nginx</li>
+</ol>
+<ul>
+<li>切换到nginx的安装目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /usr/local/nginx/sbin<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>启动nginx</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">./nginx<br><span class="hljs-comment">#或</span><br>/usr/local/nginx/sbin/nginx<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>关闭nginx</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">/usr/local/nginx/sbin/nginx -s stop<br><span class="hljs-comment">#或</span><br><br><span class="hljs-comment">#查看Nginx的进程</span><br>ps -ef | grep nginx<br><br><span class="hljs-comment">#杀死Nginx相关进程</span><br><span class="hljs-built_in">kill</span> xxx<br></code></pre></td></tr></table></figure>
+
+
+<p>五、访问nginx</p>
+<ul>
+<li>在浏览器上面，输入当前你服务器ip+nginx的端口号，如果出现网页，就说明成功。</li>
+</ul>
+<ol>
+<li><strong>编辑 Nginx 配置文件</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /usr/local/nginx/conf/nginx.conf  <br></code></pre></td></tr></table></figure>
+
+<p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250324174531728.png" srcset="/img/loading.gif" lazyload alt="image-20250324174531728"></p>
+<p>保存并退出编辑器。</p>
+<ol start="2">
+<li><strong>重新加载配置后停止 Nginx</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo /usr/local/nginx/sbin/nginx -s reload  <span class="hljs-comment"># 应用新配置  </span><br>sudo /usr/local/nginx/sbin/nginx -s stop     <span class="hljs-comment"># 尝试停止  </span><br></code></pre></td></tr></table></figure>
+
+<h3 id="对-Nginx-配置文件进行修改，可按以下步骤操作："><a href="#对-Nginx-配置文件进行修改，可按以下步骤操作：" class="headerlink" title="对 Nginx 配置文件进行修改，可按以下步骤操作："></a>对 Nginx 配置文件进行修改，可按以下步骤操作：</h3><h4 id="1-明确配置文件位置"><a href="#1-明确配置文件位置" class="headerlink" title="1. 明确配置文件位置"></a>1. 明确配置文件位置</h4><p>在不同 Linux 发行版中，Nginx 配置文件的存放位置存在差异，下面是常见的配置文件路径：</p>
+<ul>
+<li><strong>主配置文件</strong>：通常为 <code>/etc/nginx/nginx.conf</code>，它是 Nginx 的核心配置文件，会引入其他配置文件。</li>
+<li><strong>站点配置文件</strong>：一般位于 <code>/etc/nginx/sites - available</code> 和 <code>/etc/nginx/sites - enabled</code> 目录（适用于 Ubuntu、Debian 等），或者 <code>/etc/nginx/conf.d</code> 目录（适用于 CentOS、Fedora 等）。</li>
+</ul>
+<h4 id="2-备份原始配置文件"><a href="#2-备份原始配置文件" class="headerlink" title="2. 备份原始配置文件"></a>2. 备份原始配置文件</h4><p>在修改配置文件之前，建议先对其进行备份，以防修改过程中出现错误导致 Nginx 无法正常运行。以主配置文件为例，备份命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">cp</span> /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak<br><span class="hljs-comment">#备份配置文件 覆盖修改后的配置文件</span><br>sudo <span class="hljs-built_in">cp</span> /etc/nginx/nginx.conf.bak /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-编辑配置文件"><a href="#3-编辑配置文件" class="headerlink" title="3. 编辑配置文件"></a>3. 编辑配置文件</h4><p>使用文本编辑器（如 <code>nano</code>、<code>vim</code> 等）来编辑配置文件。这里以使用 <code>vim</code> 编辑主配置文件为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure>
+
+<p>若要编辑站点配置文件，可使用以下命令（以 Ubuntu 系统为例）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/nginx/sites - available/default<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-常见配置修改"><a href="#4-常见配置修改" class="headerlink" title="4. 常见配置修改"></a>4. 常见配置修改</h4><h5 id="调整监听端口"><a href="#调整监听端口" class="headerlink" title="调整监听端口"></a>调整监听端口</h5><p>若要将 Nginx 的监听端口从默认的 80 改为 8080，可在配置文件中找到 <code>listen</code> 指令并进行修改：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">8080</span>;<br>    <span class="hljs-attribute">server_name</span> example.com;<br><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">root</span> /var/www/html;<br>        <span class="hljs-attribute">index</span> index.html index.htm;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h5><p>如果你要为多个域名或站点配置不同的访问规则，可以添加多个 <code>server</code> 块：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>    <span class="hljs-attribute">server_name</span> example1.com;<br><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">root</span> /var/www/example1;<br>        <span class="hljs-attribute">index</span> index.html index.htm;<br>    &#125;<br>&#125;<br><br><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>    <span class="hljs-attribute">server_name</span> example2.com;<br><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">root</span> /var/www/example2;<br>        <span class="hljs-attribute">index</span> index.html index.htm;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h5><p>若要将请求反向代理到后端服务器，可使用 <code>proxy_pass</code> 指令：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>    <span class="hljs-attribute">server_name</span> example.com;<br>     <span class="hljs-section">location</span><span class="hljs-regexp"> ^~</span> /api/ &#123;<br>			<span class="hljs-attribute">rewrite</span><span class="hljs-regexp"> ^/api/(.*)$</span> /<span class="hljs-variable">$1</span> <span class="hljs-literal">break</span>;<br>			<span class="hljs-attribute">proxy_pass</span> http://localhost:8080;<br>        &#125;<br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">proxy_pass</span> http://backend_server_ip:backend_server_port;<br>        <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>        <span class="hljs-attribute">proxy_set_header</span> X - Real - IP <span class="hljs-variable">$remote_addr</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="5-检查配置文件语法"><a href="#5-检查配置文件语法" class="headerlink" title="5. 检查配置文件语法"></a>5. 检查配置文件语法</h4><p>在重新加载或重启 Nginx 之前，需要检查配置文件的语法是否正确，可使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nginx -t<br></code></pre></td></tr></table></figure>
+
+<p>若输出结果显示 <code>syntax is ok</code> 和 <code>test is successful</code>，则表示配置文件语法正确。</p>
+<h4 id="6-重新加载或重启-Nginx"><a href="#6-重新加载或重启-Nginx" class="headerlink" title="6. 重新加载或重启 Nginx"></a>6. 重新加载或重启 Nginx</h4><p>当配置文件语法检查通过后，你可以重新加载配置文件（不中断正在处理的连接）或重启 Nginx 服务：</p>
+<ul>
+<li><strong>重新加载配置</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl reload nginx<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>重启服务</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl restart nginx<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="10-防火墙"><a href="#10-防火墙" class="headerlink" title="10.防火墙"></a>10.防火墙</h2><p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250324160030104.png" srcset="/img/loading.gif" lazyload alt="image-20250324160030104"></p>
+<p>在 Linux 系统中，常见的防火墙有 <code>iptables</code>、<code>firewalld</code> 和 <code>ufw</code> ，不同的发行版可能默认使用不同的防火墙工具，以下为你详细介绍各防火墙的操作：</p>
+<h3 id="1-iptables"><a href="#1-iptables" class="headerlink" title="1. iptables"></a>1. <code>iptables</code></h3><p><code>iptables</code> 是一个基于规则的防火墙工具，在许多 Linux 发行版中被广泛使用，尤其是一些较旧的系统。</p>
+<h4 id="查看规则"><a href="#查看规则" class="headerlink" title="查看规则"></a>查看规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo iptables -L -n -v<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-L</code> 表示列出当前的规则链。</li>
+<li><code>-n</code> 表示以数字形式显示 IP 地址和端口号，而不是解析为域名和服务名。</li>
+<li><code>-v</code> 表示显示详细信息。</li>
+</ul>
+<h4 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h4><p>允许特定 IP 地址访问 SSH 服务（端口 22）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo iptables -A INPUT -s 192.168.1.100 -p tcp --dport 22 -j ACCEPT<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-A</code> 表示将规则添加到指定链的末尾。</li>
+<li><code>-s</code> 用于指定源 IP 地址。</li>
+<li><code>-p</code> 用于指定协议（如 <code>tcp</code> 或 <code>udp</code>）。</li>
+<li><code>--dport</code> 用于指定目标端口。</li>
+<li><code>-j</code> 用于指定动作（如 <code>ACCEPT</code> 表示允许，<code>DROP</code> 表示丢弃）。</li>
+</ul>
+<h4 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h4><p>删除刚刚添加的允许特定 IP 访问 SSH 的规则：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo iptables -D INPUT -s 192.168.1.100 -p tcp --dport 22 -j ACCEPT<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-D</code> 表示删除指定的规则。</li>
+</ul>
+<h4 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h4><p>不同的发行版保存 <code>iptables</code> 规则的方法不同，以 Ubuntu 为例，可以安装 <code>iptables-persistent</code> 来保存规则：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install iptables-persistent<br>sudo netfilter-persistent save<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-firewalld"><a href="#2-firewalld" class="headerlink" title="2. firewalld"></a>2. <code>firewalld</code></h3><p><code>firewalld</code> 是 CentOS 7 及以上版本默认使用的防火墙管理工具，提供了更高级的防火墙管理功能。</p>
+<h4 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl status firewalld<br></code></pre></td></tr></table></figure>
+
+<p>如果显示 <code>active (running)</code> 表示防火墙正在运行。</p>
+<h4 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h4><p>启动 <code>firewalld</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start firewalld<br></code></pre></td></tr></table></figure>
+
+<p>停止 <code>firewalld</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl stop firewalld<br></code></pre></td></tr></table></figure>
+
+<h4 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h4><p>开放 HTTP 服务的端口 80</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo firewall-cmd --zone=public --add-port=80/tcp --permanent<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>--zone</code> 用于指定区域，<code>public</code> 是默认的公共区域。</li>
+<li><code>--add-port</code> 用于添加开放的端口，格式为 <code>端口号/协议</code>。</li>
+<li><code>--permanent</code> 表示将规则永久保存，否则重启后规则会失效。</li>
+</ul>
+<p>重新加载防火墙规则使新规则生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo firewall-cmd --reload<br></code></pre></td></tr></table></figure>
+
+<h4 id="关闭端口"><a href="#关闭端口" class="headerlink" title="关闭端口"></a>关闭端口</h4><p>关闭刚刚开放的端口 80：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo firewall-cmd --zone=public --remove-port=80/tcp --permanent<br>sudo firewall-cmd --reload<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-ufw"><a href="#3-ufw" class="headerlink" title="3. ufw"></a>3. <code>ufw</code></h3><p><code>ufw</code>（Uncomplicated Firewall）是 Ubuntu 等系统默认使用的简单防火墙配置工具，旨在简化防火墙的配置过程。</p>
+<h4 id="查看状态-1"><a href="#查看状态-1" class="headerlink" title="查看状态"></a>查看状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw status<br></code></pre></td></tr></table></figure>
+
+<p>如果显示 <code>Status: inactive</code> 表示防火墙未启用，<code>Status: active</code> 表示已启用。</p>
+<h4 id="启用和禁用"><a href="#启用和禁用" class="headerlink" title="启用和禁用"></a>启用和禁用</h4><p>启用 <code>ufw</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw <span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
+
+<p>禁用 <code>ufw</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw <span class="hljs-built_in">disable</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="开放端口-1"><a href="#开放端口-1" class="headerlink" title="开放端口"></a>开放端口</h4><p>开放 SSH 服务的端口 22：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 22<br></code></pre></td></tr></table></figure>
+
+<p>也可以指定协议：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 22/tcp<br></code></pre></td></tr></table></figure>
+
+<h4 id="关闭端口-1"><a href="#关闭端口-1" class="headerlink" title="关闭端口"></a>关闭端口</h4><p>关闭刚刚开放的端口 22：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw deny 22<br></code></pre></td></tr></table></figure>
+
+<h4 id="删除规则-1"><a href="#删除规则-1" class="headerlink" title="删除规则"></a>删除规则</h4><p>删除允许端口 22 的规则：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw delete allow 22<br></code></pre></td></tr></table></figure>
+
+<p>以上就是 Linux 系统中常见防火墙工具的基本操作，你可以根据自己使用的发行版和需求选择合适的工具进行防火墙配置。</p>
+<h3 id="4-端口和进程"><a href="#4-端口和进程" class="headerlink" title="4.端口和进程"></a>4.端口和进程</h3><p><img src="/Linux%E7%B3%BB%E7%BB%9F.assets/image-20250325093557335.png" srcset="/img/loading.gif" lazyload alt="image-20250325093557335"></p>
+<ul>
+<li>查看进程</li>
+</ul>
+<blockquote>
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title=". 查看进程"></a>. 查看进程</h3><ul>
+<li><code>ps</code> 命令</li>
+</ul>
+<p> ：用于查看当前系统中正在运行的进程。</p>
+<ul>
+<li><code>ps aux</code>：显示所有用户的所有进程的详细信息。</li>
+<li><code>ps -ef</code>：以标准格式显示所有进程的详细信息，包括进程的父进程 ID。</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps -ef | grep java  <span class="hljs-comment">#查找java相关进程</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>top</code> 命令</strong>：实时动态显示系统中各个进程的资源占用情况。按下 <code>q</code> 键可退出 <code>top</code> 界面。</li>
+<li><strong><code>htop</code> 命令</strong>：功能比 <code>top</code> 更强大，界面更友好，可直观查看进程的各种信息。如果系统未安装 <code>htop</code>，可以使用 <code>sudo apt-get install htop</code>（Debian&#x2F;Ubuntu）或 <code>sudo yum install htop</code>（CentOS&#x2F;RHEL）进行安装。</li>
+</ul>
+</blockquote>
+<ul>
+<li>查看对应端口的进程</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>使用 <code>netstat</code> 命令</strong>：<br> <code>netstat</code> 是一个用于查看网络连接、路由表和网络接口等信息的工具，结合 <code>grep</code> 命令可以查看特定端口对应的进程。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo netstat -tulnp | grep :&lt;端口号&gt;<br></code></pre></td></tr></table></figure>
+
+<p>例如，查看 80 端口对应的进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo netstat -tulnp | grep :80<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>使用 <code>lsof</code> 命令</strong>：<br> <code>lsof</code> 用于列出被进程打开的文件，也可以方便地查看特定端口对应的进程。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo lsof -i :&lt;端口号&gt;<br></code></pre></td></tr></table></figure>
+
+<p>例如，查看 443 端口对应的进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo lsof -i :443<br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>杀死对应进程</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>使用 <code>kill</code> 命令（正常终止）</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo <span class="hljs-built_in">kill</span> &lt;PID&gt;<br></code></pre></td></tr></table></figure>
+
+<p>例如，进程 ID 为 1234，要终止该进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo <span class="hljs-built_in">kill</span> 1234<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>使用 <code>kill -9</code> 命令（强制终止）</strong>：<br> 如果进程无法正常响应 <code>kill</code> 命令，可以使用 <code>kill -9</code> 强制终止进程。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo <span class="hljs-built_in">kill</span> -9 &lt;PID&gt;<br></code></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;sudo <span class="hljs-built_in">kill</span> -9 1234<br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>后台运行进程</li>
+</ul>
+<blockquote>
+<p><code>nohup</code>（<strong>No Hang Up</strong>）命令用于在后台运行程序，使进程在用户退出登录或关闭终端后仍能继续执行。</p>
+<h4 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">nohup</span> <span class="hljs-built_in">command</span> [arguments] &amp;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>command</code>**：要运行的命令或程序。</li>
+<li>**<code>[arguments]</code>**：命令的参数。</li>
+<li>**<code>&amp;</code>**：可选，用于将命令放入后台执行（通常与<code>nohup</code>配合使用）。</li>
+</ul>
+<h4 id="后台运行命令并忽略挂断信号"><a href="#后台运行命令并忽略挂断信号" class="headerlink" title="后台运行命令并忽略挂断信号"></a>后台运行命令并忽略挂断信号</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">nohup</span> ./your_script.sh &amp;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>此命令会在后台运行<code>your_script.sh</code>，即使关闭终端，脚本仍会继续执行。</li>
+<li>输出默认会被重定向到当前目录的<code>nohup.out</code>文件中。</li>
+</ul>
+<h4 id="2-自定义输出文件"><a href="#2-自定义输出文件" class="headerlink" title="2. 自定义输出文件"></a>2. 自定义输出文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">nohup</span> ./your_script.sh &gt; custom_output.log 2&gt;&amp;1 &amp;<br>&gt;<span class="hljs-comment">#或者</span><br>&gt;<span class="hljs-built_in">nohup</span> java -jar xxxx.jar &amp;&gt; XXX.<span class="hljs-built_in">log</span> &amp;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&gt; custom_output.log</code>：将标准输出重定向到<code>custom_output.log</code>。</li>
+<li><code>2&gt;&amp;1</code>：将标准错误输出也重定向到同一个文件。</li>
+</ul>
+<h4 id="3-运行无输出的命令"><a href="#3-运行无输出的命令" class="headerlink" title="3. 运行无输出的命令"></a>3. 运行无输出的命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">nohup</span> <span class="hljs-built_in">command</span> &gt; /dev/null 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>将输出和错误信息都丢弃，不生成任何日志文件。</li>
+</ul>
+<h4 id="4-查看-nohup-的输出"><a href="#4-查看-nohup-的输出" class="headerlink" title="4. 查看 nohup 的输出"></a>4. 查看 nohup 的输出</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">tail</span> -f nohup.out  <span class="hljs-comment"># 实时查看nohup.out的内容</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="停止-nohup-进程"><a href="#停止-nohup-进程" class="headerlink" title="停止 nohup 进程"></a>停止 nohup 进程</h3><ol>
+<li>查找进程 ID（PID）</li>
+</ol>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps aux | grep your_command  <span class="hljs-comment"># 或使用pgrep</span><br>pgrep -f your_command<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>终止进程</li>
+</ol>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">kill</span> &lt;PID&gt;    <span class="hljs-comment"># 正常终止</span><br>sudo <span class="hljs-built_in">kill</span> -9 &lt;PID&gt;  <span class="hljs-comment"># 强制终止</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

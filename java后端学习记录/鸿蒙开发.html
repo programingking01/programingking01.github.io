@@ -1,0 +1,1064 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xing">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="鸿蒙开发-DevEco1.ArkTs基础语法 ArkTS是HarmonyOS优选的主力应用开发语言  ArkTS围绕应用开发在TypeScript（简称TS）生态基础上做了进一步扩展，继承了TS的所有特性，是TS的超集。因此，在学习ArkTS语言之前，建议开发者具备TS语言开发能力   ArkTS在TS的基础上能力扩展  基本语法：ArkTS定义了声明式UI描述、自定义组件和动态扩展UI元素的能力">
+<meta property="og:type" content="website">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="http://example.com/java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.html">
+<meta property="og:site_name" content="xing的个人博客">
+<meta property="og:description" content="鸿蒙开发-DevEco1.ArkTs基础语法 ArkTS是HarmonyOS优选的主力应用开发语言  ArkTS围绕应用开发在TypeScript（简称TS）生态基础上做了进一步扩展，继承了TS的所有特性，是TS的超集。因此，在学习ArkTS语言之前，建议开发者具备TS语言开发能力   ArkTS在TS的基础上能力扩展  基本语法：ArkTS定义了声明式UI描述、自定义组件和动态扩展UI元素的能力">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529173053441.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529173216918.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529174116347.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602112936940.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602142749033.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602142758768.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602142805695.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602143022870.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602144550463.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602144557742.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602144652933.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602145710860.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602145715463.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602145813153.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150221614.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150401034.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150437522.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150453679.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150507487.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150520193.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150613254.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150636130.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150903628.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151602717.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151851993.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151926517.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151953821.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152031365.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152108151.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152238815.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152331168.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152854186.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153618910.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153658764.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153711059.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153720204.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602161320920.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182216335.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182226616.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182239902.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182253645.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182316405.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182332855.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182343017.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182513606.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182604125.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182622253.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183113878.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183155542.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183231473.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183239779.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183249468.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183258668.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183307893.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183317548.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183326990.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183337127.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183423412.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183436998.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183450331.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183511548.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183522453.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183548508.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183558252.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183606877.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183643894.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183716182.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183735963.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183751520.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183921275.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183938895.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183957575.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184009281.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184026232.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184045714.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184058548.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184108710.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184118746.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184135555.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184144704.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184158198.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184233058.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184257159.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184310184.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184326512.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184344110.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184354641.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184417963.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184426643.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184436650.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184516661.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184545024.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184559398.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184631460.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184646097.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184659067.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184731929.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184746134.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184756985.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184805677.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184812838-17488612940631.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184827821.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184842631.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184904361.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184918715.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185105401.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185116303.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185133258.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185144484.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185154398.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185203664.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185232463.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185249447.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185302960.png">
+<meta property="og:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185313940.png">
+<meta property="article:published_time" content="2025-06-02T10:54:06.562Z">
+<meta property="article:modified_time" content="2025-06-02T10:54:06.562Z">
+<meta property="article:author" content="xing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529173053441.png">
+  
+  
+  
+  <title>page.title - xing的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="page.title"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <h1 id="鸿蒙开发-DevEco"><a href="#鸿蒙开发-DevEco" class="headerlink" title="鸿蒙开发-DevEco"></a>鸿蒙开发-DevEco</h1><h1 id="1-ArkTs基础语法"><a href="#1-ArkTs基础语法" class="headerlink" title="1.ArkTs基础语法"></a>1.ArkTs基础语法</h1><ul>
+<li><p>ArkTS是HarmonyOS优选的主力应用开发语言</p>
+<ul>
+<li>ArkTS围绕应用开发在TypeScript（简称TS）生态基础上做了进一步扩展，继承了TS的所有特性，是TS的超集。因此，在学习ArkTS语言之前，建议开发者具备TS语言开发能力</li>
+</ul>
+</li>
+<li><p>ArkTS在TS的基础上能力扩展</p>
+<ul>
+<li>基本语法：ArkTS定义了声明式UI描述、自定义组件和动态扩展UI元素的能力，再配合ArkUI开发框架中的系统组件及其相关的事件方法、属性方法等共同构成了UI开发的主体。</li>
+<li>状态管理：ArkTS提供了多维度的状态管理机制。在UI开发框架中，与UI相关联的数据可以在组件内使用，也可以在不同组件层级间传递，比如父子组件之间、爷孙组件之间，还可以在应用全局范围内传递或跨设备传递。另外，从数据的传递形式来看，可分为只读的单向传递和可变更的双向传递。开发者可以灵活的利用这些能力来实现数据和UI的联动。</li>
+<li>渲染控制：ArkTS提供了渲染控制的能力。条件渲染可根据应用的不同状态，渲染对应状态下的UI内容。循环渲染可从数据源中迭代获取数据，并在每次迭代过程中创建相应的组件。数据懒加载从数据源中按需迭代数据，并在每次迭代过程中创建相应的组件。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-基本数据类型和变量"><a href="#1-基本数据类型和变量" class="headerlink" title="1.基本数据类型和变量"></a>1.基本数据类型和变量</h2><h3 id="1-变量声明"><a href="#1-变量声明" class="headerlink" title="1.变量声明"></a>1.变量声明</h3><ul>
+<li>打印控制台操作</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;msg&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>常量和变量声明</p>
+<ul>
+<li><strong>let</strong>:块级作用域，可重新赋值</li>
+<li><strong>const</strong>：块级作用域，不可重新赋值，指向对象时可修改内部属性</li>
+<li><strong>var</strong>:函数作用全局作用域，可重新赋值</li>
+</ul>
+</li>
+<li><p>三个变量声明的关键字的<strong>主要区别</strong>：</p>
+</li>
+<li><p><strong>变量声明提升</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//--------------- var -------------------</span><br><span class="hljs-comment">// 声明提升到此处（作用域顶部） var x;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x); <span class="hljs-comment">//输出undefined,而不是报错</span><br><span class="hljs-keyword">var</span> x=<span class="hljs-number">10</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x); <span class="hljs-comment">//输出10</span><br><span class="hljs-comment">//--------------- let/const -------------------</span><br><span class="hljs-comment">// 声明也提示到了此处（作用域顶部），但不会进行初始化 处于暂时性死区（TDZ）</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(y); <span class="hljs-comment">//报错 ReferneceError Cannot access &#x27;y&#x27; before initialization</span><br><span class="hljs-keyword">let</span> y=<span class="hljs-number">10</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(y); <span class="hljs-comment">//输出10</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>var</strong>声明的变量会被提升（至作用域顶部）并初始化为undefined</li>
+<li><strong>let</strong>和<strong>const</strong>声明的变量也会提升（至作用域顶部），但是不会被初始化</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>函数声明提升</strong></li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//--------------- 函数 -------------------</span><br><span class="hljs-comment">//函数声明提升至此处</span><br><span class="hljs-title function_">foo</span>(); <span class="hljs-comment">//输出“Hello”</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello&quot;</span>);<br>&#125;<span class="hljs-comment">//函数</span><br><span class="hljs-comment">//--------------- var函数表达式 -------------------</span><br><span class="hljs-comment">//变量声明提升至此处，但是不进行赋值 var bar; - undefined</span><br><span class="hljs-title function_">bar</span>(); <span class="hljs-comment">//报错 ：TypeError :bar is not function</span><br><br><span class="hljs-keyword">var</span> bar=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;bar&quot;</span>);<br>&#125;;<span class="hljs-comment">//函数表达式</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li><strong>函数</strong>声明会被整个提升至作用域顶部</li>
+<li><strong>var函数表达式</strong>只有变量会被提升，赋值操作不会被提升，初始化为**undefined **</li>
+<li><strong>let&#x2F;const函数表达式</strong>变量也会被提升，但是处于暂时性死区（TDZ）中，无法访问</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>变量类型推断</strong></li>
+</ul>
+<blockquote>
+<p><strong>类型推断（Type Inference）</strong> 是编译器自动推导变量类型的机制</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> num = <span class="hljs-number">10</span>;         <span class="hljs-comment">// 推断为 number</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;hello&quot;</span>;    <span class="hljs-comment">// 推断为 string</span><br><span class="hljs-keyword">let</span> bool = <span class="hljs-literal">true</span>;      <span class="hljs-comment">// 推断为 boolean</span><br><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];  <span class="hljs-comment">// 推断为 number[]</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2-基本数据类型"><a href="#2-基本数据类型" class="headerlink" title="2.基本数据类型"></a>2.基本数据类型</h3><ul>
+<li><strong>布尔类型</strong></li>
+</ul>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">let</span> isDone: <span class="hljs-built_in">boolean</span>=<span class="hljs-literal">false</span>;<span class="hljs-comment">//默认</span><br><span class="hljs-keyword">let</span> isOn: <span class="hljs-built_in">boolean</span>=<span class="hljs-literal">true</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>数字</strong><ul>
+<li>TypeScript里的所有数字都是浮点数，这些浮点数的类型是 number。除了支持十进制，还支持二进制、八进制、十六进制。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">decLiteral</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">2023</span>; <span class="hljs-comment">//十进制</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">binaryLiteral</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0b11111100111</span>; <span class="hljs-comment">//二进制 0b</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">octalLiteral</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0o3747</span>; <span class="hljs-comment">//八进制0o</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">hexLiteral</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0x7e7</span>; <span class="hljs-comment">//十六进制 0x</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(decLiteral)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(binaryLiteral)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(octalLiteral)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(hexLiteral)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>字符串</strong></p>
+<ul>
+<li>使用 string表示文本数据类型， 可以使用双引号（ “）或单引号（’）表示字符串。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">myname</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;Jacky&quot;</span>;<br><span class="hljs-keyword">let</span> <span class="hljs-attr">sentence</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;I&#x27;m fine, thank you!&quot;</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myname,sentence)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数组</strong></p>
+<ul>
+<li>两种方式可以定义数组。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//--------------- 使用元素类型[] ----------------</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">list</span>: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(list)<br><span class="hljs-comment">//--------------- 使用数组泛型 Array&lt;元素类型&gt; ----------------</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">list</span>: <span class="hljs-title class_">Array</span>&lt;<span class="hljs-built_in">number</span>&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(list)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>元组</strong></p>
+<ul>
+<li>元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。</li>
+<li>要求顺序类型一致</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//---------元组----------</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">x</span>: [<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>];<br>x = [<span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-number">10</span>]; <span class="hljs-comment">// OK</span><br>x = [<span class="hljs-number">10</span>, <span class="hljs-string">&#x27;hello&#x27;</span>]; <span class="hljs-comment">// Error</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)<br><span class="hljs-comment">//-------元组混合数组--------</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">x</span>: [<span class="hljs-built_in">string</span>[], <span class="hljs-built_in">number</span>];<br><span class="hljs-comment">// 合法赋值</span><br>x = [[<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>], <span class="hljs-number">100</span>];<br>x = [[], <span class="hljs-number">0</span>]; <span class="hljs-comment">// 空数组也符合 string[] 类型</span><br><span class="hljs-comment">// 错误示例：类型不匹配</span><br>x = [<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-number">100</span>]; <span class="hljs-comment">// 报错：Type &#x27;string&#x27; is not assignable to type &#x27;string[]&#x27;</span><br>x = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-number">100</span>];  <span class="hljs-comment">// 报错：Type &#x27;number&#x27; is not assignable to type &#x27;string&#x27;</span><br>x = [[<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>]];   <span class="hljs-comment">// 报错：元组需要 2 个元素</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>枚举</strong></p>
+<ul>
+<li>enum类型是对JavaScript标准数据类型的一个补充，使用枚举类型可以为一组数值赋予友好的名字。</li>
+<li>默认第一个元素为0，后续递增。可以初始化的时候给指定元素进行赋值，后续元素自动递增。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">Color</span> &#123;<span class="hljs-title class_">Red</span>, <span class="hljs-title class_">Green</span>, <span class="hljs-title class_">Blue</span>&#125;; <span class="hljs-comment">// 0,1,2</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">c</span>: <span class="hljs-title class_">Color</span> = <span class="hljs-title class_">Color</span>.<span class="hljs-property">Green</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(c);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Unknown</strong></p>
+<ul>
+<li>用于在编程阶段还不清楚类型的变量指定一个类型，并且不希望类型检查器对这些值进行检查，而是直接让它们通过编译阶段的检查。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">notSure</span>: <span class="hljs-built_in">unknown</span> = <span class="hljs-number">4</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(notSure) <span class="hljs-comment">//4</span><br>notSure = <span class="hljs-string">&#x27;maybe a string instead&#x27;</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(notSure) <span class="hljs-comment">//maybe a string instead</span><br>notSure = <span class="hljs-literal">false</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(notSure) <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Void</strong></p>
+<ul>
+<li>当一个函数没有返回值时，定义函数返回值类型为 void。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>): <span class="hljs-built_in">void</span> &#123;<br>   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;This is function is void&#x27;</span>);<br>&#125;<br><span class="hljs-title function_">test</span>(); <span class="hljs-comment">//This is function is void</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Null 和 Undefined</strong></p>
+<ul>
+<li>TypeScript里，undefined和null两者各自有自己的类型分别叫做undefined和null</li>
+<li>声明为 <code>undefined</code> 或 <code>null</code> 类型的变量，<strong>只能赋值为自身类型的值</strong>（<code>undefined</code> 或 <code>null</code>）</li>
+<li>默认<strong>非严格模式</strong>下，其他变量可以赋值为<code>undefined</code> 或 <code>null</code>，严格模式下无法进行赋值。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">u</span>: <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span>;<br><span class="hljs-keyword">let</span> <span class="hljs-attr">n</span>: <span class="hljs-literal">null</span> = <span class="hljs-literal">null</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(u,n);<span class="hljs-comment">//undefined null</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>联合类型</strong></p>
+<ul>
+<li>联合类型（Union Types）表示取值可以为多种类型中的一种。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">myFavoriteNumber</span>: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;<br>myFavoriteNumber = <span class="hljs-string">&#x27;seven&#x27;</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myFavoriteNumber); <span class="hljs-comment">//seven string类型</span><br>myFavoriteNumber = <span class="hljs-number">7</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myFavoriteNumber); <span class="hljs-comment">//7 number类型</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2-流程控制"><a href="#2-流程控制" class="headerlink" title="2.流程控制"></a>2.流程控制</h2><ul>
+<li><strong>if…else</strong></li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//-------- if-else--------</span><br><span class="hljs-keyword">var</span> <span class="hljs-attr">num</span>:<span class="hljs-built_in">number</span> = <span class="hljs-number">20</span>; <br><span class="hljs-keyword">if</span> (num % <span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123; <br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;偶数&#x27;</span>); <br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;奇数&#x27;</span>); <br>&#125;<br><span class="hljs-comment">//--------if-else if-else -----------</span><br><span class="hljs-keyword">var</span> <span class="hljs-attr">num1</span>:<span class="hljs-built_in">number</span> = -<span class="hljs-number">50</span>;<br><span class="hljs-keyword">if</span>(num1 &gt; <span class="hljs-number">0</span>) &#123; <br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num1+<span class="hljs-string">&#x27; 是正数&#x27;</span>); <br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(num &lt; <span class="hljs-number">0</span>) &#123; <br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num1+<span class="hljs-string">&#x27; 是负数&#x27;</span>); <br>&#125; <span class="hljs-keyword">else</span> &#123; <br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num1+<span class="hljs-string">&#x27; 为0&#x27;</span>); <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>switch…case</strong></li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">grade</span>:<span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;A&#x27;</span>; <br><span class="hljs-keyword">switch</span>(grade) &#123; <br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;A&#x27;</span>: &#123; <br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;优&#x27;</span>); <br>        <span class="hljs-keyword">break</span>; <br>    &#125; <br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;B&#x27;</span>: &#123; <br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;良&#x27;</span>); <br>        <span class="hljs-keyword">break</span>; <br>    &#125; <br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;C&#x27;</span>: &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;及格&#x27;</span>); <br>        <span class="hljs-keyword">break</span>;    <br>    &#125; <br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;D&#x27;</span>: &#123; <br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;不及格&#x27;</span>); <br>        <span class="hljs-keyword">break</span>; <br>    &#125;  <br>    <span class="hljs-attr">default</span>: &#123; <br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;非法输入&#x27;</span>); <br>        <span class="hljs-keyword">break</span>;              <br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>break</strong> :结束循环或分支</li>
+<li><strong>continue</strong>:直接进入下次循环</li>
+<li><strong>for&#x2F;while</strong>循环</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//----------- for ------------</span><br><span class="hljs-comment">// 遍历数组，类型自动推断</span><br><span class="hljs-keyword">const</span> <span class="hljs-attr">numbers</span>: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numbers.<span class="hljs-property">length</span>; i++) &#123;<br>  <span class="hljs-comment">// i 类型为 number</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(numbers[i]); <span class="hljs-comment">// 输出：1, 2, 3, 4, 5</span><br>&#125;<br><span class="hljs-comment">// 指定索引类型（可选）</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-attr">i</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i); <span class="hljs-comment">// 0 到 9</span><br>&#125;<br><span class="hljs-comment">//----------- for...of 遍历可迭代对象------------</span><br><span class="hljs-comment">// 遍历数组</span><br><span class="hljs-keyword">const</span> <span class="hljs-attr">fruits</span>: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;orange&quot;</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> fruit <span class="hljs-keyword">of</span> fruits) &#123;<br>  <span class="hljs-comment">// fruit 类型为 string</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(fruit.<span class="hljs-title function_">toUpperCase</span>()); <span class="hljs-comment">// APPLE, BANANA, ORANGE</span><br>&#125;<br><br><span class="hljs-comment">// 遍历字符串</span><br><span class="hljs-keyword">const</span> <span class="hljs-attr">message</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;Hello&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> char <span class="hljs-keyword">of</span> message) &#123;<br>  <span class="hljs-comment">// char 类型为 string（单个字符）</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(char); <span class="hljs-comment">// &quot;H&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;</span><br>&#125;<br><br><span class="hljs-comment">// 遍历 Map/Set</span><br><span class="hljs-keyword">const</span> <span class="hljs-attr">userMap</span>: <span class="hljs-title class_">Map</span>&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>&gt; = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>([[<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Alice&quot;</span>], [<span class="hljs-number">2</span>, <span class="hljs-string">&quot;Bob&quot;</span>]]);<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [key, value] <span class="hljs-keyword">of</span> userMap) &#123;<br>  <span class="hljs-comment">// key 类型为 number，value 类型为 string</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Key: <span class="hljs-subst">$&#123;key&#125;</span>, Value: <span class="hljs-subst">$&#123;value&#125;</span>`</span>);<br>&#125;<br><span class="hljs-comment">//----------- while ------------</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">count</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">5</span>) &#123;<br>  <span class="hljs-comment">// count 类型为 number</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(count); <span class="hljs-comment">// 0, 1, 2, 3, 4</span><br>  count++;<br>&#125;<br><span class="hljs-keyword">let</span> <span class="hljs-attr">i</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">do</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i); <span class="hljs-comment">// 10</span><br>  i += <span class="hljs-number">10</span>;<br>&#125; <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">20</span>); <span class="hljs-comment">// 条件不满足，仅执行一次</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-函数"><a href="#3-函数" class="headerlink" title="3.函数"></a>3.函数</h2><ul>
+<li>函数是一组共同执行一个任务的语句，函数声明要包括函数名称、返回类型和参数。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 有名函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">x:<span class="hljs-built_in">number</span>, y:<span class="hljs-built_in">number</span></span>): <span class="hljs-built_in">number</span> &#123;<br>  <span class="hljs-keyword">return</span> x + y;<br>&#125;<br><span class="hljs-comment">// 匿名函数</span><br><span class="hljs-keyword">let</span> myAdd = <span class="hljs-keyword">function</span> (<span class="hljs-params">x:<span class="hljs-built_in">number</span>, y:<span class="hljs-built_in">number</span></span>): <span class="hljs-built_in">number</span>  &#123;<br>  <span class="hljs-keyword">return</span> x + y;<br>&#125;;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">add</span>(<span class="hljs-number">20</span>,<span class="hljs-number">30</span>));<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">myAdd</span>(<span class="hljs-number">20</span>,<span class="hljs-number">30</span>));<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>可选参数函数</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">buildName</span>(<span class="hljs-params">firstName: <span class="hljs-built_in">string</span>, lastName?: <span class="hljs-built_in">string</span></span>) &#123;<br>    <span class="hljs-keyword">if</span> (lastName)<br>        <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">&#x27; &#x27;</span> + lastName;<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> firstName;<br>&#125;<br><span class="hljs-keyword">let</span> result1 = <span class="hljs-title function_">buildName</span>(<span class="hljs-string">&#x27;Bob&#x27;</span>);<br><span class="hljs-keyword">let</span> result2 = <span class="hljs-title function_">buildName</span>(<span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;Adams&#x27;</span>); <br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result1);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result2);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>剩余参数函数<ul>
+<li>剩余参数会被当做个数不限的可选参数，可以一个都没有，同样也可以有任意个。 使用省略号（ …）进行定义。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getEmployeeName</span>(<span class="hljs-params">firstName: <span class="hljs-built_in">string</span>[], ...restOfName: <span class="hljs-built_in">string</span>[]</span>) &#123;<br>  <span class="hljs-keyword">return</span> firstName.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27; &#x27;</span>)+ <span class="hljs-string">&#x27; &#x27;</span> + restOfName.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27; &#x27;</span>);<br>    <span class="hljs-comment">//restOfName.join(&#x27; &#x27;) 将数组 [&#x27;Samuel&#x27;, &#x27;Lucas&#x27;, &#x27;MacKinzie&#x27;] 转换为字符串 &#x27;Samuel Lucas MacKinzie&#x27;。</span><br>&#125;<br><span class="hljs-keyword">let</span> <span class="hljs-attr">firstName</span>: <span class="hljs-built_in">string</span>[]=[<span class="hljs-string">&#x27;Joseph&#x27;</span>,<span class="hljs-string">&#x27;Lisa&#x27;</span>];<br><span class="hljs-keyword">let</span> employeeName = <span class="hljs-title function_">getEmployeeName</span>(firstName,<span class="hljs-string">&#x27;Joseph&#x27;</span>, <span class="hljs-string">&#x27;Samuel&#x27;</span>, <span class="hljs-string">&#x27;Lucas&#x27;</span>, <span class="hljs-string">&#x27;MacKinzie&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;最后的结果为:&#x27;</span>+employeeName);<span class="hljs-comment">//Joseph Lisa Joseph Samuel Lucas MacKinzie</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>箭头函数</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs typescript">( [param1, parma2,…param n] )=&gt; &#123;<br>    <span class="hljs-comment">// 代码块</span><br>&#125;<br><span class="hljs-keyword">let</span> <span class="hljs-title function_">arrowFun</span> = (<span class="hljs-params"> [param1, parma2,…param n] </span>)=&gt; &#123;<br>    <span class="hljs-comment">// 代码块</span><br>&#125;<br><span class="hljs-keyword">let</span> <span class="hljs-attr">anyway</span>:<span class="hljs-built_in">number</span>=<span class="hljs-function">()=&gt;</span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">100</span>;&#125;<br><span class="hljs-title function_">arrowFun</span>(param1, parma2,…param n);<br><span class="hljs-keyword">let</span> num=<span class="hljs-title function_">anyway</span>();<br><span class="hljs-title class_">Button</span>(<span class="hljs-string">&quot;Click Now&quot;</span>)<br>  .<span class="hljs-title function_">onClick</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">info</span>(<span class="hljs-string">&quot;Button is click&quot;</span>)<br>  &#125;);<span class="hljs-comment">//传入箭头函数</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-接口-对象"><a href="#4-接口-对象" class="headerlink" title="4.接口&amp;对象"></a>4.接口&amp;对象</h2><h3 id="1-自定义类对象"><a href="#1-自定义类对象" class="headerlink" title="1.自定义类对象"></a>1.自定义类对象</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span><br>  <span class="hljs-comment">//构造器</span><br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;<br>  &#125;<br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">getPersonInfo</span>(): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.name&#125;</span> and age is <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.age&#125;</span>`</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>new对象和属性调用</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> person1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;Jacky&#x27;</span>, <span class="hljs-number">18</span>);<br><span class="hljs-keyword">let</span> <span class="hljs-attr">show</span>:<span class="hljs-built_in">string</span>=person1.<span class="hljs-title function_">getPersonInfo</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(show);<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-继承"><a href="#2-继承" class="headerlink" title="2.继承"></a>2.继承</h3><ul>
+<li><p>继承是子类继承父类的特征和行为，使子类具有父类相同的行为。TypeScript中允许使用继承来扩展现有的类，对应的关键字为extends。</p>
+<ul>
+<li>定义employee继承于person；比person新增一个属性department<br>通过super关键字实际上调用了person中的构造方法，初始化name和age，并在构造方法中初始化department，<br>employee有个公有方法，getemployeeinfo获取雇员的信息，其中调用getpersoninfo来获取雇员的姓名、年龄信息。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span><br>   <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;<br>  &#125;<br> <span class="hljs-keyword">public</span> <span class="hljs-title function_">getPersonInfo</span>(): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.name&#125;</span> and age is <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.age&#125;</span>`</span>;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">employee</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Person</span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-attr">department</span>: <span class="hljs-built_in">string</span>;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span>, department: <span class="hljs-built_in">string</span></span>) &#123;<br>    <span class="hljs-variable language_">super</span>(name,age);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">department</span>=department;<br>  &#125;<br>    <span class="hljs-title function_">getemployeeinfo</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">let</span> <span class="hljs-attr">showResulet</span>: <span class="hljs-built_in">string</span> = <span class="hljs-variable language_">super</span>.<span class="hljs-title function_">getPersonInfo</span>();<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(showResulet);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">const</span> emp = <span class="hljs-keyword">new</span> <span class="hljs-title function_">employee</span>(<span class="hljs-string">&#x27;张三&#x27;</span>,<span class="hljs-number">18</span>,<span class="hljs-string">&#x27;教学办&#x27;</span>);<br>emp.<span class="hljs-title function_">getemployeeinfo</span>();<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-可迭代对象"><a href="#3-可迭代对象" class="headerlink" title="3.可迭代对象"></a>3.可迭代对象</h3><ul>
+<li>当一个对象实现了Symbol.iterator属性时，我们认为它是可迭代的。</li>
+<li>内置类型如Array，Map，Set，String，Int32Array，Uint32Array等都具有可迭代性</li>
+<li>使用for..of&#x2F;for…in遍历可迭代对象</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">//-----------for...of-------------</span><br><span class="hljs-keyword">let</span> someArray = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-literal">false</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> entry <span class="hljs-keyword">of</span> someArray) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(entry); <span class="hljs-comment">// 1, &quot;string&quot;, false</span><br>&#125;<br><span class="hljs-comment">//-----------for...in-------------</span><br><span class="hljs-keyword">let</span> someArray = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-literal">false</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> entry <span class="hljs-keyword">in</span> someArray) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(entry); <span class="hljs-comment">// 1, &quot;string&quot;, false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>for..of vs. for..in 语句</p>
+<ul>
+<li>for..of和for..in均可迭代一个列表，但是用于迭代的值却不同</li>
+<li>for..in迭代的是对象的键&#x2F;数组索引，而for..of则迭代的是对象的值。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> list = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> list) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i); <span class="hljs-comment">// &quot;0&quot;, &quot;1&quot;, &quot;2&quot;,</span><br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">of</span> list) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i); <span class="hljs-comment">// &quot;4&quot;, &quot;5&quot;, &quot;6&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>map语句</p>
+<ul>
+<li>每个元素都是由两个组成：key，value</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> map1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt;()<br>map1.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-number">1</span>)<br>map1.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;b&#x27;</span>,<span class="hljs-number">10</span>)<br>map1.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;c&#x27;</span>,<span class="hljs-number">15</span>)<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> k <span class="hljs-keyword">of</span> map1)&#123;   <span class="hljs-comment">//k代表一个键值对数组 k[0]=key k[1]=value</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(k); <span class="hljs-comment">//[&quot;a&quot;,1] [&quot;b&quot;,10] [&quot;c&quot;,15]  </span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-接口-对象-1"><a href="#4-接口-对象-1" class="headerlink" title="4.接口-对象"></a>4.接口-对象</h3><p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529173053441.png" srcset="/img/loading.gif" lazyload alt="image-20250529173053441"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529173216918.png" srcset="/img/loading.gif" lazyload alt="image-20250529173216918"></p>
+<h3 id="5-模块"><a href="#5-模块" class="headerlink" title="5.模块"></a>5.模块</h3><ul>
+<li><p>随着应用越来越大，通常要将代码拆分成多个文件，即所谓的模块（module）。</p>
+</li>
+<li><p>模块可以相互加载，并可以使用特殊的指令 <strong>export</strong> 和 <strong>import</strong> 来交换功能，从另一个模块调用一个模块的函数。</p>
+</li>
+<li><p>两个模块之间的关系是通过在文件级别上使用  <strong>export</strong> 和 <strong>import</strong>  建立。</p>
+</li>
+<li><p>模块里面的变量、函数和类等在模块外部是不可见的，除非明确地使用 <strong>export</strong>导出。</p>
+</li>
+<li><p>必须通过 <strong>import</strong> 导入其他模块导出的变量、函数、类等。</p>
+</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">NewsData</span> &#123;<br>  <span class="hljs-attr">title</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">content</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">source</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">title: <span class="hljs-built_in">string</span>, content: <span class="hljs-built_in">string</span>, source: <span class="hljs-built_in">string</span></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">title</span> = title;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">content</span> = content;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">source</span> = source;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">NewsData</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./NewData&#x27;</span>;<span class="hljs-comment">//文件的相对路径</span><br><span class="hljs-keyword">let</span> newdata = <span class="hljs-keyword">new</span> <span class="hljs-title class_">NewsData</span>(<span class="hljs-string">&#x27;hello&#x27;</span>,<span class="hljs-string">&#x27;world&#x27;</span>,<span class="hljs-string">&#x27;my name is haha&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(newdata.<span class="hljs-property">title</span>);<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="2-界面开发ArkUI"><a href="#2-界面开发ArkUI" class="headerlink" title="2.界面开发ArkUI"></a>2.界面开发ArkUI</h1><h2 id="1-基础结构"><a href="#1-基础结构" class="headerlink" title="1.基础结构"></a>1.基础结构</h2><ul>
+<li>程序结构</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250529174116347.png" srcset="/img/loading.gif" lazyload alt="image-20250529174116347"></p>
+<ul>
+<li><p><strong>装饰器</strong></p>
+<ul>
+<li>用于装饰类、结构、方法以及变量，并赋予其特殊的含义。如上述示例中@Entry、@Component和@State都是装饰器，@Component表示自定义组件，@Entry表示该自定义组件为入口组件，@State表示组件中的状态变量，状态变量变化会触发UI刷新。</li>
+</ul>
+</li>
+<li><p><strong>UI描述</strong></p>
+<ul>
+<li>以声明式的方式来描述UI的结构，例如build()方法中的代码块。</li>
+</ul>
+</li>
+<li><p><strong>自定义组件</strong></p>
+<ul>
+<li>可复用的UI单元，可组合其他组件，如上述被@Component装饰的struct Hello。</li>
+</ul>
+</li>
+<li><p><strong>系统组件</strong></p>
+<ul>
+<li>ArkUI框架中默认内置的基础和容器组件，可直接被开发者调用，比如示例中的Column、Text、Divider、Button</li>
+</ul>
+</li>
+<li><p><strong>属性方法</strong></p>
+<ul>
+<li>组件可以通过链式调用配置多项属性，如fontSize()、width()、height()、backgroundColor()等。</li>
+</ul>
+</li>
+<li><p><strong>事件方法</strong></p>
+<ul>
+<li>组件可以通过链式调用设置多个事件的响应逻辑，如跟随在Button后面的onClick()。</li>
+</ul>
+</li>
+<li><p><strong>@Builder&#x2F;@BuilderParam</strong></p>
+<ul>
+<li>特殊的封装UI描述的方法，细粒度的封装和复用UI描述。</li>
+</ul>
+</li>
+<li><p><strong>@Extend&#x2F;@Style</strong></p>
+<ul>
+<li>扩展内置组件和封装属性样式，更灵活地组合内置组件。</li>
+</ul>
+</li>
+<li><p><strong>stateStyles</strong></p>
+<ul>
+<li>多态样式，可以依据组件的内部状态的不同，设置不同样式。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-声明式UI"><a href="#2-声明式UI" class="headerlink" title="2.声明式UI"></a>2.声明式UI</h2><ul>
+<li><p>ArkTS以声明方式组合和扩展组件来描述应用程序的UI，同时还提供了基本的<strong>属性、事件和子组件配置</strong>方法，帮助开发者实现应用交互逻辑。</p>
+</li>
+<li><p><strong>创建组件</strong></p>
+<ul>
+<li>根据组件构造方法的不同，创建组件包含有参数和无参数两种方式。创建组件时不需要new运算符。</li>
+</ul>
+</li>
+<li><p><strong>无参数构造</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Column</span>() &#123;<br>  <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;item 1&#x27;</span>)<br>  <span class="hljs-title class_">Divider</span>()<br>  <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;item 2&#x27;</span>)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602112936940.png" srcset="/img/loading.gif" lazyload alt="image-20250602112936940"></p>
+<ul>
+<li><p><strong>有参数构建</strong></p>
+<ul>
+<li>如果组件的接口定义包含构造参数，则在组件后面的“()”配置相应参数。</li>
+</ul>
+<blockquote>
+<ul>
+<li>Image组件的必选参数src</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&gt;<span class="hljs-title class_">Image</span>(<span class="hljs-string">&#x27;https://xyz/test.jpg&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Text组件的非必选参数content。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&gt;<span class="hljs-comment">// string类型的参数</span><br>&gt;<span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;test&#x27;</span>)<br>&gt;<span class="hljs-comment">// $r形式引入应用资源，可应用于多语言场景</span><br>&gt;<span class="hljs-title class_">Text</span>($r(<span class="hljs-string">&#x27;app.string.title_value&#x27;</span>))<br>&gt;<span class="hljs-comment">// 无参数形式</span><br>&gt;<span class="hljs-title class_">Text</span>()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>变量或表达式也可以用于参数赋值，其中表达式返回的结果类型必须满足参数类型要求。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&gt;<span class="hljs-title class_">Image</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">imagePath</span>)<br>&gt;<span class="hljs-title class_">Image</span>(<span class="hljs-string">&#x27;https://&#x27;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">imageUrl</span>)<br>&gt;<span class="hljs-title class_">Text</span>(<span class="hljs-string">`count: <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.count&#125;</span>`</span>)<br></code></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>配置属性</strong></p>
+<ul>
+<li>属性方法以“.”链式调用的方式配置系统组件的样式和其他属性，建议每个属性方法单独写一行。</li>
+<li>除了直接传递常量参数外，还可以传递变量或表达式。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)<br>  .<span class="hljs-title function_">fontSize</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">size</span>)<br><span class="hljs-title class_">Image</span>(<span class="hljs-string">&#x27;test.jpg&#x27;</span>)<br>  .<span class="hljs-title function_">width</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span> % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? <span class="hljs-number">100</span> : <span class="hljs-number">200</span>)    <br>  .<span class="hljs-title function_">height</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">offset</span> + <span class="hljs-number">100</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>对于系统组件，ArkUI还为其属性预定义了一些枚举类型供开发者调用，枚举类型可以作为参数传递，但必须满足参数类型要求。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)<br>  .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">20</span>)<br>  .<span class="hljs-title function_">fontColor</span>(<span class="hljs-title class_">Color</span>.<span class="hljs-property">Red</span>)<br>  .<span class="hljs-title function_">fontWeight</span>(<span class="hljs-title class_">FontWeight</span>.<span class="hljs-property">Bold</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置事件</strong></p>
+<ul>
+<li><p>事件方法以“.”链式调用的方式配置系统组件支持的事件，建议每个事件方法单独写一行。</p>
+</li>
+<li><p><strong>使用箭头函数配置组件的事件方法。</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Button</span>(<span class="hljs-string">&#x27;Click me&#x27;</span>)<br>  .<span class="hljs-title function_">onClick</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">myText</span> = <span class="hljs-string">&#x27;ArkUI&#x27;</span>;<br>  &#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用<strong>匿名函数表达式</strong>配置组件的事件方法，要求使用bind，以确保函数体中的this指向当前组件。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Button</span>(<span class="hljs-string">&#x27;add counter&#x27;</span>)<br>  .<span class="hljs-title function_">onClick</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">counter</span> += <span class="hljs-number">2</span>;<br>  &#125;.<span class="hljs-title function_">bind</span>(<span class="hljs-variable language_">this</span>))<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用组件的<strong>成员函数</strong>配置组件的事件方法。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title function_">myClickHandler</span>(): <span class="hljs-built_in">void</span> &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">counter</span> += <span class="hljs-number">2</span>;<br>&#125;<br><span class="hljs-title class_">Button</span>(<span class="hljs-string">&#x27;add counter&#x27;</span>)<br>  .<span class="hljs-title function_">onClick</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">myClickHandler</span>.<span class="hljs-title function_">bind</span>(<span class="hljs-variable language_">this</span>))<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>配置子组件</strong></p>
+<ul>
+<li>如果组件支持子组件配置，则需在尾随闭包”{…}”中为组件添加子组件的UI描述。Column、Row、Stack、Grid、List等组件都是容器组件。</li>
+<li>简单的Column组件配置子组件的示例。容器组件均支持子组件配置，可以实现相对复杂的多级嵌套</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Column</span>() &#123;<br>  <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;Hello&#x27;</span>)<br>    .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">100</span>)<br>  <span class="hljs-title class_">Divider</span>()  <span class="hljs-comment">//分割线</span><br>  <span class="hljs-title class_">Text</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">myText</span>)<br>    .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">100</span>)<br>    .<span class="hljs-title function_">fontColor</span>(<span class="hljs-title class_">Color</span>.<span class="hljs-property">Red</span>)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-基础组件"><a href="#3-基础组件" class="headerlink" title="3.基础组件"></a>3.基础组件</h2><ul>
+<li><p><strong>基础组件Text</strong> -显示一段文本的组件。</p>
+<blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-title class_">Text</span>(content?: <span class="hljs-built_in">string</span> | <span class="hljs-title class_">Resource</span>)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602142749033.png" srcset="/img/loading.gif" lazyload alt="image-20250602142749033"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602142758768.png" srcset="/img/loading.gif" lazyload alt="image-20250602142758768"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602142805695.png" srcset="/img/loading.gif" lazyload alt="image-20250602142805695"></p>
+</li>
+<li><p><strong>Text案例</strong>：</p>
+</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602143022870.png" srcset="/img/loading.gif" lazyload alt="image-20250602143022870"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 文本对齐方式示例组件</span><br><span class="hljs-comment"> * 展示了鸿蒙ArkTS中Text组件的textAlign属性的三种对齐方式</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Entry</span><span class="hljs-comment">// 使用 @Entry 装饰器标识这是一个入口组件。</span><br><span class="hljs-meta">@Component</span><span class="hljs-comment">// 使用 @Component 装饰器定义一个新组件。</span><br>struct <span class="hljs-title class_">TextExample1</span> &#123; <span class="hljs-comment">// 定义名为 TextExample1 的结构体，代表这个组件。</span><br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123; <span class="hljs-comment">// 定义 build 方法来构建UI。</span><br>    <span class="hljs-comment">// 创建垂直弹性布局容器</span><br>    <span class="hljs-title class_">Flex</span>(&#123;<span class="hljs-comment">// 创建一个弹性布局容器。</span><br>      <span class="hljs-attr">direction</span>: <span class="hljs-title class_">FlexDirection</span>.<span class="hljs-property">Column</span>,    <span class="hljs-comment">// 垂直方向排列子组件</span><br>      <span class="hljs-attr">alignItems</span>: <span class="hljs-title class_">ItemAlign</span>.<span class="hljs-property">Start</span>,        <span class="hljs-comment">// 子组件沿主轴(水平方向)左对齐</span><br>      <span class="hljs-attr">justifyContent</span>: <span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceBetween</span> <span class="hljs-comment">// 子组件在交叉轴(垂直方向)均匀分布</span><br>    &#125;) &#123;<br>      <span class="hljs-comment">// ====== 标题区域 ======</span><br>      <span class="hljs-comment">// 单行文本</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;textAlign&#x27;</span>)<br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">9</span>)<br>        .<span class="hljs-title function_">fontColor</span>(<span class="hljs-number">0xCCCCCC</span>) <span class="hljs-comment">// 浅灰色标题文字</span><br>      <br>      <span class="hljs-comment">// ====== 居中对齐文本示例 ======</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;TextAlign set to Center.&#x27;</span>)<br>        .<span class="hljs-title function_">textAlign</span>(<span class="hljs-title class_">TextAlign</span>.<span class="hljs-property">Center</span>)      <span class="hljs-comment">// 设置文本水平居中对齐</span><br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)                     <span class="hljs-comment">// 字体大小12vp</span><br>        .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)             <span class="hljs-comment">// 添加1vp宽度的边框</span><br>        .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)                      <span class="hljs-comment">// 内边距10vp</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)                    <span class="hljs-comment">// 宽度占满父容器</span><br>      <br>      <span class="hljs-comment">// ====== 起始对齐文本示例 ======</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;TextAlign set to Start.&#x27;</span>)<br>        .<span class="hljs-title function_">textAlign</span>(<span class="hljs-title class_">TextAlign</span>.<span class="hljs-property">Start</span>)       <span class="hljs-comment">// 设置文本与起始位置对齐(左侧对齐)</span><br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)<br>        .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)<br>        .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)<br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)<br>      <br>      <span class="hljs-comment">// ====== 结束对齐文本示例 ======</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;TextAlign set to End.&#x27;</span>)<br>        .<span class="hljs-title function_">textAlign</span>(<span class="hljs-title class_">TextAlign</span>.<span class="hljs-property">End</span>)         <span class="hljs-comment">// 设置文本与结束位置对齐(右侧对齐)</span><br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)<br>        .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)<br>        .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)<br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)<br>       <br>        <span class="hljs-comment">// ====== 标题区域 ======</span><br>         <span class="hljs-comment">// 文本超长时显示方式</span><br>   <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;TextOverflow+maxLines&#x27;</span>).<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">9</span>).<span class="hljs-title function_">fontColor</span>(<span class="hljs-number">0xCCCCCC</span>) <span class="hljs-comment">// 创建一个文本组件，说明接下来的文本溢出设置。</span><br>        <br>        <span class="hljs-comment">// ====== 文本溢出截断示例 ======</span><br>   <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;This is the setting of textOverflow to Clip text content This is the setting of textOverflow to None text content. This is the setting of textOverflow to Clip text content This is the setting of textOverflow to None text content.&#x27;</span>)<br>     .<span class="hljs-title function_">textOverflow</span>(&#123; <span class="hljs-attr">overflow</span>: <span class="hljs-title class_">TextOverflow</span>.<span class="hljs-property">Clip</span> &#125;) <span class="hljs-comment">// 设置文本溢出处理方式为直接剪裁</span><br>     .<span class="hljs-title function_">maxLines</span>(<span class="hljs-number">1</span>)                                  <span class="hljs-comment">// 限制最大显示行数为1行</span><br>     .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)                                <span class="hljs-comment">// 字体大小12vp</span><br>     .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)                        <span class="hljs-comment">// 添加1vp宽度的边框用于视觉参考</span><br>     .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)                                 <span class="hljs-comment">// 内边距10vp，防止文本紧贴边框</span><br>     .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)                               <span class="hljs-comment">// 占满父容器宽度，触发文本溢出条件</span><br>     .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-string">&#x27;#F5F5F5&#x27;</span>)                  <span class="hljs-comment">// 背景色便于观察文本区域</span><br>        <span class="hljs-comment">// ====== 文本溢出省略号示例 ======</span><br>   <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;This is set textOverflow to Ellipsis text content This is set textOverflow to Ellipsis text content.&#x27;</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;\u200B&#x27;</span>))<br>     .<span class="hljs-title function_">textOverflow</span>(&#123; <span class="hljs-attr">overflow</span>: <span class="hljs-title class_">TextOverflow</span>.<span class="hljs-property">Ellipsis</span> &#125;) <span class="hljs-comment">// 设置文本溢出时显示省略号</span><br>     .<span class="hljs-title function_">maxLines</span>(<span class="hljs-number">1</span>)                                  <span class="hljs-comment">// 限制最大显示行数为1行</span><br>     .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)                                <span class="hljs-comment">// 字体大小12vp</span><br>     .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)                        <span class="hljs-comment">// 添加边框便于观察文本区域</span><br>     .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)                                 <span class="hljs-comment">// 内边距10vp</span><br>     .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)                               <span class="hljs-comment">// 占满父容器宽度，确保文本溢出</span><br><br><span class="hljs-comment">// ====== 行高设置示例标题 ======</span><br>   <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;lineHeight&#x27;</span>)<br>     .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">9</span>)<br>     .<span class="hljs-title function_">fontColor</span>(<span class="hljs-number">0xCCCCCC</span>)                         <span class="hljs-comment">// 浅灰色说明文字</span><br><br><span class="hljs-comment">// ====== 默认行高文本 ======</span><br>   <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;This is the text with the line height set. This is the text with the line height set.&#x27;</span>)<br>     .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)                                <span class="hljs-comment">// 字体大小12vp</span><br>     .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)                        <span class="hljs-comment">// 添加边框对比行高效果</span><br>     .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)                                 <span class="hljs-comment">// 内边距10vp</span><br>     .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)                               <span class="hljs-comment">// 统一宽度便于对比</span><br><br><span class="hljs-comment">// ====== 自定义行高文本 ======</span><br>   <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;This is the text with the line height set. This is the text with the line height set.&#x27;</span>)<br>     .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">12</span>)                                <span class="hljs-comment">// 字体大小12vp</span><br>     .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)                        <span class="hljs-comment">// 添加边框对比行高效果</span><br>     .<span class="hljs-title function_">padding</span>(<span class="hljs-number">10</span>)                                 <span class="hljs-comment">// 内边距10vp</span><br>     .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)                               <span class="hljs-comment">// 统一宽度便于对比</span><br>     .<span class="hljs-title function_">lineHeight</span>(<span class="hljs-number">20</span>)                              <span class="hljs-comment">// 设置行高为20vp，控制文本行间距</span><br>     .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-string">&#x27;#F5F5F5&#x27;</span>)                  <span class="hljs-comment">// 背景色便于观察文本区域</span><br>       &#125;.<span class="hljs-title function_">height</span>(<span class="hljs-number">600</span>)<br>        .<span class="hljs-title function_">width</span>(<span class="hljs-number">350</span>)<br>        .<span class="hljs-title function_">padding</span>(&#123; <span class="hljs-attr">left</span>: <span class="hljs-number">35</span>, <span class="hljs-attr">right</span>: <span class="hljs-number">35</span>, <span class="hljs-attr">top</span>: <span class="hljs-number">35</span> &#125;)  <span class="hljs-comment">// 设置容器的高度、宽度和内边距。</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<ul>
+<li><p><strong>容器组件-Column</strong> -Column容器组件是沿垂直方向布局的容器。</p>
+<blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&gt;<span class="hljs-title class_">Column</span>(value?: &#123;space?: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&#125;)<br></code></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602144550463.png" srcset="/img/loading.gif" lazyload alt="image-20250602144550463"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602144557742.png" srcset="/img/loading.gif" lazyload alt="image-20250602144557742"></p>
+<ul>
+<li><strong>Column案例</strong>：</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602144652933.png" srcset="/img/loading.gif" lazyload alt="image-20250602144652933"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Entry</span> <span class="hljs-comment">// 使用 @Entry 装饰器标记当前组件为应用入口组件，每个应用必须有且仅有一个 @Entry 装饰的组件</span><br><span class="hljs-meta">@Component</span> <span class="hljs-comment">// 使用 @Component 装饰器定义一个自定义组件，可在其他组件中复用（此处为入口组件，无需复用但需定义）</span><br>struct <span class="hljs-title class_">ColumnExample</span> &#123; <span class="hljs-comment">// 定义组件名称为 ColumnExample 的结构体，结构体名称建议首字母大写，符合 PascalCase 命名规范</span><br><br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123; <span class="hljs-comment">// 每个组件必须实现 build() 方法，用于构建组件的 UI 结构</span><br>    <span class="hljs-comment">// ---------------------- 最外层 Column 容器 ----------------------</span><br>    <span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">5</span> &#125;) &#123; <span class="hljs-comment">// 创建 Column 垂直布局容器，space 属性设置子元素之间的垂直间距为 5vp（虚拟像素）</span><br>      <br>      <span class="hljs-comment">// ---------------------- space 属性演示区域 ----------------------</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;space&#x27;</span>) <span class="hljs-comment">// 创建文本组件，内容为 &#x27;space&#x27;，用于说明下方演示的属性功能</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 设置文本宽度占父容器的 90%，避免紧贴边缘</span><br>      <br>      <span class="hljs-comment">// 内部 Column 容器：演示 space 属性对子元素间距的影响</span><br>      <span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">5</span> &#125;) &#123; <span class="hljs-comment">// 子 Column 容器，再次设置 space: 5，确保子元素垂直间距为 5vp</span><br>        <br>        <span class="hljs-comment">// 第一个子 Column（浅蓝色背景）</span><br>        <span class="hljs-title class_">Column</span>() <span class="hljs-comment">// 空 Column 组件（无内容时会渲染为矩形块）</span><br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>) <span class="hljs-comment">// 宽度占满父容器（即内部 Column 的 100%）</span><br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <span class="hljs-comment">// 高度固定为 30vp</span><br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>) <span class="hljs-comment">// 背景色设置为浅蓝色（十六进制色值）</span><br>        <br>        <span class="hljs-comment">// 第二个子 Column（青色背景）</span><br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>) <span class="hljs-comment">// 背景色设置为青色</span><br>      &#125;<br>      <span class="hljs-comment">// 内部 Column 容器的修饰属性</span><br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 宽度占外层 Column 的 90%，与上方文本宽度一致</span><br>      .<span class="hljs-title function_">height</span>(<span class="hljs-number">100</span>) <span class="hljs-comment">// 固定高度为 100vp，方便观察边框范围</span><br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <span class="hljs-comment">// 添加 1vp 宽度的边框，用于可视化容器边界</span><br><br>      <span class="hljs-comment">// ---------------------- 水平对齐方式（alignItems）演示区域 ----------------------</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;alignItems(Start)&#x27;</span>) <span class="hljs-comment">// 说明文本：水平起始对齐（左对齐）</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 宽度占比 90%</span><br><br>      <span class="hljs-comment">// 演示水平左对齐的 Column 容器</span><br>      <span class="hljs-title class_">Column</span>() &#123; <span class="hljs-comment">// 子 Column 容器（未设置 space，默认间距为 0）</span><br>        <br>        <span class="hljs-comment">// 第一个子 Column（占父容器宽度的 50%，浅蓝色背景）</span><br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;50%&#x27;</span>) <span class="hljs-comment">// 宽度为父容器的 50%（即当前 Column 的 50%）</span><br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-comment">// 第二个子 Column（占父容器宽度的 50%，青色背景）</span><br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;50%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      <span class="hljs-comment">// 容器修饰属性：设置水平对齐方式为起始（左对齐）</span><br>      .<span class="hljs-title function_">alignItems</span>(<span class="hljs-title class_">HorizontalAlign</span>.<span class="hljs-property">Start</span>) <span class="hljs-comment">// 子元素在水平方向（主轴）左对齐</span><br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 容器宽度占比 90%</span><br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <span class="hljs-comment">// 添加边框</span><br><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;alignItems(End)&#x27;</span>) <span class="hljs-comment">// 说明文本：水平结束对齐（右对齐）</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-comment">// 演示水平右对齐的 Column 容器</span><br>      <span class="hljs-title class_">Column</span>() &#123; <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;50%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;50%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">alignItems</span>(<span class="hljs-title class_">HorizontalAlign</span>.<span class="hljs-property">End</span>) <span class="hljs-comment">// 子元素在水平方向右对齐</span><br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)<br><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;alignItems(Center)&#x27;</span>) <span class="hljs-comment">// 说明文本：水平居中对齐</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-comment">// 演示水平居中对齐的 Column 容器</span><br>      <span class="hljs-title class_">Column</span>() &#123; <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;50%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;50%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">alignItems</span>(<span class="hljs-title class_">HorizontalAlign</span>.<span class="hljs-property">Center</span>) <span class="hljs-comment">// 子元素在水平方向居中对齐</span><br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)<br><br>      <span class="hljs-comment">// ---------------------- 垂直对齐方式（justifyContent）演示区域 ----------------------</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;justifyContent(Center)&#x27;</span>) <span class="hljs-comment">// 说明文本：垂直居中对齐</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-comment">// 演示垂直居中对齐的 Column 容器（需设置容器高度以触发对齐）</span><br>      <span class="hljs-title class_">Column</span>() &#123; <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 子元素宽度占父容器（当前 Column）的 90%</span><br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">height</span>(<span class="hljs-number">100</span>) <span class="hljs-comment">// 容器高度固定为 100vp，子元素总高度为 60vp（30+30），剩余空间由 justifyContent 分配</span><br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <br>      .<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">Center</span>) <span class="hljs-comment">// 子元素在垂直方向（交叉轴）居中对齐，剩余空间均匀分布在上下方</span><br><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;justifyContent(End)&#x27;</span>) <span class="hljs-comment">// 说明文本：垂直结束对齐（底部对齐）</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-comment">// 演示垂直结束对齐的 Column 容器</span><br>      <span class="hljs-title class_">Column</span>() &#123; <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Column</span>() <br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">30</span>) <br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">height</span>(<span class="hljs-number">100</span>) <br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <br>      .<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">End</span>) <span class="hljs-comment">// 子元素在垂直方向底部对齐，剩余空间集中在容器顶部</span><br>      <br>    &#125;<br>    <span class="hljs-comment">// 最外层 Column 的修饰属性</span><br>    .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>) <span class="hljs-comment">// 宽度占满屏幕（父容器为窗口时）</span><br>    .<span class="hljs-title function_">padding</span>(&#123; <span class="hljs-attr">top</span>: <span class="hljs-number">5</span> &#125;) <span class="hljs-comment">// 顶部内边距 5vp，避免内容紧贴屏幕顶部</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<ul>
+<li><strong>容器组件-Row</strong> -Row容器组件是沿水平方向布局容器。</li>
+</ul>
+<blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript">&gt;<span class="hljs-title class_">Row</span>(value?:&#123;space?: <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span> &#125;)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602145710860.png" srcset="/img/loading.gif" lazyload alt="image-20250602145710860"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602145715463.png" srcset="/img/loading.gif" lazyload alt="image-20250602145715463"></p>
+<ul>
+<li><strong>Row案例</strong>:</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602145813153.png" srcset="/img/loading.gif" lazyload alt="image-20250602145813153"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Entry</span> <span class="hljs-comment">// 使用@Entry装饰器标记为入口组件，每个应用必须有一个</span><br><span class="hljs-meta">@Component</span> <span class="hljs-comment">// 使用@Component装饰器定义自定义组件</span><br>struct <span class="hljs-title class_">RowExample</span> &#123; <span class="hljs-comment">// 定义组件名为RowExample的结构体</span><br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123; <span class="hljs-comment">// 构建UI的核心方法</span><br>    <span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">5</span> &#125;) &#123; <span class="hljs-comment">// 创建垂直布局容器，子元素垂直间距5vp</span><br>      <br>      <span class="hljs-comment">// ---------------------- space属性演示 ----------------------</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;space&#x27;</span>) <span class="hljs-comment">// 说明文本：演示Row的space属性（水平间距）</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 宽度占父容器90%</span><br><br>      <span class="hljs-title class_">Row</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">5</span> &#125;) &#123; <span class="hljs-comment">// 水平布局容器，子元素水平间距5vp</span><br>        <span class="hljs-title class_">Row</span>() <span class="hljs-comment">// 第一个子Row（浅蓝色背景）</span><br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>) <span class="hljs-comment">// 宽度占父Row的30%</span><br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>) <span class="hljs-comment">// 高度50vp</span><br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>) <span class="hljs-comment">// 浅蓝色背景色</span><br>        <br>        <span class="hljs-title class_">Row</span>() <span class="hljs-comment">// 第二个子Row（青色背景）</span><br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>) <span class="hljs-comment">// 青色背景色</span><br>      &#125;<br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 父Row宽度占90%</span><br>      .<span class="hljs-title function_">height</span>(<span class="hljs-number">107</span>) <span class="hljs-comment">// 固定高度便于观察边框</span><br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <span class="hljs-comment">// 添加1vp边框</span><br><br>      <span class="hljs-comment">// ---------------------- 垂直对齐方式（alignItems）演示 ----------------------</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;alignItems(Bottom)&#x27;</span>) <span class="hljs-comment">// 说明文本：垂直底部对齐</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-title class_">Row</span>() &#123; <span class="hljs-comment">// 水平布局容器</span><br>        <span class="hljs-title class_">Row</span>() <span class="hljs-comment">// 子Row1</span><br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Row</span>() <span class="hljs-comment">// 子Row2</span><br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 宽度90%</span><br>      .<span class="hljs-title function_">alignItems</span>(<span class="hljs-title class_">VerticalAlign</span>.<span class="hljs-property">Bottom</span>) <span class="hljs-comment">// 子元素垂直底部对齐</span><br>      .<span class="hljs-title function_">height</span>(<span class="hljs-string">&#x27;15%&#x27;</span>) <span class="hljs-comment">// 高度占父容器垂直空间的15%（需父容器有明确高度）</span><br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <span class="hljs-comment">// 边框</span><br><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;alignItems(Center)&#x27;</span>) <span class="hljs-comment">// 说明文本：垂直居中对齐</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-title class_">Row</span>() &#123; <span class="hljs-comment">// 水平布局容器</span><br>        <span class="hljs-title class_">Row</span>()<br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Row</span>()<br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br>      .<span class="hljs-title function_">alignItems</span>(<span class="hljs-title class_">VerticalAlign</span>.<span class="hljs-property">Center</span>) <span class="hljs-comment">// 子元素垂直居中对齐</span><br>      .<span class="hljs-title function_">height</span>(<span class="hljs-string">&#x27;15%&#x27;</span>)<br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)<br><br>      <span class="hljs-comment">// ---------------------- 水平对齐方式（justifyContent）演示 ----------------------</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;justifyContent(End)&#x27;</span>) <span class="hljs-comment">// 说明文本：水平结束对齐（右对齐）</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-title class_">Row</span>() &#123; <span class="hljs-comment">// 水平布局容器</span><br>        <span class="hljs-title class_">Row</span>()<br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Row</span>()<br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>) <span class="hljs-comment">// 宽度90%</span><br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;) <span class="hljs-comment">// 边框</span><br>      .<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">End</span>) <span class="hljs-comment">// 子元素水平右对齐（剩余空间在左侧）</span><br><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;justifyContent(Center)&#x27;</span>) <span class="hljs-comment">// 说明文本：水平居中对齐</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br><br>      <span class="hljs-title class_">Row</span>() &#123; <span class="hljs-comment">// 水平布局容器</span><br>        <span class="hljs-title class_">Row</span>()<br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0xAFEEEE</span>)<br>        <br>        <span class="hljs-title class_">Row</span>()<br>          .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;30%&#x27;</span>)<br>          .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)<br>          .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-number">0x00FFFF</span>)<br>      &#125;<br>      .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;90%&#x27;</span>)<br>      .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1</span> &#125;)<br>      .<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">Center</span>) <span class="hljs-comment">// 子元素水平居中对齐（剩余空间均匀分布两侧）</span><br><br>    &#125;<br>    .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>) <span class="hljs-comment">// 最外层Column宽度占满屏幕</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="4-自定义组件"><a href="#4-自定义组件" class="headerlink" title="4.自定义组件"></a>4.自定义组件</h2><p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150221614.png" srcset="/img/loading.gif" lazyload alt="image-20250602150221614"></p>
+<ul>
+<li><strong>自定义组件案例</strong>：</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150401034.png" srcset="/img/loading.gif" lazyload alt="image-20250602150401034"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 自定义组件：可复用的文本点击交互组件</span><br><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">HelloComponent</span> &#123;<br>  <span class="hljs-comment">// 声明状态变量：message 用于存储文本内容，@State 装饰器使UI响应数据变化</span><br>  <span class="hljs-meta">@State</span> <span class="hljs-attr">message</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;Hello, World!&#x27;</span>; <br><br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 使用Row布局水平排列子组件</span><br>    <span class="hljs-title class_">Row</span>() &#123; <br>      <span class="hljs-comment">// 文本组件，显示message状态变量的值</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span>) <br>        .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)        <span class="hljs-comment">// 固定高度50vp</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-number">200</span>)        <span class="hljs-comment">// 固定宽度200vp</span><br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">30</span>)      <span class="hljs-comment">// 字体大小30vp</span><br>        .<span class="hljs-title function_">onClick</span>(<span class="hljs-function">() =&gt;</span> &#123;   <span class="hljs-comment">// 点击事件处理函数</span><br>          <span class="hljs-comment">// 修改状态变量message的值，触发UI自动刷新</span><br>          <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span> = <span class="hljs-string">&#x27;Hello, ArkUI!&#x27;</span>; <br>        &#125;)<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 入口组件：应用的根组件</span><br><span class="hljs-meta">@Entry</span><br><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">ParentComponent</span> &#123;<br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 使用Column布局垂直排列子组件</span><br>    <span class="hljs-title class_">Column</span>() &#123; <br>      <span class="hljs-comment">// 标题文本</span><br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;ArkUI message&#x27;</span>) <br>        .<span class="hljs-title function_">height</span>(<span class="hljs-number">100</span>)       <span class="hljs-comment">// 高度100vp</span><br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">50</span>)      <span class="hljs-comment">// 字体大小50vp</span><br>        .<span class="hljs-title function_">fontWeight</span>(<span class="hljs-title class_">FontWeight</span>.<span class="hljs-property">Bold</span>) <span class="hljs-comment">// 字体加粗</span><br><br>      <span class="hljs-comment">// 引用自定义组件HelloComponent，传递初始参数message=&quot;Hello, World!&quot;</span><br>      <span class="hljs-title class_">HelloComponent</span>(&#123; <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Hello, World!&#x27;</span> &#125;); <br><br>      <span class="hljs-comment">// 分隔线组件，用于视觉分隔</span><br>      <span class="hljs-title class_">Divider</span>() <br><br>      <span class="hljs-comment">// 再次引用HelloComponent，传递中文参数message=&quot;你好!&quot;</span><br>      <span class="hljs-title class_">HelloComponent</span>(&#123; <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;你好!&#x27;</span> &#125;); <br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150437522.png" srcset="/img/loading.gif" lazyload alt="image-20250602150437522"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150453679.png" srcset="/img/loading.gif" lazyload alt="image-20250602150453679"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150507487.png" srcset="/img/loading.gif" lazyload alt="image-20250602150507487"></p>
+<p>所有声明在build()函数的语言，我们统称为UI描述，UI描述需要遵循以下规则</p>
+<blockquote>
+<p>@Entry装饰的自定义组件，其build()函数下的根节点唯一且必要，且必须为容器组件，其中ForEach禁止作为根节点。</p>
+<p>@Component装饰的自定义组件，其build()函数下的根节点唯一且必要，可以为非容器组件，其中ForEach禁止作为根节点。</p>
+<p>不允许声明本地变量 </p>
+<p>不允许在UI描述里直接使用console.info，但允许在方法或者函数里使用</p>
+<p>不允许创建本地的作用域</p>
+<p>不允许switch语法，如果需要使用条件判断，请使用if。</p>
+</blockquote>
+<ul>
+<li>案例</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Entry</span><br><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">MainComponent</span> &#123;<br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 根容器使用Row布局 -必须以容器组件为根结点</span><br>    <span class="hljs-title class_">Row</span>() &#123;<br>      <span class="hljs-comment">// 引入子组件</span><br>      <span class="hljs-title class_">ChildComponent</span>()<br>    &#125;<br>    .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)  <span class="hljs-comment">// 占满屏幕宽度</span><br>    .<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">Center</span>)  <span class="hljs-comment">// 子组件水平居中</span><br>  &#125;<br>&#125;<br><br><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">ChildComponent</span> &#123;<br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 直接使用Image组件作为根节点</span><br>    <span class="hljs-title class_">Image</span>($r(<span class="hljs-string">&#x27;app.media.test&#x27;</span>))<br>      .<span class="hljs-title function_">width</span>(<span class="hljs-number">300</span>)  <span class="hljs-comment">// 设置图片宽度</span><br>      .<span class="hljs-title function_">height</span>(<span class="hljs-number">200</span>) <span class="hljs-comment">// 设置图片高度</span><br>      .<span class="hljs-title function_">objectFit</span>(<span class="hljs-title class_">ImageFit</span>.<span class="hljs-property">Contain</span>)  <span class="hljs-comment">// 图片缩放模式</span><br>  &#125;<br>&#125;<br><br><span class="hljs-comment">//规则</span><br><span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 反例：不允许声明本地变量</span><br>  <span class="hljs-keyword">let</span> <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 反例：不允许console.info</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">info</span>(<span class="hljs-string">&#x27;print debug log&#x27;</span>);<br>&#125;<br><span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 反例：不允许本地作用域</span><br>  &#123;<br>    ...<br>  &#125;<br>&#125;<br><span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title class_">Column</span>() &#123;<br>    <span class="hljs-comment">// 反例：不允许使用switch语法</span><br>    <span class="hljs-keyword">switch</span> (expression) &#123;<br>      <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>        <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;...&#x27;</span>)<br>        <span class="hljs-keyword">break</span>;<br>      <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>        <span class="hljs-title class_">Image</span>(<span class="hljs-string">&#x27;...&#x27;</span>)<br>        <span class="hljs-keyword">break</span>;<br>      <span class="hljs-attr">default</span>:<br>        <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;...&#x27;</span>)<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150520193.png" srcset="/img/loading.gif" lazyload alt="image-20250602150520193"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150613254.png" srcset="/img/loading.gif" lazyload alt="image-20250602150613254"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150636130.png" srcset="/img/loading.gif" lazyload alt="image-20250602150636130"></p>
+<ul>
+<li>自定义组件的参数规定案例：</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">MyComponent</span> &#123;<br>  <span class="hljs-comment">// 组件私有属性：倒计时起始值</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">countDownFrom</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;<br>  <span class="hljs-comment">// 组件私有属性：文本背景颜色</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">color</span>: <span class="hljs-title class_">Color</span> = <span class="hljs-title class_">Color</span>.<span class="hljs-property">Blue</span>;<br><br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 创建水平布局容器</span><br>    <span class="hljs-title class_">Row</span>() &#123;<br>      <span class="hljs-comment">// 创建文本组件</span><br>      <span class="hljs-title class_">Text</span>()<br>        .<span class="hljs-title function_">height</span>(<span class="hljs-number">50</span>)                <span class="hljs-comment">// 设置高度为50vp</span><br>        .<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)             <span class="hljs-comment">// 设置宽度为父容器的100%</span><br>        .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">30</span>)              <span class="hljs-comment">// 设置字体大小为30vp</span><br>        .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">color</span>) <span class="hljs-comment">// 设置背景颜色为传入的color属性值</span><br>        .<span class="hljs-title function_">onClick</span>(<span class="hljs-function">() =&gt;</span> &#123;           <span class="hljs-comment">// 绑定点击事件</span><br>          <span class="hljs-comment">// 点击事件处理函数（当前为空，可添加业务逻辑）</span><br>        &#125;)<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-meta">@Entry</span><br><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">ParentComponent</span> &#123;<br>  <span class="hljs-comment">// 私有属性：颜色值</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-attr">someColor</span>: <span class="hljs-title class_">Color</span> = <span class="hljs-title class_">Color</span>.<span class="hljs-property">Red</span>;<br><br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 创建垂直布局容器</span><br>    <span class="hljs-title class_">Column</span>() &#123;<br>      <span class="hljs-comment">// 创建MyComponent实例并传递参数</span><br>      <span class="hljs-title class_">MyComponent</span>(&#123; <br>        <span class="hljs-attr">countDownFrom</span>: <span class="hljs-number">10</span>,        <span class="hljs-comment">// 初始化countDownFrom为10</span><br>        <span class="hljs-attr">color</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">someColor</span>     <span class="hljs-comment">// 传递颜色值</span><br>      &#125;)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602150903628.png" srcset="/img/loading.gif" lazyload alt="image-20250602150903628"></p>
+<blockquote>
+<p>传递参数修改颜色</p>
+</blockquote>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151602717.png" srcset="/img/loading.gif" lazyload alt="image-20250602151602717"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">MyComponent2</span> &#123;<br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 创建按钮组件，内容为&quot;Hello World&quot;</span><br>    <span class="hljs-title class_">Button</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)<br>     <br>  &#125;<br>&#125;<br><br><span class="hljs-meta">@Entry</span><br><span class="hljs-meta">@Component</span><br>struct <span class="hljs-title class_">MyComponent</span> &#123;<br>  <span class="hljs-title function_">build</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 创建水平布局容器</span><br>    <span class="hljs-title class_">Row</span>() &#123;<br>      <span class="hljs-comment">// 引入子组件MyComponent2</span><br>      <span class="hljs-title class_">MyComponent2</span>()<br>    &#125;<br>    .<span class="hljs-title function_">width</span>(<span class="hljs-number">200</span>)           <span class="hljs-comment">// 设置Row宽度为200vp</span><br>    .<span class="hljs-title function_">height</span>(<span class="hljs-number">300</span>)          <span class="hljs-comment">// 设置Row高度为300vp</span><br>    .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-title class_">Color</span>.<span class="hljs-property">Red</span>) <span class="hljs-comment">// 设置背景色为红色</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ArkUI给自定义组件设置样式时，相当于给MyComponent2套了一个不可见的容器组件。<br>而这些样式是设置在容器组件上的，而非直接设置给MyComponent2的Button组件。<br>通过渲染结果我们可以很清楚的看到，背景颜色红色并没有直接生效在Button上，而是生效在Button所处的开发者不可见的容器组件上。</p>
+</blockquote>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151851993.png" srcset="/img/loading.gif" lazyload alt="image-20250602151851993"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151926517.png" srcset="/img/loading.gif" lazyload alt="image-20250602151926517"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602151953821.png" srcset="/img/loading.gif" lazyload alt="image-20250602151953821"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152031365.png" srcset="/img/loading.gif" lazyload alt="image-20250602152031365"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152108151.png" srcset="/img/loading.gif" lazyload alt="image-20250602152108151"></p>
+<ul>
+<li><strong>当应用在后台启动时</strong>，此时应用进程并没有销毁，所以仅需要执行<strong>onPageShow</strong>。</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152238815.png" srcset="/img/loading.gif" lazyload alt="image-20250602152238815"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152331168.png" srcset="/img/loading.gif" lazyload alt="image-20250602152331168"></p>
+<ul>
+<li>展示<strong>生命周期的调用时机</strong>案例：</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602152854186.png" srcset="/img/loading.gif" lazyload alt="image-20250602152854186"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153618910.png" srcset="/img/loading.gif" lazyload alt="image-20250602153618910"></p>
+<blockquote>
+<p>在resources&#x2F;base&#x2F;profile目录下的main_pages.json中配置 -实现路由</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">&gt;<span class="hljs-punctuation">&#123;</span><br>&gt;<span class="hljs-attr">&quot;src&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br>&gt;<span class="hljs-string">&quot;pages/Index&quot;</span><span class="hljs-punctuation">,</span><br>&gt;<span class="hljs-string">&quot;pages/Page2&quot;</span><br>&gt;<span class="hljs-punctuation">&#125;</span><br>&gt;<span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153658764.png" srcset="/img/loading.gif" lazyload alt="image-20250602153658764"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153711059.png" srcset="/img/loading.gif" lazyload alt="image-20250602153711059"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602153720204.png" srcset="/img/loading.gif" lazyload alt="image-20250602153720204"></p>
+<ul>
+<li><p><strong>@Builder装饰器 -自定义构建函数</strong>   -局部封装-无独立生命周期</p>
+<ul>
+<li>内部定义无需function</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602161320920.png" srcset="/img/loading.gif" lazyload alt="image-20250602161320920"></p>
+<ul>
+<li><p>按照值传递不会引起@Builder方法内的UI刷新。</p>
+</li>
+<li><pre><code class="typescript">@Builder function ABuilder(&#123; paramA1: string, paramB1 : string)&#123;...&#125;
+<figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nim"><br>- 按引用传递参数时，传递的参数可为状态变量，且状态变量的改变会引起@<span class="hljs-type">Builder</span>方法内的<span class="hljs-type">UI</span>刷新。<span class="hljs-type">ArkUI</span>提供$$作为按引用传递参数的范式。<br><br>- ~~~typescript<br>  @<span class="hljs-type">Builder</span> function <span class="hljs-type">ABuilder</span>( $$ : &#123; paramA1: <span class="hljs-type">string</span>, paramB1 : <span class="hljs-type">string</span> &#125; )<span class="hljs-meta">&#123;...&#125;</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><pre><code class="typescript">@Builder function ABuilder($$: &#123; paramA1: string &#125;) &#123;
+Row() &#123;
+Text(`UseStateVarByReference: $&#123;$$.paramA1&#125; `)     .margin(20)
+&#125;
+&#125;
+
+@Entry
+@Component
+struct Parent &#123;
+  @State label: string = &#39;Hello&#39;;
+
+  build() &#123;
+    Column() &#123;
+      Divider()
+      
+      // 在Parent组件中调用ABuilder，将label引用传递给ABuilder
+      ABuilder(&#123; 
+        text: this.label // 通过props传递数据
+      &#125;)
+      
+      Button(&#39;Click me&#39;)
+        .onClick(() =&gt; &#123;
+          // 点击按钮后更新状态，触发UI刷新
+          this.label = &#39;ArkUI&#39;;
+        &#125;)
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-状态管理-装饰器"><a href="#5-状态管理-装饰器" class="headerlink" title="5.状态管理-装饰器"></a>5.状态管理-装饰器</h2><p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182216335.png" srcset="/img/loading.gif" lazyload alt="image-20250602182216335"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182226616.png" srcset="/img/loading.gif" lazyload alt="image-20250602182226616"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182239902.png" srcset="/img/loading.gif" lazyload alt="image-20250602182239902"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182253645.png" srcset="/img/loading.gif" lazyload alt="image-20250602182253645"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182316405.png" srcset="/img/loading.gif" lazyload alt="image-20250602182316405"></p>
+<ul>
+<li><strong>@State装饰器</strong></li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182332855.png" srcset="/img/loading.gif" lazyload alt="image-20250602182332855"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182343017.png" srcset="/img/loading.gif" lazyload alt="image-20250602182343017"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182513606.png" srcset="/img/loading.gif" lazyload alt="image-20250602182513606"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182604125.png" srcset="/img/loading.gif" lazyload alt="image-20250602182604125"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602182622253.png" srcset="/img/loading.gif" lazyload alt="image-20250602182622253"></p>
+<ul>
+<li>修改自定义类的属性时，使用**.**修改时，不会引起刷新，需要整个进行修改才会进行刷新。</li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183113878.png" srcset="/img/loading.gif" lazyload alt="image-20250602183113878"></p>
+<ul>
+<li><strong>@Prop装饰器</strong></li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183155542.png" srcset="/img/loading.gif" lazyload alt="image-20250602183155542"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183231473.png" srcset="/img/loading.gif" lazyload alt="image-20250602183231473"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183239779.png" srcset="/img/loading.gif" lazyload alt="image-20250602183239779"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183249468.png" srcset="/img/loading.gif" lazyload alt="image-20250602183249468"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183258668.png" srcset="/img/loading.gif" lazyload alt="image-20250602183258668"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183307893.png" srcset="/img/loading.gif" lazyload alt="image-20250602183307893"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183317548.png" srcset="/img/loading.gif" lazyload alt="image-20250602183317548"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183326990.png" srcset="/img/loading.gif" lazyload alt="image-20250602183326990"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183337127.png" srcset="/img/loading.gif" lazyload alt="image-20250602183337127"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183423412.png" srcset="/img/loading.gif" lazyload alt="image-20250602183423412"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183436998.png" srcset="/img/loading.gif" lazyload alt="image-20250602183436998"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183450331.png" srcset="/img/loading.gif" lazyload alt="image-20250602183450331"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183511548.png" srcset="/img/loading.gif" lazyload alt="image-20250602183511548"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183522453.png" srcset="/img/loading.gif" lazyload alt="image-20250602183522453"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183548508.png" srcset="/img/loading.gif" lazyload alt="image-20250602183548508"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183558252.png" srcset="/img/loading.gif" lazyload alt="image-20250602183558252"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183606877.png" srcset="/img/loading.gif" lazyload alt="image-20250602183606877"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183643894.png" srcset="/img/loading.gif" lazyload alt="image-20250602183643894"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183716182.png" srcset="/img/loading.gif" lazyload alt="image-20250602183716182"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183735963.png" srcset="/img/loading.gif" lazyload alt="image-20250602183735963"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183751520.png" srcset="/img/loading.gif" lazyload alt="image-20250602183751520"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183921275.png" srcset="/img/loading.gif" lazyload alt="image-20250602183921275"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183938895.png" srcset="/img/loading.gif" lazyload alt="image-20250602183938895"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602183957575.png" srcset="/img/loading.gif" lazyload alt="image-20250602183957575"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184009281.png" srcset="/img/loading.gif" lazyload alt="image-20250602184009281"></p>
+<ul>
+<li><strong>@Link装饰器</strong></li>
+</ul>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184026232.png" srcset="/img/loading.gif" lazyload alt="image-20250602184026232"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184045714.png" srcset="/img/loading.gif" lazyload alt="image-20250602184045714"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184058548.png" srcset="/img/loading.gif" lazyload alt="image-20250602184058548"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184108710.png" srcset="/img/loading.gif" lazyload alt="image-20250602184108710"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184118746.png" srcset="/img/loading.gif" lazyload alt="image-20250602184118746"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184135555.png" srcset="/img/loading.gif" lazyload alt="image-20250602184135555"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184144704.png" srcset="/img/loading.gif" lazyload alt="image-20250602184144704"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184158198.png" srcset="/img/loading.gif" lazyload alt="image-20250602184158198"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184233058.png" srcset="/img/loading.gif" lazyload alt="image-20250602184233058"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184257159.png" srcset="/img/loading.gif" lazyload alt="image-20250602184257159"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184310184.png" srcset="/img/loading.gif" lazyload alt="image-20250602184310184"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184326512.png" srcset="/img/loading.gif" lazyload alt="image-20250602184326512"></p>
+<h2 id="6-条件渲染"><a href="#6-条件渲染" class="headerlink" title="6.条件渲染"></a>6.条件渲染</h2><p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184344110.png" srcset="/img/loading.gif" lazyload alt="image-20250602184344110"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184354641.png" srcset="/img/loading.gif" lazyload alt="image-20250602184354641"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184417963.png" srcset="/img/loading.gif" lazyload alt="image-20250602184417963"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184426643.png" srcset="/img/loading.gif" lazyload alt="image-20250602184426643"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184436650.png" srcset="/img/loading.gif" lazyload alt="image-20250602184436650"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184516661.png" srcset="/img/loading.gif" lazyload alt="image-20250602184516661"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184545024.png" srcset="/img/loading.gif" lazyload alt="image-20250602184545024"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184559398.png" srcset="/img/loading.gif" lazyload alt="image-20250602184559398"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184631460.png" srcset="/img/loading.gif" lazyload alt="image-20250602184631460"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184646097.png" srcset="/img/loading.gif" lazyload alt="image-20250602184646097"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184659067.png" srcset="/img/loading.gif" lazyload alt="image-20250602184659067"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184731929.png" srcset="/img/loading.gif" lazyload alt="image-20250602184731929"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184746134.png" srcset="/img/loading.gif" lazyload alt="image-20250602184746134"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184756985.png" srcset="/img/loading.gif" lazyload alt="image-20250602184756985"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184805677.png" srcset="/img/loading.gif" lazyload alt="image-20250602184805677"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184812838-17488612940631.png" srcset="/img/loading.gif" lazyload alt="image-20250602184812838"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184827821.png" srcset="/img/loading.gif" lazyload alt="image-20250602184827821"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184842631.png" srcset="/img/loading.gif" lazyload alt="image-20250602184842631"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184904361.png" srcset="/img/loading.gif" lazyload alt="image-20250602184904361"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602184918715.png" srcset="/img/loading.gif" lazyload alt="image-20250602184918715"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185105401.png" srcset="/img/loading.gif" lazyload alt="image-20250602185105401"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185116303.png" srcset="/img/loading.gif" lazyload alt="image-20250602185116303"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185133258.png" srcset="/img/loading.gif" lazyload alt="image-20250602185133258"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185144484.png" srcset="/img/loading.gif" lazyload alt="image-20250602185144484"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185154398.png" srcset="/img/loading.gif" lazyload alt="image-20250602185154398"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185203664.png" srcset="/img/loading.gif" lazyload alt="image-20250602185203664"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185232463.png" srcset="/img/loading.gif" lazyload alt="image-20250602185232463"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185249447.png" srcset="/img/loading.gif" lazyload alt="image-20250602185249447"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185302960.png" srcset="/img/loading.gif" lazyload alt="image-20250602185302960"></p>
+<p><img src="/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91.assets/image-20250602185313940.png" srcset="/img/loading.gif" lazyload alt="image-20250602185313940"></p>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
