@@ -1,0 +1,1408 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xing">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Web后端开发实战1.Tlias智能学习辅助系统-后端 后端技术    需求   1.准备工作 前后端分离-接口文档  开发规范-Restful风格（REpresentational State Transfer 表述性状态转换），是一种软件架构风格  描述功能模块通常使用复数形式（加s），表示此类资源，而非单个资源。如：users,books… GET:查询 POST:新增 PUT:修改 DEL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xing的个人博客">
+<meta property="og:url" content="http://example.com/2025/07/02/Web%E5%90%8E%E7%AB%AF%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="xing的个人博客">
+<meta property="og:description" content="Web后端开发实战1.Tlias智能学习辅助系统-后端 后端技术    需求   1.准备工作 前后端分离-接口文档  开发规范-Restful风格（REpresentational State Transfer 表述性状态转换），是一种软件架构风格  描述功能模块通常使用复数形式（加s），表示此类资源，而非单个资源。如：users,books… GET:查询 POST:新增 PUT:修改 DEL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/.com//image-20250306175338956.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228153813425.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228155133465.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228161020984.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228200706298.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228183821558.png">
+<meta property="og:image" content="http://example.com/.com//image-20250301184544284.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228204504212.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228204635036.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228204440360.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228205601598.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228205819280.png">
+<meta property="og:image" content="http://example.com/.com//image-20250228205928495.png">
+<meta property="og:image" content="http://example.com/.com//image-20250301172419678-17408210611561.png">
+<meta property="og:image" content="http://example.com/.com//image-20250301182514426.png">
+<meta property="og:image" content="http://example.com/.com//image-20250301182648728.png">
+<meta property="og:image" content="http://example.com/.com//image-20250301235202017-17408443454842.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302003124238.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302003141142.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302003338846.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302122550566.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302132454820.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302142223071.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302152210711.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302155536674.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303161930170.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303162030344.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302160741892.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302161441952.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302163740548.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302164710502.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302201818452.png">
+<meta property="og:image" content="http://example.com/.com//image-20250302201818452.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303140436161.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303151208888.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303155340027.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303174841960.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303193621213.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303202900997.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303230247302.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303230710654.png">
+<meta property="og:image" content="http://example.com/.com//image-20250303232856934.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304124227959.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304124610441.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305113052606.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305120527143.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305121211497.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305124301039.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305131206814.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305131643188.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305132359900.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305132531924.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305132554594.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305143407019.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305143322536.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305143336807.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305143742385.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305150447077.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305150654940.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305151912359.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305152725057.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305155843359.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305160726365.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305161239759.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305161422280.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305161505705.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305163451303.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305152725057.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305165104555.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305165436487.png">
+<meta property="og:image" content="http://example.com/.com//image-20250305165724655.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304125030916.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304125113830.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304124455463.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304143750501.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304161548313.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304124535853.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304160843861.png">
+<meta property="og:image" content="http://example.com/.com//image-20250304161517261.png">
+<meta property="article:published_time" content="2025-07-01T17:11:58.322Z">
+<meta property="article:modified_time" content="2025-03-30T03:25:31.149Z">
+<meta property="article:author" content="xing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/.com//image-20250306175338956.png">
+  
+  
+  
+  <title>xing的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>xing的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-02 01:11" pubdate>
+          2025年7月2日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Web后端开发实战"><a href="#Web后端开发实战" class="headerlink" title="Web后端开发实战"></a>Web后端开发实战</h1><h2 id="1-Tlias智能学习辅助系统-后端"><a href="#1-Tlias智能学习辅助系统-后端" class="headerlink" title="1.Tlias智能学习辅助系统-后端"></a>1.Tlias智能学习辅助系统-后端</h2><ul>
+<li>后端技术</li>
+</ul>
+<p><img src="/.com//image-20250306175338956.png" srcset="/img/loading.gif" lazyload alt="image-20250306175338956"></p>
+<ul>
+<li>需求</li>
+</ul>
+<p><img src="/.com//image-20250228153813425.png" srcset="/img/loading.gif" lazyload alt="image-20250228153813425"></p>
+<h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h3><ul>
+<li><p>前后端分离-接口文档</p>
+</li>
+<li><p>开发规范-Restful风格（REpresentational State Transfer 表述性状态转换），是一种软件架构风格</p>
+<ul>
+<li>描述功能模块通常使用复数形式（加s），表示此类资源，而非单个资源。如：users,books…</li>
+<li>GET:查询</li>
+<li>POST:新增</li>
+<li>PUT:修改</li>
+<li>DELETE:删除</li>
+</ul>
+</li>
+</ul>
+<p><img src="/.com//image-20250228155133465.png" srcset="/img/loading.gif" lazyload alt="image-20250228155133465"></p>
+<ul>
+<li><p>开发规范- Apifox工具</p>
+<p><img src="/.com//image-20250228161020984.png" srcset="/img/loading.gif" lazyload alt="image-20250228161020984"></p>
+</li>
+<li><p>工程搭建</p>
+<ol>
+<li>创建 SpringBoot 工程，并引入 web 开发起步依赖、mybatis、mysql 驱动、lombok。</li>
+<li>创建数据库表 dept（部门表）, 并在 application.yml 中配置数据库的基本信息。</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#配置数据库的连接信息</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/tlias</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">&#x27;052712&#x27;</span><br><br><br><span class="hljs-comment">#mybatis的相关配置</span><br><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-comment"># 配置日志实现</span><br>    <span class="hljs-attr">log-impl:</span> <span class="hljs-string">org.apache.ibatis.logging.stdout.StdOutImpl</span><br>    <span class="hljs-comment"># 配置mapper.xml文件位置</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:mapper/*.xml</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>准备基础代码结构，并引入实体类 Dept 及统一的响应结果封装类 Result</li>
+</ol>
+</li>
+</ul>
+<p><img src="/.com//image-20250228200706298.png" srcset="/img/loading.gif" lazyload alt="image-20250228200706298"></p>
+<blockquote>
+<p>建表、编写配置文件引入基本配置、编写实体类、项目分层、添加接口、类和注解</p>
+<p>mapper(@Mapper,接口)、service(@Service,实现类)、controller(@RestController(@Controller,@ResponseBody),实体类)</p>
+</blockquote>
+<blockquote>
+<p><strong>Result</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@Data</span><br>&gt;<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Result</span> &#123;<br>   <span class="hljs-keyword">private</span> Integer code;<span class="hljs-comment">//响应码 1成功 0失败</span><br>   <span class="hljs-keyword">private</span> String msg;<span class="hljs-comment">//响应信息</span><br>   <span class="hljs-keyword">private</span> Object data;<span class="hljs-comment">//响应数据</span><br><br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Result <span class="hljs-title function_">success</span><span class="hljs-params">()</span>&#123;<br>      Result result=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Result</span>();<br>      result.code=<span class="hljs-number">1</span>;<br>      result.msg=<span class="hljs-string">&quot;sucess&quot;</span>;<br>      <span class="hljs-keyword">return</span> result;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Result <span class="hljs-title function_">success</span><span class="hljs-params">(Object object)</span>&#123;<br>       Result result=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Result</span>();<br>       result.code=<span class="hljs-number">1</span>;<br>       result.data=object;<br>       result.msg=<span class="hljs-string">&quot;sucess&quot;</span>;<br>       <span class="hljs-keyword">return</span> result;<br>   &#125;<br><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Result <span class="hljs-title function_">error</span><span class="hljs-params">(String msg)</span>&#123;<br>       Result result=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Result</span>();<br>       result.code=<span class="hljs-number">0</span>;<br>       result.msg=msg;<br>       <span class="hljs-keyword">return</span> result;<br>   &#125;<br>&gt;&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2-部门管理"><a href="#2-部门管理" class="headerlink" title="2.部门管理"></a>2.部门管理</h3><h4 id="1-查询部门"><a href="#1-查询部门" class="headerlink" title="1.查询部门"></a>1.查询部门</h4><ul>
+<li>接口开发</li>
+</ul>
+<p><img src="/.com//image-20250228183821558.png" srcset="/img/loading.gif" lazyload alt="image-20250228183821558"></p>
+<ul>
+<li>全部查询</li>
+</ul>
+<blockquote>
+<p><strong>DeptController</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DeptController</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> DeptService deptService;<br>    <span class="hljs-comment">//@RequestMapping(value = &quot;/depts&quot;,method = RequestMethod.GET)</span><br>    <span class="hljs-meta">@GetMapping(&quot;/depts&quot;)</span><br>    <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">list</span><span class="hljs-params">()</span>&#123;<br>        List&lt;Dept&gt; list=deptService.findAll();<br>        System.out.println(<span class="hljs-string">&quot;查询全部的部门信息&quot;</span>);<br>        <span class="hljs-keyword">return</span> Result.success(list);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptService</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@Service</span><br>&gt;<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DeptServiceimpImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">DeptService</span> &#123;<br>   <span class="hljs-meta">@Autowired</span><br>   <span class="hljs-keyword">private</span> DeptMapper deptMapper;<br>   <span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> List&lt;Dept&gt; <span class="hljs-title function_">findAll</span><span class="hljs-params">()</span> &#123;<br>       <span class="hljs-keyword">return</span> deptMapper.findAll();<br>   &#125;<br>&gt;&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptMapper</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@Mapper</span><span class="hljs-comment">//表示这是一个mybatis的mapper类</span><br>&gt;<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">DeptMapper</span> &#123;<br>      <span class="hljs-meta">@Select(&quot;select id,name,create_time,update_time from dept order by update_time desc&quot;)</span><br>   List&lt;Dept&gt; <span class="hljs-title function_">findAll</span><span class="hljs-params">()</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>根据id查询</li>
+</ul>
+<p><img src="/.com//image-20250301184544284.png" srcset="/img/loading.gif" lazyload alt="image-20250301184544284"></p>
+<blockquote>
+<p>路径参数:通过请求URL直接传递参数，使用{…}来标识该路径参数，需要使用**@PathVariable**获取</p>
+</blockquote>
+<ul>
+<li>前后端联调测试</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1pzty-fFmTECpw8U11mU2lA">前端资源</a></p>
+<p>提取码：mlgb</p>
+<p><img src="/.com//image-20250228204504212.png" srcset="/img/loading.gif" lazyload alt="image-20250228204504212"></p>
+<blockquote>
+<p>前端资源文件放在html路径下</p>
+</blockquote>
+<p><img src="/.com//image-20250228204635036.png" srcset="/img/loading.gif" lazyload alt="image-20250228204635036"></p>
+<p>显示数据即联调成功</p>
+<p><img src="/.com//image-20250228204440360.png" srcset="/img/loading.gif" lazyload alt="image-20250228204440360"></p>
+<blockquote>
+<p>发现请求url并不是主机的tomcat服务器，那是如何获取数据的呢？</p>
+<p>通过Nginx的反向代理</p>
+<p><img src="/.com//image-20250228205601598.png" srcset="/img/loading.gif" lazyload alt="image-20250228205601598"></p>
+<p>查看Nginx的配置文件</p>
+<p><img src="/.com//image-20250228205819280.png" srcset="/img/loading.gif" lazyload alt="image-20250228205819280"></p>
+</blockquote>
+<p><img src="/.com//image-20250228205928495.png" srcset="/img/loading.gif" lazyload alt="image-20250228205928495"></p>
+<h4 id="2-删除部门"><a href="#2-删除部门" class="headerlink" title="2.删除部门"></a>2.删除部门</h4><ul>
+<li><p>根据id删除部门</p>
+<p><img src="/.com//image-20250301172419678-17408210611561.png" srcset="/img/loading.gif" lazyload alt="image-20250301172419678"></p>
+<blockquote>
+<p><strong>DeptController</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@DeleteMapping(&quot;/depts/&#123;id&#125;&quot;)</span><br>    <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">delete</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Integer id)</span>&#123;<br>        deptService.deleteById(id);<br>        System.out.println(<span class="hljs-string">&quot;删除部门的id为：&quot;</span>+id);<br>        <span class="hljs-keyword">return</span> Result.success();<br>    &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptService</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteById</span><span class="hljs-params">(Integer id)</span> &#123;<br>       deptMapper.deleteById(id);<br>   &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptMapper</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 按id删除部门</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@Delete(&quot;delete from dept where id=#&#123;id&#125;&quot;)</span><br>   <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteById</span><span class="hljs-params">(Integer id)</span>;<br></code></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p>同样进行接口功能测试</p>
+<h4 id="3-新增部门"><a href="#3-新增部门" class="headerlink" title="3.新增部门"></a>3.新增部门</h4><p><img src="/.com//image-20250301182514426.png" srcset="/img/loading.gif" lazyload alt="image-20250301182514426"></p>
+<ul>
+<li>使用实体类来接收json格式的参数</li>
+</ul>
+<p><img src="/.com//image-20250301182648728.png" srcset="/img/loading.gif" lazyload alt="image-20250301182648728"></p>
+<ul>
+<li><blockquote>
+<p><strong>DeptController</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 新增部门</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> dept</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@PostMapping(&quot;/depts&quot;)</span><br><span class="hljs-keyword">public</span> Result <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Dept dept)</span>&#123;<br>System.out.println(<span class="hljs-string">&quot;新增部门的信息为：&quot;</span>+dept);<br>deptService.add(dept);<br><span class="hljs-keyword">return</span> Result.success();<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptService</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(Dept dept)</span> &#123;<br>      dept.setCreateTime(LocalDateTime.now());<br>      dept.setUpdateTime(LocalDateTime.now());<br>      deptMapper.add(dept);<br>  &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptMapper</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">  * 插入新增部门</span><br><span class="hljs-comment">  */</span><br> <span class="hljs-meta">@Insert(&quot;insert into dept(name,create_time,update_time) values(#&#123;name&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;)&quot;)</span><br> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(Dept dept)</span>;<br></code></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p>同样进行接口功能测试</p>
+<h4 id="4-修改部门"><a href="#4-修改部门" class="headerlink" title="4.修改部门"></a>4.修改部门</h4><ul>
+<li><p>修改时需要设置修改时间字段</p>
+</li>
+<li><blockquote>
+<p><strong>DeptController</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 根据id更新部门数据</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@PutMapping</span><br>   <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">update</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Dept dept)</span>&#123;<br>       System.out.println(<span class="hljs-string">&quot;修改部门的信息为：&quot;</span>+dept);<br>       deptService.update(dept);<br>       <span class="hljs-keyword">return</span> Result.success();<br>   &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptService</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(Dept dept)</span> &#123;<br>     dept.setUpdateTime(LocalDateTime.now());<br>     deptMapper.update(dept);<br> &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>DeptMapper</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 根据id修改部门</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-meta">@Update(&quot;update dept set name=#&#123;name&#125;,update_time=#&#123;updateTime&#125; where id=#&#123;id&#125;&quot;)</span><br>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(Dept dept)</span>;<br><br></code></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p>同样进行接口功能测试</p>
+<h4 id="5-添加日志"><a href="#5-添加日志" class="headerlink" title="5.添加日志"></a>5.添加日志</h4><ul>
+<li>使用Lombok注解**@Slf4j**</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//System.out.println(&quot;查询部门的id为：&quot;+id);</span><br>        log.info(<span class="hljs-string">&quot;查询部门的id为：&#123;&#125;&quot;</span>, id);<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-员工管理"><a href="#3-员工管理" class="headerlink" title="3.员工管理"></a>3.员工管理</h3><h4 id="1-查询员工"><a href="#1-查询员工" class="headerlink" title="1.查询员工"></a>1.查询员工</h4><ul>
+<li><p>需求</p>
+<p><img src="/.com//image-20250301235202017-17408443454842.png" srcset="/img/loading.gif" lazyload alt="image-20250301235202017"></p>
+<ol>
+<li>准备数据库表 emp、emp_expr。</li>
+<li>准备实体类 Emp、EmpExpr。</li>
+<li>准备三层架构的基本代码结构：EmpController、EmpService&#x2F;EmpServiceImpl、EmpMapper.</li>
+<li>准备结果封装的实体类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 分页结果封装类</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PageResult</span>&lt;T&gt; &#123;<br>    <span class="hljs-keyword">private</span> Long total;<br>    <span class="hljs-keyword">private</span> List&lt;T&gt; rows;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>分页查询</p>
+<p><img src="/.com//image-20250302003124238.png" srcset="/img/loading.gif" lazyload alt="image-20250302003124238"></p>
+<p><img src="/.com//image-20250302003141142.png" srcset="/img/loading.gif" lazyload alt="image-20250302003141142"></p>
+<p><img src="/.com//image-20250302003338846.png" srcset="/img/loading.gif" lazyload alt="image-20250302003338846"></p>
+<p><img src="/.com//image-20250302122550566.png" srcset="/img/loading.gif" lazyload alt="image-20250302122550566"></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>原始方式：</li>
+</ul>
+<blockquote>
+<p>EmptController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"> &gt;<span class="hljs-comment">/**</span><br><span class="hljs-comment">* 分页查询员工信息</span><br><span class="hljs-comment">*/</span><br> &gt;<span class="hljs-meta">@GetMapping</span><br>   <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">list</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(defaultValue = &quot;1&quot;)</span> Integer page, <span class="hljs-meta">@RequestParam(defaultValue = &quot;10&quot;)</span> Integer pageSize)</span>&#123;<br>   PageResult&lt;Emp&gt; pageResult=empService.page(page,pageSize);<br>   log.info(<span class="hljs-string">&quot;分页查询：&#123;&#125;，&#123;&#125;&quot;</span>,page,pageSize);<br>   <span class="hljs-keyword">return</span> Result.success(pageResult);<br> &gt;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>EmpServiceImpl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"> &gt;<span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> PageResult&lt;Emp&gt; <span class="hljs-title function_">page</span><span class="hljs-params">(Integer page, Integer pageSize)</span> &#123;<br> &gt;<span class="hljs-comment">//        if(page==null||page&lt;=0)&#123;</span><br> &gt;<span class="hljs-comment">//            page=1;</span><br> &gt;<span class="hljs-comment">//        &#125;</span><br> &gt;<span class="hljs-comment">//        if(pageSize==null||pageSize&lt;=0)&#123;</span><br> &gt;<span class="hljs-comment">//            pageSize=10;</span><br> &gt;<span class="hljs-comment">//        &#125;</span><br><span class="hljs-comment">//调用mapper接口，查询总记录数</span><br>       <span class="hljs-type">Long</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> empMapper.count();<br>       Integer start=(page-<span class="hljs-number">1</span>)*pageSize;<br>       <span class="hljs-comment">//调用mapper接口，分页查询</span><br>       List&lt;Emp&gt; rows=empMapper.list(start,pageSize);<br>       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageResult</span>&lt;Emp&gt;(total,rows);<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>EmpMapper</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"> &gt;<span class="hljs-comment">/**</span><br><span class="hljs-comment">* 查询总记录数</span><br><span class="hljs-comment">*/</span><br> &gt;<span class="hljs-meta">@Select(&quot;Select count(*) from emp e left join dept d on e.dept_id=d.id&quot;)</span><br> &gt;<span class="hljs-keyword">public</span> Long <span class="hljs-title function_">count</span><span class="hljs-params">()</span>;<br> &gt;<span class="hljs-comment">/**</span><br><span class="hljs-comment">* 分页查询</span><br><span class="hljs-comment">*/</span><br> &gt;<span class="hljs-meta">@Select(&quot;select e.*,d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc limit #&#123;start&#125;,#&#123;pageSize&#125;&quot;)</span><br> &gt;<span class="hljs-keyword">public</span> List&lt;Emp&gt; <span class="hljs-title function_">list</span><span class="hljs-params">(Integer start,Integer pageSize)</span>;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>PageHelper插件</li>
+</ul>
+<p> <img src="/.com//image-20250302132454820.png" srcset="/img/loading.gif" lazyload alt="image-20250302132454820"></p>
+<ul>
+<li><blockquote>
+<p>EmptController不变</p>
+<p>EmpServiceImpl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 使用PageHelper插件来进行分页查询</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@param</span> page</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@param</span> pageSize</span><br><span class="hljs-comment">   * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> PageResult&lt;Emp&gt; <span class="hljs-title function_">page</span><span class="hljs-params">(Integer page, Integer pageSize)</span> &#123;<br>&gt;<span class="hljs-comment">//设置分页参数</span><br>      PageHelper.startPage(page, pageSize);<br>&gt;<span class="hljs-comment">//调用查询方法</span><br>      List&lt;Emp&gt; empList = empMapper.list();<br>&gt;<span class="hljs-comment">//封装分页结果</span><br>      <span class="hljs-comment">//Page是PageHelper提供的分页对象，包含了分页信息，如总记录数、总页数等</span><br>      Page&lt;Emp&gt; p = (Page&lt;Emp&gt;) empList;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageResult</span>&lt;Emp&gt;(p.getTotal(),p.getResult());<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<p>EmpMapper</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-comment">//使用PageHelper分页插件-无需考虑分页操作</span><br>  <span class="hljs-meta">@Select(&quot;select e.*,d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc&quot;)</span><br>  <span class="hljs-keyword">public</span> List&lt;Emp&gt; <span class="hljs-title function_">list</span><span class="hljs-params">()</span>;<br></code></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>条件查询</p>
+<p><img src="/.com//image-20250302142223071.png" srcset="/img/loading.gif" lazyload alt="image-20250302142223071"></p>
+</li>
+</ul>
+<p><img src="/.com//image-20250302152210711.png" srcset="/img/loading.gif" lazyload alt="image-20250302152210711"></p>
+<blockquote>
+<p>用xml编写动态sql</p>
+<p><img src="/.com//image-20250302155536674.png" srcset="/img/loading.gif" lazyload alt="image-20250302155536674"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs xml">&gt;<span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> ?&gt;</span><br>&gt;<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">mapper</span></span><br><span class="hljs-meta">       <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span><br><span class="hljs-meta">       <span class="hljs-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br>&gt;<span class="hljs-comment">&lt;!--对应mapper的全定向路径--&gt;</span><br>&gt;<span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;org.example.tliaswebmanagement.mapper.EmpMapper&quot;</span>&gt;</span><br>&gt;<span class="hljs-comment">&lt;!--定义对应方法的sql语句,id为方法名，resultType为返回类型的全定限名--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;org.example.tliaswebmanagement.pojo.Emp&quot;</span>&gt;</span><br>       select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id<br>       <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;name !=null and name !=&#x27;&#x27;&quot;</span>&gt;</span><br>               e.name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)<br>           <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;gender !=null &quot;</span>&gt;</span><br>               and e.gender = #&#123;gender&#125;<br>           <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;begin !=null and end != null&quot;</span>&gt;</span><br>               and e.entry_date between #&#123;begin&#125; and #&#123;end&#125;<br>           <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span><br>       order by e.update_time desc<br>   <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>最终代码</p>
+<p>EmpControl- 用对象封装请求头参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@GetMapping()</span><br>&gt;<span class="hljs-comment">//使用@RequestParam注解，设置默认值，如果没有传递page和pageSize参数，则使用默认值1和10</span><br>   <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">list</span><span class="hljs-params">(EmpQueryParam empQueryParam)</span>&#123;<br>   PageResult&lt;Emp&gt; pageResult=empService.page(empQueryParam);<br>   log.info(<span class="hljs-string">&quot;分页查询：&#123;&#125;&quot;</span>,empQueryParam);<br>   <span class="hljs-keyword">return</span> Result.success(pageResult);<br>&gt;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>EmpService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> PageResult&lt;Emp&gt; <span class="hljs-title function_">page</span><span class="hljs-params">(EmpQueryParam empQueryParam)</span> &#123;<br>&gt;<span class="hljs-comment">//设置分页参数</span><br>       PageHelper.startPage(empQueryParam.getPage(), empQueryParam.getPageSize());<br>&gt;<span class="hljs-comment">//调用查询方法</span><br>       List&lt;Emp&gt; empList = empMapper.list(empQueryParam);<br>&gt;<span class="hljs-comment">//封装分页结果</span><br>       <span class="hljs-comment">//Page是PageHelper提供的分页对象，包含了分页信息，如总记录数、总页数等</span><br>       Page&lt;Emp&gt; p = (Page&lt;Emp&gt;) empList;<br>       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageResult</span>&lt;Emp&gt;(p.getTotal(),p.getResult());<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>EmpMapper</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-keyword">public</span> List&lt;Emp&gt; <span class="hljs-title function_">list</span><span class="hljs-params">(EmpQueryParam empQueryParam)</span>;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2-删除-批量删除员工"><a href="#2-删除-批量删除员工" class="headerlink" title="2.删除&#x2F;批量删除员工"></a>2.删除&#x2F;批量删除员工</h4><ul>
+<li>根据id删除员工</li>
+<li>前端传递对应的id</li>
+<li>后端删除员工和其对应工作经历</li>
+<li>后端无需返回信息</li>
+</ul>
+<p><img src="/.com//image-20250303161930170.png" srcset="/img/loading.gif" lazyload alt="image-20250303161930170"></p>
+<p><img src="/.com//image-20250303162030344.png" srcset="/img/loading.gif" lazyload alt="image-20250303162030344"></p>
+<blockquote>
+<ul>
+<li>EmpController</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 删除员工</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">////数组接收数组参数，路径变量接收</span><br><span class="hljs-comment">//@DeleteMapping(&quot;/&#123;id&#125;&quot;)</span><br><span class="hljs-comment">//public Result delete(@PathVariable Integer[] ids)&#123;</span><br><span class="hljs-comment">//    empService.deleteById(ids);</span><br><span class="hljs-comment">//    log.info(&quot;删除id为&#123;&#125;的员工&quot;, Arrays.toString(ids));</span><br><span class="hljs-comment">//    return Result.success();</span><br><span class="hljs-comment">//&#125;</span><br><span class="hljs-comment">//集合接收,前端以查询字符串形式传递</span><br><span class="hljs-meta">@DeleteMapping</span><br><span class="hljs-keyword">public</span> Result <span class="hljs-title function_">delete</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;ids&quot;)</span> List&lt;Integer&gt; ids)</span>&#123;<br>    empService.deleteById(ids);<br>    log.info(<span class="hljs-string">&quot;删除id为&#123;&#125;的员工&quot;</span>, ids);<br>    <span class="hljs-keyword">return</span> Result.success();<br>&#125;<br><span class="hljs-comment">//集合接收,前端以路径参数传递</span><br>    <span class="hljs-meta">@DeleteMapping(&quot;/&#123;id&#125;&quot;)</span><br>    <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">delete</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String id)</span>&#123;<br>        List&lt;Integer&gt; ids = Arrays.stream(id.split(<span class="hljs-string">&quot;,&quot;</span>))<br>                .map(Integer::parseInt)<br>                .collect(Collectors.toList());<br>        empService.deleteById(ids);<br>        log.info(<span class="hljs-string">&quot;删除id为&#123;&#125;的员工&quot;</span>, ids);<br>        <span class="hljs-keyword">return</span> Result.success();<br>    &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>EmpServiceImpl</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@Override</span><br>   <span class="hljs-meta">@Transactional(rollbackFor = &#123;Exception.class&#125;)</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteById</span><span class="hljs-params">(List&lt;Integer&gt; ids)</span> &#123;<br>       <span class="hljs-comment">//删除员工基本信息</span><br>       empMapper.deleteById(ids);<br>       <span class="hljs-comment">//删除员工工作经历</span><br>       empExprMapper.deleteById(ids);<br>       <span class="hljs-comment">//根据id生成删除日志</span><br>       empLogService.deletelog(ids.stream().map(id -&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">EmpLog</span>(<span class="hljs-literal">null</span>, LocalDateTime.now(), <span class="hljs-string">&quot;删除员工：&quot;</span> + id)).toList());<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>多条sql操作用@Transactional(rollbackFor&#x3D;{Exception.class})来保证事务的原子性</li>
+<li>EmpLogServiceImpl</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">&gt;<span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deletelog</span><span class="hljs-params">(List&lt;EmpLog&gt; empLog)</span> &#123;<br>       empLogMapper.deleteById(empLog);<br>   &#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>EmpMapper</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml">&gt;<span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;deleteById&quot;</span>&gt;</span><br>       delete from emp where id in<br>       <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;ids&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;,&quot;</span> <span class="hljs-attr">open</span>=<span class="hljs-string">&quot;(&quot;</span> <span class="hljs-attr">close</span>=<span class="hljs-string">&quot;)&quot;</span>&gt;</span><br>           #&#123;id&#125;<br>       <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">delete</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>EmpExprMapper</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;delete id=<span class="hljs-string">&quot;deleteById&quot;</span>&gt;<br>       delete from emp_expr where emp_id in<br>                            &lt;foreach collection=<span class="hljs-string">&quot;ids&quot;</span> item=<span class="hljs-string">&quot;id&quot;</span> separator=<span class="hljs-string">&quot;,&quot;</span> open=<span class="hljs-string">&quot;(&quot;</span> close=<span class="hljs-string">&quot;)&quot;</span>&gt;<br>                                #&#123;id&#125;<br>                            &lt;/foreach&gt;<br>   &lt;/delete&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>EmpLogMapper</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml">&gt;<span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;deleteById&quot;</span> &gt;</span><br>       insert into emp_log(operate_time, info)values<br>                                                  <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;empLog&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;e&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;,&quot;</span>&gt;</span><br>                                                      (#&#123;e.operateTime&#125;,#&#123;e.info&#125;)<br>                                                  <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>动态sql用foreach标签遍历</li>
+</ul>
+</blockquote>
+<h4 id="3-新增员工"><a href="#3-新增员工" class="headerlink" title="3.新增员工"></a>3.新增员工</h4><p><img src="/.com//image-20250302160741892.png" srcset="/img/loading.gif" lazyload alt="image-20250302160741892"></p>
+<p><img src="/.com//image-20250302161441952.png" srcset="/img/loading.gif" lazyload alt="image-20250302161441952"></p>
+<p><img src="/.com//image-20250302163740548.png" srcset="/img/loading.gif" lazyload alt="image-20250302163740548"></p>
+<blockquote>
+<p>基于动态sql批量插入数据</p>
+<p><img src="/.com//image-20250302164710502.png" srcset="/img/loading.gif" lazyload alt="image-20250302164710502"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml">&gt;<span class="hljs-comment">&lt;!--对应mapper的全定向路径--&gt;</span><br>&gt;<span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;org.example.tliaswebmanagement.mapper.EmpExprMapper&quot;</span>&gt;</span><br>&gt;<span class="hljs-comment">&lt;!--  批量保存员工工作经历--&gt;</span><br>&gt;<span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">&gt;foreach标签:</span><br><span class="hljs-comment">&gt;collection:指定一个集合或者数组，表示要遍历的集合或者数组</span><br><span class="hljs-comment">&gt;item:指定一个集合或者数组中的每一个元素，表示遍历的元素</span><br><span class="hljs-comment">&gt;separator:指定一个分隔符，表示集合或者数组中的元素之间要添加的分隔符</span><br><span class="hljs-comment">&gt;--&gt;</span><br>&gt;<span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;insertEmpExpr&quot;</span>&gt;</span><br>  insert into emp_expr(emp_id, begin, end, company, job)<br>  values<br>      <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;exprList&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;expr&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;,&quot;</span>&gt;</span><br>          (#&#123;expr.empId&#125;,#&#123;expr.begin&#125;,#&#123;expr.end&#125;,#&#123;expr.company&#125;,#&#123;expr.job&#125;)<br>      <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span><br>&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>EmpController</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 新增员工</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@PostMapping</span><br>    <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">save</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Emp emp)</span>&#123;<br><br>        log.info(<span class="hljs-string">&quot;新增员工:&#123;&#125;&quot;</span>,emp);<br>        empService.save(emp);<br>        <span class="hljs-keyword">return</span> Result.success();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>EmpServiceImpl</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">save</span><span class="hljs-params">(Emp emp)</span>&#123;<br>       <span class="hljs-comment">//1.保存员工基本信息</span><br>       emp.setCreateTime(LocalDateTime.now());<br>       emp.setUpdateTime(LocalDateTime.now());<br>       empMapper.insert(emp);<br>       <span class="hljs-comment">//2.批量保存员工工作经历信息</span><br>       List&lt;EmpExpr&gt; exprList = emp.getExprList();<br>       <span class="hljs-keyword">if</span>(!CollectionUtils.isEmpty(exprList))&#123;<br>           <span class="hljs-comment">//集合非空则批量保存</span><br>           <span class="hljs-comment">//遍历集合为empId赋值</span><br>           exprList.forEach(empExpr -&gt;&#123;<br>               empExpr.setEmpId(emp.getId());<br>           &#125;);<br>           empExprMapper.insertEmpExpr(exprList);<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Mapper层</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//-EmpExprMapper</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">insertEmpExpr</span><span class="hljs-params">(List&lt;EmpExpr&gt; exprList)</span>;<br><br><span class="hljs-comment">//- EmpMapper</span><br><span class="hljs-meta">@Options(useGeneratedKeys = true,keyProperty = &quot;id&quot;)</span> <span class="hljs-comment">// useGeneratedKeys：开启自动回填 keyProperty：指定回填的属性名</span><br>    <span class="hljs-meta">@Insert(&quot;insert into emp (username, name, phone, job, salary, entry_date, image, create_time, update_time, dept_id) &quot; +</span><br><span class="hljs-meta">        &quot;values (#&#123;username&#125;,#&#123;name&#125;,#&#123;phone&#125;,#&#123;job&#125;,#&#123;salary&#125;,#&#123;entryDate&#125;,#&#123;image&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;,#&#123;deptId&#125;)&quot;)</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(Emp emp)</span>;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>为新增员工这一操作添加日志</p>
+<ul>
+<li>插入日志表emp_log,实体类EmpLog,Mapper接口EmpLogMapper</li>
+<li>在新增员工时记录日志</li>
+<li><img src="/.com//image-20250302201818452.png" srcset="/img/loading.gif" lazyload alt="image-20250302201818452"></li>
+</ul>
+</li>
+<li><p>完成图片文件上传功能- 上传至阿里云OSS</p>
+</li>
+</ul>
+<p><img src="/.com//image-20250302201818452.png" srcset="/img/loading.gif" lazyload alt="image-20250302201818452"></p>
+<p><img src="/.com//image-20250303140436161.png" srcset="/img/loading.gif" lazyload alt="image-20250303140436161"></p>
+<blockquote>
+<p>前端提交图片至后端，后端将图片上传至阿里云OSS，并且返回图片的URL地址给前端，前端根据URL地址渲染显示图片。</p>
+<ul>
+<li>引入阿里云OSS文件上传的工具类（由官方的示例代码改造而来）</li>
+<li>上传文件接口开发</li>
+</ul>
+</blockquote>
+<p><strong>文件上传工具类AliyunOSSOperator</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 阿里云OSS上传操作工具类</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AliyunOSSOperator</span> &#123;<br>    <span class="hljs-comment">// Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">endpoint</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://oss-cn-beijing.aliyuncs.com&quot;</span>;<br>    <span class="hljs-comment">// 填写Bucket名称，例如examplebucket。</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">bucketName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;first-javaoss&quot;</span>;<br>    <span class="hljs-comment">// 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">region</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;cn-beijing&quot;</span>;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">upload</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] content, String originalFileName)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。</span><br>        <span class="hljs-type">EnvironmentVariableCredentialsProvider</span> <span class="hljs-variable">credentialsProvider</span> <span class="hljs-operator">=</span> CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();<br>        String dir= LocalDate.now().format(DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy/MM&quot;</span>));<br>        String newFileName=UUID.randomUUID()+originalFileName.substring(originalFileName.lastIndexOf(<span class="hljs-string">&quot;.&quot;</span>));<br>        <span class="hljs-type">String</span> <span class="hljs-variable">objectName</span> <span class="hljs-operator">=</span> dir+<span class="hljs-string">&quot;/&quot;</span>+newFileName;<br><br>        <span class="hljs-comment">// 创建OSSClient实例。</span><br>        <span class="hljs-type">ClientBuilderConfiguration</span> <span class="hljs-variable">clientBuilderConfiguration</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClientBuilderConfiguration</span>();<br>        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);<br>        <span class="hljs-type">OSS</span> <span class="hljs-variable">ossClient</span> <span class="hljs-operator">=</span> OSSClientBuilder.create()<br>                .endpoint(endpoint)<br>                .credentialsProvider(credentialsProvider)<br>                .clientConfiguration(clientBuilderConfiguration)<br>                .region(region)<br>                .build();<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">// 上传字节文件。</span><br>          ossClient.putObject(bucketName, objectName, <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayInputStream</span>(content));<br>        &#125;  <span class="hljs-keyword">finally</span> &#123;<br>                ossClient.shutdown();<br>        &#125;<br>        String[] eStr=endpoint.split(<span class="hljs-string">&quot;//&quot;</span>);<br>        <span class="hljs-keyword">return</span> eStr[<span class="hljs-number">0</span>] + bucketName + <span class="hljs-string">&quot;.&quot;</span> + eStr[<span class="hljs-number">1</span>] + <span class="hljs-string">&quot;/&quot;</span> + objectName;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p><strong>UploadController控制层</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 文件上传到阿里云OSS</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> AliyunOSSOperator aliyunOSSOperator;<br><br><span class="hljs-meta">@PostMapping(&quot;/upload&quot;)</span><br><span class="hljs-keyword">public</span> Result <span class="hljs-title function_">upload</span><span class="hljs-params">(MultipartFile file)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">byte</span>[] content = file.getBytes();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">originalFileName</span> <span class="hljs-operator">=</span> file.getOriginalFilename();<br>    log.info(<span class="hljs-string">&quot;文件上传：&#123;&#125;&quot;</span>, originalFileName);<br>    <span class="hljs-type">String</span> <span class="hljs-variable">InfoMsg</span> <span class="hljs-operator">=</span> aliyunOSSOperator.upload(content, originalFileName);<br>    log.info(<span class="hljs-string">&quot;文件上传到阿里云OSS地址为:&#123;&#125;&quot;</span>, InfoMsg);<br>    <span class="hljs-keyword">return</span> Result.success(InfoMsg);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>优化</p>
+<ul>
+<li>将阿里云OSS的配置信息放到yml文件中</li>
+</ul>
+<p><img src="/.com//image-20250303151208888.png" srcset="/img/loading.gif" lazyload alt="image-20250303151208888"></p>
+<ul>
+<li>进一步优化（参数多的情况）：将参数封装到实体类中，通过注解获取配置文件中参数的值，最后通过容器注入获取实体类。</li>
+<li><img src="/.com//image-20250303155340027.png" srcset="/img/loading.gif" lazyload alt="image-20250303155340027"></li>
+</ul>
+</li>
+</ul>
+<h4 id="4-修改员工"><a href="#4-修改员工" class="headerlink" title="4.修改员工"></a>4.修改员工</h4><p><img src="/.com//image-20250303174841960.png" srcset="/img/loading.gif" lazyload alt="image-20250303174841960"></p>
+<ul>
+<li>查询回显- 根据id回传信息员工信息，员工经历信息</li>
+</ul>
+<p><img src="/.com//image-20250303193621213.png" srcset="/img/loading.gif" lazyload alt="image-20250303193621213"></p>
+<ul>
+<li><p>修改数据</p>
+<p>修改时需要设置修改时间字段</p>
+</li>
+</ul>
+<p><img src="/.com//image-20250303202900997.png" srcset="/img/loading.gif" lazyload alt="image-20250303202900997"></p>
+<h3 id="4-报表统计"><a href="#4-报表统计" class="headerlink" title="4.报表统计"></a>4.报表统计</h3><h4 id="1-员工职位统计"><a href="#1-员工职位统计" class="headerlink" title="1.员工职位统计"></a>1.员工职位统计</h4><ul>
+<li>柱状图</li>
+</ul>
+<p><img src="/.com//image-20250303230247302.png" srcset="/img/loading.gif" lazyload alt="image-20250303230247302"></p>
+<blockquote>
+<p>生成图形报表</p>
+<p>前端基于ECharts-图形报表组件库</p>
+</blockquote>
+<p><img src="/.com//image-20250303230710654.png" srcset="/img/loading.gif" lazyload alt="image-20250303230710654"></p>
+<p><img src="/.com//image-20250303232856934.png" srcset="/img/loading.gif" lazyload alt="image-20250303232856934"></p>
+<h4 id="2-员工性别统计"><a href="#2-员工性别统计" class="headerlink" title="2.员工性别统计"></a>2.员工性别统计</h4><ul>
+<li>饼状图</li>
+</ul>
+<p><img src="/.com//image-20250304124227959.png" srcset="/img/loading.gif" lazyload alt="image-20250304124227959"></p>
+<h4 id="3-学院信息统计"><a href="#3-学院信息统计" class="headerlink" title="3.学院信息统计"></a>3.学院信息统计</h4><p><img src="/.com//image-20250304124610441.png" srcset="/img/loading.gif" lazyload alt="image-20250304124610441"></p>
+<ul>
+<li>班级人数统计</li>
+</ul>
+<blockquote>
+<p>返会班级名称以及班级对应的人数</p>
+<p>name、num</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sucess&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;Java基础班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;前端开发班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;大数据分析班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;Python开发班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;Go语言班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;嵌入式开发班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;Java进阶班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;前端进阶班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;大数据高级班&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-string">&quot;Python高级班&quot;</span><br>        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;num&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-number">2</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<ul>
+<li>学院学历统计</li>
+</ul>
+<blockquote>
+<p>返回学历及其对应人数</p>
+<p>degree、num</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sucess&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>        <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;num&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">19</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;degree&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;本科&quot;</span><br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;num&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;degree&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;大专&quot;</span><br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;num&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;degree&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;初中&quot;</span><br>        <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-登录认证"><a href="#5-登录认证" class="headerlink" title="5.登录认证"></a>5.登录认证</h3><h4 id="1-登录功能实现"><a href="#1-登录功能实现" class="headerlink" title="1.登录功能实现"></a>1.登录功能实现</h4><ul>
+<li>本质：根据用户名和密码查询用户信息，判定，组装数据返回</li>
+</ul>
+<blockquote>
+<ul>
+<li>请求：</li>
+</ul>
+<p>请求方式- POST</p>
+<p>请求体传递json格式的参数：用户名、密码</p>
+<p>用员工类接收</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>响应：</li>
+</ul>
+<p>员工的基本信息</p>
+<p><img src="/.com//image-20250305113052606.png" srcset="/img/loading.gif" lazyload alt="image-20250305113052606"></p>
+<p>定义一个实体类来封装登录的结果</p>
+</blockquote>
+<ul>
+<li>联调测试</li>
+</ul>
+<blockquote>
+<p>在未登录的情况下，改变访问Url也可以进入页面访问后台资源</p>
+</blockquote>
+<p><img src="/.com//image-20250305120527143.png" srcset="/img/loading.gif" lazyload alt="image-20250305120527143"></p>
+<h4 id="2-登录校验"><a href="#2-登录校验" class="headerlink" title="2.登录校验"></a>2.登录校验</h4><ul>
+<li><p>需求：用户登录成功后1，系统会自动下发JWT令牌，然后在后续的每次请求中，都需要在请求头携带令牌到服务端，请求头的名称为token，值为登录时下发的令牌，如果检测到用户未登录，则直接响应401状态码。</p>
+</li>
+<li><p>http协议是无状态的协议，后一次请求不携带前一次的信息</p>
+</li>
+</ul>
+<p><img src="/.com//image-20250305121211497.png" srcset="/img/loading.gif" lazyload alt="image-20250305121211497"></p>
+<h5 id="1-会话技术"><a href="#1-会话技术" class="headerlink" title="1.会话技术"></a>1.会话技术</h5><ul>
+<li>会话：用户打开浏览器，访问web服务器的资源，会话建立，直到有一方断开连接，会话结束。在一次会话中可以包含多次请求和响应。</li>
+<li>会话跟踪：一种维护浏览器状态的方法，服务器需要识别多次请求是否来自于同一浏览器，以便在同一次会话的多次请求间共享数据。</li>
+<li>会话跟踪方案：<ul>
+<li>客户端会话跟踪技术：Cookie</li>
+<li>服务端会话跟踪技术：Seesion</li>
+<li>令牌技术</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>Cookie</li>
+</ul>
+<ol>
+<li>创建与发送</li>
+</ol>
+<ul>
+<li>当用户使用浏览器访问一个网站时，服务器可以通过 HTTP 响应头中的<code>Set-Cookie</code>字段来创建并发送 Cookie 给客户端浏览器。例如，服务器可能会发送这样的响应头：<code>Set-Cookie: username=JohnDoe; expires=Thu, 31 Dec 2025 23:59:59 GMT; path=/; domain=.example.com</code>，这就创建了一个名为<code>username</code>，值为<code>JohnDoe</code>的 Cookie，并指定了过期时间、路径和域名等属性。</li>
+</ul>
+<ol start="2">
+<li>存储</li>
+</ol>
+<ul>
+<li>浏览器收到服务器发送的 Cookie 后，会根据 Cookie 的属性将其存储在本地。如果是会话 Cookie（没有设置<code>Expires</code>或<code>Max-Age</code>属性），则会存储在浏览器的内存中，当浏览器关闭时，这些 Cookie 会被删除。如果是持久化 Cookie（设置了<code>Expires</code>或<code>Max-Age</code>属性），则会被存储在用户的硬盘上，直到达到过期时间或被用户手动删除。</li>
+</ul>
+<ol start="3">
+<li>发送请求携带</li>
+</ol>
+<ul>
+<li>当用户继续访问该网站的其他页面或再次发起对该网站的请求时，浏览器会自动在 HTTP 请求头中添加相应的 Cookie 信息。例如，请求头中可能会包含：<code>Cookie: username=JohnDoe</code>，将存储在本地的 Cookie 发送给服务器。</li>
+</ul>
+<ol start="4">
+<li>服务器读取与处理</li>
+</ol>
+<ul>
+<li>服务器接收到客户端发送的请求后，会从请求头中读取 Cookie 信息，并根据 Cookie 中的数据来识别用户、记录用户的状态或提供个性化的服务等。比如，服务器可以根据<code>username</code>这个 Cookie 的值来判断用户的身份，为用户提供个性化的页面内容，或者根据用户之前的操作记录来继续处理相关业务逻辑。</li>
+</ul>
+<ol start="5">
+<li>更新与删除</li>
+</ol>
+<ul>
+<li>服务器可以根据用户的操作或业务需求，通过再次发送<code>Set-Cookie</code>响应头来更新或删除 Cookie。如果要更新 Cookie 的值，只需发送一个同名的 Cookie，新的值会覆盖旧的值。如果要删除 Cookie，可以设置<code>Expires</code>属性为一个过去的时间，或者使用<code>Max-Age=0</code>，浏览器收到这样的 Cookie 后会将其删除。</li>
+</ul>
+<p><img src="/.com//image-20250305124301039.png" srcset="/img/loading.gif" lazyload alt="image-20250305124301039"></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Session</li>
+</ul>
+<ol>
+<li>会话创建</li>
+</ol>
+<ul>
+<li>当用户首次访问 Web 应用时，服务器会为该用户创建一个唯一的 Session 对象，并为其分配一个唯一的 Session ID。这个 Session ID 通常是一个随机生成的字符串，用于标识该用户的会话。</li>
+<li>服务器会在内存或其他存储介质（如数据库）中开辟一定的空间来存储与该 Session 相关的数据，例如用户的登录状态、购物车信息、浏览历史等。</li>
+</ul>
+<ol start="2">
+<li>Session ID 传递</li>
+</ol>
+<ul>
+<li>服务器通过响应头中的<code>Set-Cookie</code>字段将 Session ID 发送给客户端浏览器，以 Cookie 的形式存储在客户端。例如，响应头中可能会包含<code>Set-Cookie: JSESSIONID=abcdefghijklmnopqrstuvwxyz; Path=/; HttpOnly</code>，这里的<code>JSESSIONID</code>就是 Session ID。</li>
+<li>除了通过 Cookie 传递 Session ID，还可以通过 URL 重写的方式将 Session ID 附加在 URL 后面，例如<code>http://example.com/page.jsp;jsessionid=abcdefghijklmnopqrstuvwxyz</code>，但这种方式相对不安全，且可能会导致一些问题，如搜索引擎收录重复内容等。</li>
+</ul>
+<ol start="3">
+<li>客户端请求携带</li>
+</ol>
+<ul>
+<li>当用户在同一浏览器中继续访问该 Web 应用的其他页面时，浏览器会自动在后续的 HTTP 请求头中携带包含 Session ID 的 Cookie。服务器接收到请求后，就可以从请求头的 Cookie 中获取 Session ID。</li>
+<li>如果是通过 URL 重写传递 Session ID，客户端在发送请求时，URL 中会包含 Session ID，服务器从 URL 中解析出 Session ID。</li>
+</ul>
+<ol start="4">
+<li>服务器识别与处理</li>
+</ol>
+<ul>
+<li>服务器根据接收到的 Session ID，在内存或存储介质中查找对应的 Session 对象。如果找到匹配的 Session 对象，服务器就可以获取该 Session 中存储的用户数据，根据这些数据来处理用户的请求，提供个性化的服务或进行业务逻辑处理。</li>
+<li>例如，如果用户已经登录，服务器可以根据 Session 中存储的用户登录信息来显示用户的个人资料、授权用户访问特定的页面等；如果是购物车应用，服务器可以根据 Session 中存储的购物车商品信息来更新购物车、计算总价等。</li>
+</ul>
+<ol start="5">
+<li>会话管理与过期</li>
+</ol>
+<ul>
+<li>服务器会对 Session 进行管理，包括设置 Session 的过期时间。如果用户在一定时间内没有进行任何操作，服务器会认为该 Session 已经过期，自动销毁该 Session 对象及其存储的数据。</li>
+<li>用户也可以主动结束会话，例如点击 “退出登录” 按钮，服务器会收到相应的请求，然后销毁该用户的 Session，清除相关的用户数据。</li>
+<li>服务器还可以根据业务需求对 Session 进行更新操作，例如更新用户的购物车内容、修改用户的登录状态等，将更新后的数据存储在 Session 中，以便后续请求使用。</li>
+</ul>
+<p><img src="/.com//image-20250305131206814.png" srcset="/img/loading.gif" lazyload alt="image-20250305131206814"></p>
+</blockquote>
+<h5 id="2-JWT令牌"><a href="#2-JWT令牌" class="headerlink" title="2.JWT令牌"></a>2.JWT令牌</h5><ul>
+<li>令牌技术<ul>
+<li>生成令牌</li>
+<li>传输令牌</li>
+<li>验证令牌</li>
+</ul>
+</li>
+</ul>
+<p><img src="/.com//image-20250305131643188.png" srcset="/img/loading.gif" lazyload alt="image-20250305131643188"></p>
+<p><img src="/.com//image-20250305132359900.png" srcset="/img/loading.gif" lazyload alt="image-20250305132359900"></p>
+<p><img src="/.com//image-20250305132531924.png" srcset="/img/loading.gif" lazyload alt="image-20250305132531924"></p>
+<p><img src="/.com//image-20250305132554594.png" srcset="/img/loading.gif" lazyload alt="image-20250305132554594"></p>
+<ul>
+<li><p>错输异常情况</p>
+<p><img src="/.com//image-20250305143407019.png" srcset="/img/loading.gif" lazyload alt="image-20250305143407019"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 错误写法：parseClaimsJwt</span><br>Jwts.parser().setSigningKey(SECRET).parseClaimsJwt(token.replace(TOKEN_PREFIX, <span class="hljs-string">&quot;&quot;</span>)).getBody();<br><br><span class="hljs-comment">// 正确写法：parseClaimsJws</span><br>Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token.replace(TOKEN_PREFIX, <span class="hljs-string">&quot;&quot;</span>)).getBody();<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="/.com//image-20250305143322536.png" srcset="/img/loading.gif" lazyload alt="image-20250305143322536"></p>
+<p><img src="/.com//image-20250305143336807.png" srcset="/img/loading.gif" lazyload alt="image-20250305143336807"></p>
+<p><img src="/.com//image-20250305143742385.png" srcset="/img/loading.gif" lazyload alt="image-20250305143742385"></p>
+<ul>
+<li><p>创建令牌工具类，包含两个方法：生成令牌，解析令牌。</p>
+</li>
+<li><p>生成令牌传递给前端后，前端会以键值对的方式将令牌存储-Cookie,后续每次发送请求时会携带令牌。</p>
+</li>
+<li><p>后端令牌校验后后才允许访问资源</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>过滤器Filter</strong></li>
+</ul>
+<p><img src="/.com//image-20250305150447077.png" srcset="/img/loading.gif" lazyload alt="image-20250305150447077"></p>
+<p><img src="/.com//image-20250305150654940.png" srcset="/img/loading.gif" lazyload alt="image-20250305150654940"></p>
+<p><img src="/.com//image-20250305151912359.png" srcset="/img/loading.gif" lazyload alt="image-20250305151912359"></p>
+<p>登录和注册不需要校验令牌</p>
+<p><img src="/.com//image-20250305152725057.png" srcset="/img/loading.gif" lazyload alt="image-20250305152725057"></p>
+<ul>
+<li>过滤器执行流程</li>
+</ul>
+<p><img src="/.com//image-20250305155843359.png" srcset="/img/loading.gif" lazyload alt="image-20250305155843359"></p>
+<blockquote>
+<p>执行放行之后会回到过滤器继续执行放行后的逻辑</p>
+</blockquote>
+<ul>
+<li>过滤器链</li>
+</ul>
+<p><img src="/.com//image-20250305160726365.png" srcset="/img/loading.gif" lazyload alt="image-20250305160726365"></p>
+<blockquote>
+<p>注解配置的Filter,优先级按照过滤器类名（字符串）的自然排序</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>拦截器Interceptor</strong></li>
+</ul>
+<p><img src="/.com//image-20250305161239759.png" srcset="/img/loading.gif" lazyload alt="image-20250305161239759"></p>
+<p><img src="/.com//image-20250305161422280.png" srcset="/img/loading.gif" lazyload alt="image-20250305161422280"></p>
+<p>定义配置类-注册拦截器</p>
+<p><img src="/.com//image-20250305161505705.png" srcset="/img/loading.gif" lazyload alt="image-20250305161505705"></p>
+<blockquote>
+<p>创建配置类实现<strong>WebMvcConfigurer接口</strong>，注入拦截器Bean对象，重写<strong>addIntegerceptor</strong>方法，链式编程设置拦截路径和放行路径。</p>
+</blockquote>
+<p><img src="/.com//image-20250305163451303.png" srcset="/img/loading.gif" lazyload alt="image-20250305163451303"></p>
+<p><img src="/.com//image-20250305152725057.png" srcset="/img/loading.gif" lazyload alt="image-20250305152725057"></p>
+<ul>
+<li>使用细节</li>
+</ul>
+<p><img src="/.com//image-20250305165104555.png" srcset="/img/loading.gif" lazyload alt="image-20250305165104555"></p>
+<blockquote>
+<p>过滤器和拦截器同时存在- 过滤器先执行</p>
+</blockquote>
+<p><img src="/.com//image-20250305165436487.png" srcset="/img/loading.gif" lazyload alt="image-20250305165436487"></p>
+<p><img src="/.com//image-20250305165724655.png" srcset="/img/loading.gif" lazyload alt="image-20250305165724655"></p>
+</blockquote>
+<h3 id="6-日志管理"><a href="#6-日志管理" class="headerlink" title="6.日志管理"></a>6.日志管理</h3><ul>
+<li>基于切面类完成统一的增删改记录</li>
+</ul>
+<h3 id="7-班级、学员管理"><a href="#7-班级、学员管理" class="headerlink" title="7.班级、学员管理"></a>7.班级、学员管理</h3><ul>
+<li>准备clazz、student表，并且插入数据</li>
+<li><img src="/.com//image-20250304125030916.png" srcset="/img/loading.gif" lazyload alt="image-20250304125030916"></li>
+<li><img src="/.com//image-20250304125113830.png" srcset="/img/loading.gif" lazyload alt="image-20250304125113830"></li>
+<li>封装实体类</li>
+</ul>
+<h4 id="1-班级管理"><a href="#1-班级管理" class="headerlink" title="1.班级管理"></a>1.班级管理</h4><p><img src="/.com//image-20250304124455463.png" srcset="/img/loading.gif" lazyload alt="image-20250304124455463"></p>
+<ul>
+<li>班级列表查询（分页）、删除班级、添加班级、修改班级</li>
+</ul>
+<h5 id="1-分页查询班级"><a href="#1-分页查询班级" class="headerlink" title="1.分页查询班级"></a>1.分页查询班级</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>前端传递页码page、页展示数pageSize给后端 </p>
+<p>后端返回总记录数total、以及该页的班级信息</p>
+<ul>
+<li>使用插件pageHelper</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>条件分页查询</li>
+</ul>
+<p>使用实体类封装请求参数</p>
+<p>基于动态sql实现条件分页查询</p>
+</blockquote>
+<ul>
+<li>前端参数</li>
+</ul>
+<p><img src="/.com//image-20250304143750501.png" srcset="/img/loading.gif" lazyload alt="image-20250304143750501"></p>
+<ul>
+<li>后端返回的参数</li>
+</ul>
+<p><img src="/.com//image-20250304161548313.png" srcset="/img/loading.gif" lazyload alt="image-20250304161548313"></p>
+<p>状态由前端生成，后端需要返回开课和结课时间。</p>
+<p>封装参数到实体类中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 封装查询条件</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClazzQueryParam</span> &#123;<br>    <span class="hljs-keyword">private</span> String name;<span class="hljs-comment">//班级名称</span><br>    <span class="hljs-keyword">private</span> Integer page=<span class="hljs-number">1</span>;<span class="hljs-comment">//当前页码,默认为1</span><br>    <span class="hljs-keyword">private</span> Integer pageSize=<span class="hljs-number">10</span>;<span class="hljs-comment">//每页显示条数，默认为10</span><br>    <span class="hljs-meta">@DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)</span><br>    <span class="hljs-keyword">private</span> LocalDate begin;<span class="hljs-comment">//开始时间</span><br>    <span class="hljs-meta">@DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)</span><br>    <span class="hljs-keyword">private</span> LocalDate end;<span class="hljs-comment">//结束时间</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-删除班级"><a href="#2-删除班级" class="headerlink" title="2.删除班级"></a>2.删除班级</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>根据前端传递的id,来删除对应的班级信息</p>
+<ul>
+<li>批量删除</li>
+</ul>
+<p>用数组或者集合接收前端的参数，Mapper层通过foreach动态删除班级信息</p>
+</blockquote>
+<h5 id="3-添加班级"><a href="#3-添加班级" class="headerlink" title="3.添加班级"></a>3.添加班级</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>前端输入新建班级信息，后端接收并且加入数据库</p>
+<p>用对象接收，服务层设置创建时间和更新时间属性</p>
+</blockquote>
+<h5 id="4-修改班级"><a href="#4-修改班级" class="headerlink" title="4.修改班级"></a>4.修改班级</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>查询回显，前端点击编辑，根据id返回班级的基本信息</p>
+<p>后端Service层重置更新时间，并且调用mapper层更新数据</p>
+<p>之后前端再次分页查询展示修改后的数据</p>
+</blockquote>
+<h4 id="2-学员管理"><a href="#2-学员管理" class="headerlink" title="2.学员管理"></a>2.学员管理</h4><p><img src="/.com//image-20250304124535853.png" srcset="/img/loading.gif" lazyload alt="image-20250304124535853"></p>
+<ul>
+<li>学员列表查询（分页）、删除学院、添加学员、修改学员、违纪处理</li>
+</ul>
+<h5 id="1-分页查询学员"><a href="#1-分页查询学员" class="headerlink" title="1.分页查询学员"></a>1.分页查询学员</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>前端传递页码page、页展示数pageSize给后端 </p>
+<p>后端返回总记录数total、以及该页的班级信息</p>
+<ul>
+<li>使用插件pageHelper</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>条件分页查询</li>
+</ul>
+<p>使用实体类封装请求参数</p>
+<p>基于动态sql实现条件分页查询</p>
+</blockquote>
+<ul>
+<li>前端参数</li>
+</ul>
+<p><img src="/.com//image-20250304160843861.png" srcset="/img/loading.gif" lazyload alt="image-20250304160843861"></p>
+<ul>
+<li>后端返回的参数</li>
+</ul>
+<p><img src="/.com//image-20250304161517261.png" srcset="/img/loading.gif" lazyload alt="image-20250304161517261"></p>
+<h5 id="2-删除学员"><a href="#2-删除学员" class="headerlink" title="2.删除学员"></a>2.删除学员</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>根据前端传递的id,来删除对应的班级信息</p>
+<ul>
+<li>批量删除</li>
+</ul>
+<p>用数组或者集合接收前端的参数，Mapper层通过foreach动态删除班级信息</p>
+</blockquote>
+<h5 id="3-添加学员"><a href="#3-添加学员" class="headerlink" title="3.添加学员"></a>3.添加学员</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>前端输入新建学员信息，后端接收并且加入数据库</p>
+<p>用对象接收，服务层设置创建时间和更新时间属性</p>
+</blockquote>
+<h5 id="4-修改学员"><a href="#4-修改学员" class="headerlink" title="4.修改学员"></a>4.修改学员</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+<p>查询回显，前端点击编辑，根据id返回班级的基本信息</p>
+<p>后端Service层重置更新时间，并且调用mapper层更新数据</p>
+<p>之后前端再次分页查询展示修改后的数据</p>
+</blockquote>
+<h5 id="5-学员违纪处理"><a href="#5-学员违纪处理" class="headerlink" title="5.学员违纪处理"></a>5.学员违纪处理</h5><blockquote>
+<ul>
+<li>基本逻辑</li>
+</ul>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2025/07/02/Web后端实战/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>xing</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/07/02/Web%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/02/Spring%20Task%E5%92%8CWebSocket/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
